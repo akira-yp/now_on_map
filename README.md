@@ -39,8 +39,8 @@ https://docs.google.com/spreadsheets/d/1tKA-39uMiWCW5cX_xzeoDFyHms2Gmi9x-wKPaT3u
 
 ## ER図
 ---
-https://github.com/akira-yp/images/blob/master/nowonmap_er.png
+![ER図](https://github.com/akira-yp/images/blob/master/nowonmap_er.png)
 
 ## 画面遷移図
 ---
-https://github.com/akira-yp/images/blob/master/nowonmap_std.png
+![画面遷移図](https://github.com/akira-yp/images/blob/master/nowonmap_std.png)
