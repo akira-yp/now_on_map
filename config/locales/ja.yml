@@ -1,4 +1,7 @@
 ja:
+  view:
+    sign_in: ログイン
+    log_out: ログアウト
   activerecord:
     errors:
       messages:
