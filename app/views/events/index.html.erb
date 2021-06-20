@@ -1,6 +1,11 @@
 <h1>Event#index</h1>
 
+<div id="mapid" style="width:100%; height:400px;"></div>
+
 <% @events.each do |event| %>
-  <%= @event.title %>
-  <%= @event.location %>
+  <%= event.title %>
+  <%= event.location %>
+  <%= link_to '詳細', event_path(event) %>
 <% end %>
+
+<%= javascript_include_tag 'events_index' %>

@@ -2,6 +2,7 @@ ja:
   view:
     sign_in: ログイン
     log_out: ログアウト
+    post: 投稿
   activerecord:
     errors:
       messages:

@@ -1,0 +1,52 @@
+<div id="mapid" style="width:400px; height:400px;" ></div>
+
+<%= form_with( model: event, local: true ) do |f| %>
+ <% if event.errors.any? %>
+   <div id="error_explanation">
+     <% event.errors.full_messages.each do |msg| %>
+      <p><%= msg %></p>
+     <% end %>
+   </div>
+ <% end %>
+ <div>
+   <%= f.label :title %>
+   <%= f.text_field :title %>
+ </div>
+ <div>
+   <%= f.label :description %>
+   <%= f.text_area :description %>
+ </div>
+ <div class="">
+   <%= f.label :location %>
+   <%= f.text_field :location %>
+ </div>
+ <div class="">
+   <div class="">
+     <%= f.label :start_date %>
+     <%= f.date_field :start_date %>
+   </div>
+   <div class="">
+     <%= f.label :end_date %>
+     <%= f.date_field :end_date %>
+   </div>
+ </div>
+ <div class="">
+   <%= f.label :official_page %>
+   <%= f.url_field :official_page %>
+ </div>
+ <div class="">
+   <%= f.label :image %>
+   <%= f.file_field :image %>
+ </div>
+ <div class="">
+   <%= f.text_field :latitude , id:"latitude" %>
+   <%= f.text_field :longitude , id:"longitude" %>
+ </div>
+
+ <div class="">
+   <%= f.submit t('view.post') %>
+ </div>
+
+<% end %>
+
+<%= javascript_include_tag 'events_form' %>
