@@ -3,9 +3,35 @@
 <div id="mapid" style="width:100%; height:400px;"></div>
 
 <% @events.each do |event| %>
-  <%= event.title %>
-  <%= event.location %>
-  <%= link_to '詳細', event_path(event) %>
+  <div class="">
+    <%= event.title %>
+    <%= event.location %>
+    <%= event.latitude %>
+    <%= event.longitude %>
+    <%= link_to '詳細', event_path(event) %>
+  </div>
 <% end %>
 
+
+
 <%= javascript_include_tag 'events_index' %>
+
+<script>
+
+<% @events.each do |event| %>
+  var categoryIcon = L.icon({
+    iconUrl: "/centermarker.png",
+    iconSize:[48,48],
+    iconAnchor:[24,48]
+  });
+  var content = '<%= link_to event.title, event_path(event) %>'
+  var latlon = [<%= event.latitude %>, <%= event.longitude %>]
+  var marker = L.marker(latlon, { icon: categoryIcon },);
+  marker.bindPopup(content).addTo(mymap);
+
+  markers.addLayer(marker);
+<% end %>
+
+mymap.addLayer(markers);
+
+</script>

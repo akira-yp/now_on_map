@@ -6,3 +6,5 @@ L.tileLayer('http://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
   maxZoom: 18,
   minZoom: 4,
 }).addTo(mymap);
+
+var markers = L.markerClusterGroup();
