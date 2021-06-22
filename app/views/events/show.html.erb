@@ -13,7 +13,7 @@
     <%= @event.description %>
   </div>
   <div class="">
-    <%= @event.official_page %>
+    <%= raw Rinku.auto_link(@event.official_page,:all,'target="_blank"') %>
   </div>
   <div class="">
     <%= l @event.start_date, format: :date %> ~ <%= l @event.end_date, format: :date %>
