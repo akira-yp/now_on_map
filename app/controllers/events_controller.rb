@@ -1,4 +1,7 @@
 class EventsController < ApplicationController
+  before_action :authenticate_user!, only: %i[new create]
+  before_action :set_event, only: %i[show]
+
   def index
     @events = Event.all
   end
@@ -16,9 +19,16 @@ class EventsController < ApplicationController
     end
   end
 
+  def show
+  end
+
   private
   def event_params
     params.require(:event).permit(:title, :description, :location, :start_date, :end_date, :official_page, :image, :latitude, :longitude)
+  end
+
+  def set_event
+    @event = Event.find(params[:id])
   end
 
 end
