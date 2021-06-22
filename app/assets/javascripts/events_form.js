@@ -7,13 +7,13 @@ L.tileLayer('http://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
   minZoom: 4,
 }).addTo(mymap);
 
-var centerIcon = L.icon({ //センタークロス表示用
-  iconUrl: '/centermarker.png',
-  iconSize: [48, 48],
-  iconAnchor: [24, 48]
-});
+// var centerIcon = L.icon({
+//   iconUrl: '/centermarker.png',
+//   iconSize: [48, 48],
+//   iconAnchor: [24, 48]
+// });
 
-var centerMarker = L.marker( mymap.getCenter(),{icon:centerIcon,zIndexOffset:1000,interactive:false} ).addTo(mymap).bindPopup('<p>ここにイベントを投稿する</p>').openPopup();
+var centerMarker = L.marker( mymap.getCenter(),{zIndexOffset:1000,interactive:false} ).addTo(mymap).bindPopup('<p>ここにイベントを投稿する</p>').openPopup();
 
 mymap.on('move', function(e) {
     centerMarker.setLatLng(mymap.getCenter()); //センタークロス表示用

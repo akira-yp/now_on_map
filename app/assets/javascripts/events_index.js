@@ -8,3 +8,20 @@ L.tileLayer('http://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
 }).addTo(mymap);
 
 var markers = L.markerClusterGroup();
+
+
+gon.events.forEach((event) => {
+  var content = `<a href="/events/${event.id}">${event.title}</a>`
+  var latlon = [event.latitude, event.longitude]
+  var marker = L.marker(latlon);
+  marker.bindPopup(content).addTo(mymap);
+  markers.addLayer(marker);
+});
+// <% @events.each do |event| %>
+  // var categoryIcon = L.icon({
+  //   iconUrl: "/centermarker.png",
+  //   iconSize:[48,48],
+  //   iconAnchor:[24,48]
+  // });
+
+mymap.addLayer(markers);

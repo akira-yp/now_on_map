@@ -4,6 +4,7 @@ class EventsController < ApplicationController
 
   def index
     @events = Event.all
+    gon.events = @events
   end
 
   def new
@@ -20,6 +21,7 @@ class EventsController < ApplicationController
   end
 
   def show
+    gon.event = @event
   end
 
   private
