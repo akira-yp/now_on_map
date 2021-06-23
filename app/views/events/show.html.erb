@@ -2,7 +2,9 @@
 
 <div id="mapid" style="width:400px; height:400px;"></div>
 <div class="">
-  <%= image_tag @event.image.url %>
+  <% if @event.image.present? %>
+    <%= image_tag @event.image.url %>
+  <% end %>
 </div>
 
 <div class="">
