@@ -28,6 +28,8 @@ gem 'devise-i18n'
 gem 'omniauth','1.9.1'
 gem 'omniauth-google-oauth2'
 
+gem 'carrierwave'
+gem 'mini_magick'
 
 # Use Redis adapter to run Action Cable in production
 # gem 'redis', '~> 4.0'
@@ -68,3 +70,5 @@ end
 
 # Windows does not include zoneinfo files, so bundle the tzinfo-data gem
 gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]
+gem 'rinku'
+gem 'gon'

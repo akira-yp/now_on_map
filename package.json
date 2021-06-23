@@ -2,6 +2,7 @@
   "name": "now_on_map",
   "private": true,
   "dependencies": {
+    "jquery": "^3.6.0",
     "leaflet": "^1.7.1",
     "leaflet.markercluster": "^1.5.0"
   }

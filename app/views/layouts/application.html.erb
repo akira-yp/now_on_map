@@ -5,6 +5,8 @@
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
 
+    <%= include_gon %>
+
     <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
   </head>
@@ -14,6 +16,7 @@
       <div class="">
         <%= link_to "イベントマップ", events_path %>
         <% if user_signed_in? %>
+          <%= link_to 'イベント投稿', new_event_path %>
           <%= link_to t('view.log_out'), destroy_user_session_path, method: :delete %>
         <% else %>
           <%= link_to t('view.sign_in'), new_user_session_path %>

@@ -1,0 +1,33 @@
+<h1>イベント詳細画面</h1>
+
+<div id="mapid" style="width:400px; height:400px;"></div>
+<div class="">
+  <% if @event.image.present? %>
+    <%= image_tag @event.image.url %>
+  <% end %>
+</div>
+
+<div class="">
+  <div class="">
+    <%= @event.title %>
+  </div>
+  <div class="">
+    <%= @event.location %>
+  </div>
+  <div class="">
+    <%= @event.description %>
+  </div>
+  <div class="">
+    <%= raw Rinku.auto_link(@event.official_page,:all,'target="_blank"') %>
+  </div>
+  <div class="">
+    <%= l @event.start_date, format: :date %> ~ <%= l @event.end_date, format: :date %>
+  </div>
+</div>
+
+<% if @event.user == current_user %>
+  <%= link_to t('view.edit'), edit_event_path(@event) %>
+  <%= link_to t('view.destroy'), event_path(@event), method: :delete %>
+<% end %>
+
+<%= javascript_include_tag 'event_show' %>
