@@ -25,5 +25,9 @@
   </div>
 </div>
 
+<% if @event.user == current_user %>
+  <%= link_to t('view.edit'), edit_event_path(@event) %>
+  <%= link_to t('view.destroy'), event_path(@event), method: :delete %>
+<% end %>
 
 <%= javascript_include_tag 'event_show' %>

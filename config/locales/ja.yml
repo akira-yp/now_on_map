@@ -3,6 +3,8 @@ ja:
     sign_in: ログイン
     log_out: ログアウト
     post: 投稿
+    edit: 編集
+    destroy: 削除
   activerecord:
     errors:
       messages:

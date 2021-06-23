@@ -1,6 +1,6 @@
 class EventsController < ApplicationController
-  before_action :authenticate_user!, only: %i[new create]
-  before_action :set_event, only: %i[show]
+  before_action :authenticate_user!, only: %i[new create edit update destroy]
+  before_action :set_event, only: %i[show edit update]
 
   def index
     @events = Event.all
@@ -14,7 +14,7 @@ class EventsController < ApplicationController
   def create
     @event = current_user.events.build(event_params)
     if @event.save
-      redirect_to events_path
+      redirect_to events_path, notice:"新しいイベントを投稿しました"
     else
       render :new
     end
@@ -22,6 +22,18 @@ class EventsController < ApplicationController
 
   def show
     gon.event = @event
+  end
+
+  def edit
+    gon.event = @event
+  end
+
+  def update
+    if @event.update(event_params)
+      redirect_to event_path, notice:"イベント内容を変更しました"
+    else
+      render :edit
+    end
   end
 
   private
