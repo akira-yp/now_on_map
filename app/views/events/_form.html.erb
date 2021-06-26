@@ -42,6 +42,12 @@
    <%= f.hidden_field :latitude , id:"latitude" %>
    <%= f.hidden_field :longitude , id:"longitude" %>
  </div>
+ <div class="">
+   <% Category.all.each do |category| %>
+    <%= f.check_box :category_ids, { multiple: true }, category[:id], nil %>
+    <%= f.label :category_ids, category.name, value: category[:id] %>
+   <% end %>
+ </div>
 
  <div class="">
    <%= f.submit t('view.post') %>
