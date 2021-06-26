@@ -3,8 +3,8 @@ class EventsController < ApplicationController
   before_action :set_event, only: %i[show edit update]
 
   def index
-    @events = Event.all
-    gon.events = @events
+    @events = Event.includes(:categories).all
+    gon.events = @events.map { | event | { 'event':event, 'categories':event.categories.pluck(:name) } }
   end
 
   def new
@@ -21,7 +21,7 @@ class EventsController < ApplicationController
   end
 
   def show
-    gon.event = @event
+    gon.event = {'event' => @event, 'category' => @event.categories.pluck(:name)}
   end
 
   def edit

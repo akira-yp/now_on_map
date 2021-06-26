@@ -1,5 +1,10 @@
-<h1>イベント詳細画面</h1>
 
+<h1><%= @event.title %></h1>
+<div class="">
+  <% @event.categories.each do | category | %>
+    <span><%= category.name %></span>
+  <% end %>
+</div>
 <div id="mapid" style="width:400px; height:400px;"></div>
 <div class="">
   <% if @event.image.present? %>
@@ -8,9 +13,6 @@
 </div>
 
 <div class="">
-  <div class="">
-    <%= @event.title %>
-  </div>
   <div class="">
     <%= @event.location %>
   </div>
