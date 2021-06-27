@@ -10,10 +10,26 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_06_18_143759) do
+ActiveRecord::Schema.define(version: 2021_06_25_145217) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
+
+  create_table "categories", force: :cascade do |t|
+    t.string "name", null: false
+    t.text "icon"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "categorizings", force: :cascade do |t|
+    t.bigint "event_id"
+    t.bigint "category_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["category_id"], name: "index_categorizings_on_category_id"
+    t.index ["event_id"], name: "index_categorizings_on_event_id"
+  end
 
   create_table "events", force: :cascade do |t|
     t.string "title", null: false
@@ -52,5 +68,7 @@ ActiveRecord::Schema.define(version: 2021_06_18_143759) do
     t.index ["uid", "provider"], name: "index_users_on_uid_and_provider", unique: true
   end
 
+  add_foreign_key "categorizings", "categories"
+  add_foreign_key "categorizings", "events"
   add_foreign_key "events", "users"
 end

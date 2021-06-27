@@ -8,6 +8,8 @@ class Event < ApplicationRecord
   validates :longitude, presence: true
 
   belongs_to :user
+  has_many :categorizings, dependent: :destroy
+  has_many :categories, through: :categorizings, source: :category
 
   mount_uploader :image, ImageUploader
 end

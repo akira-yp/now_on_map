@@ -11,8 +11,9 @@ var markers = L.markerClusterGroup();
 
 
 gon.events.forEach((event) => {
-  var content = `<a href="/events/${event.id}">${event.title}</a>`
-  var latlon = [event.latitude, event.longitude]
+  var category = event.categories.reduce((html,cat) => html + `<span>${cat}</span>`,`` );
+  var content = `<a href="/events/${event.event.id}">${event.event.title}</a><br>${category}`;
+  var latlon = [event.event.latitude, event.event.longitude]
   var marker = L.marker(latlon);
   marker.bindPopup(content).addTo(mymap);
   markers.addLayer(marker);
