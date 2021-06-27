@@ -18,11 +18,12 @@ gon.events.forEach((event) => {
   marker.bindPopup(content).addTo(mymap);
   markers.addLayer(marker);
 });
+
 // <% @events.each do |event| %>
-  // var categoryIcon = L.icon({
-  //   iconUrl: "/centermarker.png",
-  //   iconSize:[48,48],
-  //   iconAnchor:[24,48]
-  // });
+// var categoryIcon = L.icon({
+//   iconUrl: "/centermarker.png",
+//   iconSize:[48,48],
+//   iconAnchor:[24,48]
+// });
 
 mymap.addLayer(markers);
