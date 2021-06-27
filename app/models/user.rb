@@ -5,6 +5,8 @@ class User < ApplicationRecord
                     format: { with: VALID_EMAIL_REGEX}}
 
   has_many :events
+  has_many :favorites, dependent: :destroy
+  has_many :favorite_events, through: :favorites, source: :event
   # Include default devise modules. Others available are:
   # :confirmable, :lockable, :timeoutable, :trackable and :omniauthable
   devise :database_authenticatable, :registerable,

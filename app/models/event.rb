@@ -10,6 +10,8 @@ class Event < ApplicationRecord
   belongs_to :user
   has_many :categorizings, dependent: :destroy
   has_many :categories, through: :categorizings, source: :category
+  has_many :fevorites, dependent: :destroy
+  has_many :favorite_users, through: :favorites, source: :user
 
   mount_uploader :image, ImageUploader
 end
