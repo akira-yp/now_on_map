@@ -13,7 +13,7 @@ L.tileLayer('http://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
 //   iconAnchor: [24, 48]
 // });
 
-var centerMarker = L.marker( mymap.getCenter(),{zIndexOffset:1000,interactive:false} ).addTo(mymap).bindPopup('<p>ここにイベントを投稿する</p>').openPopup();
+var centerMarker = L.marker( mymap.getCenter(),{zIndexOffset:3,interactive:false} ).addTo(mymap).bindPopup('<p>ここにイベントを投稿する</p>').openPopup();
 
 mymap.on('move', function(e) {
     centerMarker.setLatLng(mymap.getCenter()); //センタークロス表示用

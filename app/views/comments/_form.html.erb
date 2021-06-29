@@ -1,0 +1,16 @@
+<div id="comment_form" class="" >
+<%= form_with( model: comment, remote: true) do |f| %>
+  <div class="">
+    <%= f.label :content %>
+  </div>
+  <div class="">
+    <%= f.text_area :content %>
+  </div>
+  <div class="">
+    <%= f.hidden_field :event_id, value: comment.event_id %>
+  </div>
+  <div class="">
+    <%= f.submit t('view.post') %>
+  </div>
+<% end %>
+</div>

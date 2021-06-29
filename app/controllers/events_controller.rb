@@ -21,6 +21,8 @@ class EventsController < ApplicationController
   end
 
   def show
+    @comments = @event.comments.all.order(created_at: "DESC")
+    @comment = current_user.comments.build
     @favorite = current_user.favorites.find_by(event_id: @event.id)
     gon.event = {'event' => @event, 'category' => @event.categories.pluck(:name)}
   end

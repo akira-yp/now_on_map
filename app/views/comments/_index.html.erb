@@ -1,0 +1,12 @@
+<% unless comments == nil %>
+  <% comments.each do |comment| %>
+    <div class="">
+      <div class="">
+        <%= comment.user.name %>
+      </div>
+      <div class="">
+        <%= comment.content %>
+      </div>
+    </div>
+  <% end %>
+<% end %>

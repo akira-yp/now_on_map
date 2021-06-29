@@ -30,9 +30,27 @@
   </div>
 </div>
 
-<% if @event.user == current_user %>
-  <%= link_to t('view.edit'), edit_event_path(@event) %>
-  <%= link_to t('view.destroy'), event_path(@event), method: :delete %>
-<% end %>
+<div class="">
+  <% if @event.user == current_user %>
+    <%= link_to t('view.edit'), edit_event_path(@event) %>
+    <%= link_to t('view.destroy'), event_path(@event), method: :delete %>
+  <% end %>
+</div>
+
+<div class="">
+  <%= link_to 'コメントを作成', new_comment_path(event_id: @event.id), remote:true %>
+</div>
+
+<div id="mask" class="hidden"></div>
+
+<div id="comments" class="">
+  <div id="comment_modal" class="hidden">
+    <%= render 'comments/form', { comment: @comment } %>
+  </div>
+  <div id="comments_index" class="">
+    <%= render 'comments/index', { comments: @comments} %>
+  </div>
+</div>
+
 
 <%= javascript_include_tag 'event_show' %>
