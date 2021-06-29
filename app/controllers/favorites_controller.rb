@@ -1,13 +1,30 @@
 class FavoritesController < ApplicationController
 
   def create
-    favorite = current_user.favorites.create(event_id: params[:event_id])
-    redirect_to event_path(favorite.event_id),notice:"#{favorite.event.title}をお気に入りしました"
+    @event = Event.find(params[:event_id])
+    @favorite = current_user.favorites.new(event_id: params[:event_id])
+    # @favorite.save
+    respond_to do |format|
+      if @favorite.save
+        format.js
+      else
+        format.html { redirect_to @even, notice:"お気に入りできませんでした" }
+      end
+    end
+    # redirect_to event_path(@favorite.event_id),notice:"お気に入りしました"
   end
 
   def destroy
-    favorite = Favorite.find(params[:id])
-    favorite.destroy
-    redirect_to event_path(params[:id]), notice:"#{favorite.event.title}のお気に入りを解除しました"
+    @event = Event.find(params[:event_id])
+    @favorite = Favorite.find(params[:id])
+    respond_to do |format|
+      if @favorite.destroy
+        @favorite = nil
+        format.js
+      else
+        format.html { redirect_to @event, notice: "削除できませんでした"}
+      end
+    end
+    # redirect_to event_path(id: params[:event_id]), notice:"お気に入りを解除しました"
   end
 end

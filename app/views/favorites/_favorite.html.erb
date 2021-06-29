@@ -1,0 +1,9 @@
+<% if favorite.present? %>
+  <%= link_to favorite_path(id: favorite.id, event_id: event.id), method: :delete , remote: true, class:"like" do%>
+    <%= image_tag 'like.png' %>
+  <% end %>
+<% else %>
+  <%= link_to favorites_path(event_id: event.id), method: :post , remote: true, class:"dislike" do %>
+    <%= image_tag 'dislike.png' %>
+  <% end %>
+<% end %>
