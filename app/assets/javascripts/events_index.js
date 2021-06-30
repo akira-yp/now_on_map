@@ -18,6 +18,12 @@ gon.events.forEach((event) => {
   marker.bindPopup(content).addTo(mymap);
   markers.addLayer(marker);
 });
+
+var options = {
+  geocoder: new L.Control.Geocoder.Nominatim()
+};
+L.Control.geocoder(options).addTo(mymap);
+
 // <% @events.each do |event| %>
   // var categoryIcon = L.icon({
   //   iconUrl: "/centermarker.png",

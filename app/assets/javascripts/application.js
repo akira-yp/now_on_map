@@ -15,3 +15,4 @@
 //= require activestorage
 //= require leaflet/dist/leaflet.js
 //= require leaflet.markercluster/dist/leaflet.markercluster.js
+//= require leaflet-control-geocoder/dist/Control.Geocoder.js
