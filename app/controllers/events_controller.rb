@@ -4,7 +4,7 @@ class EventsController < ApplicationController
 
   def index
     @events = Event.includes(:categories).all
-    gon.events = @events.map { | event | { 'event':event, 'categories':event.categories.pluck(:name) } }
+    gon.events = @events.map { | event | { 'event':event, 'categories':event.categories.pluck(:name),'date':"#{event.start_date.strftime("%Y年%m月%d日")} ~ #{event.end_date.strftime("%Y年%m月%d日")}" } }
   end
 
   def new
@@ -21,6 +21,11 @@ class EventsController < ApplicationController
   end
 
   def show
+    @comments = @event.comments.all.order(created_at: "DESC")
+    if user_signed_in?
+      @comment = current_user.comments.build
+      @favorite = current_user.favorites.find_by(event_id: @event.id)
+    end
     gon.event = {'event' => @event, 'category' => @event.categories.pluck(:name)}
   end
 

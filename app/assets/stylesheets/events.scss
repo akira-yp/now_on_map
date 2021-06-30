@@ -1,3 +1,20 @@
-// Place all the styles related to the events controller here.
-// They will automatically be included in application.css.
-// You can use Sass (SCSS) here: http://sass-lang.com/
+
+.category {
+  background: #e6e6fa;
+  display: inline-block;
+  padding: 5px;
+  margin-right: 5px;
+  margin-top: 5px;
+  margin-bottom: 5px;
+  border-radius: 10px;
+}
+
+.like img{
+  width:20px;
+  height:20px;
+}
+
+.dislike img{
+  width:20px;
+  height:20px;
+}
