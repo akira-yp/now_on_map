@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_06_29_075730) do
+ActiveRecord::Schema.define(version: 2021_07_01_144219) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -66,6 +66,22 @@ ActiveRecord::Schema.define(version: 2021_06_29_075730) do
     t.index ["user_id"], name: "index_favorites_on_user_id"
   end
 
+  create_table "hashtagings", force: :cascade do |t|
+    t.bigint "event_id"
+    t.bigint "hashtag_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["event_id"], name: "index_hashtagings_on_event_id"
+    t.index ["hashtag_id"], name: "index_hashtagings_on_hashtag_id"
+  end
+
+  create_table "hashtags", force: :cascade do |t|
+    t.string "name"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["name"], name: "index_hashtags_on_name", unique: true
+  end
+
   create_table "users", force: :cascade do |t|
     t.string "name", null: false
     t.text "image"
@@ -94,4 +110,6 @@ ActiveRecord::Schema.define(version: 2021_06_29_075730) do
   add_foreign_key "events", "users"
   add_foreign_key "favorites", "events"
   add_foreign_key "favorites", "users"
+  add_foreign_key "hashtagings", "events"
+  add_foreign_key "hashtagings", "hashtags"
 end
