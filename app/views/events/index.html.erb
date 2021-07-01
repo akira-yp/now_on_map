@@ -1,6 +1,9 @@
 <h1>Event#index</h1>
 
-<div id="mapid" style="width:100%; height:400px;"></div>
+<div class="map-wrapper">
+  <div id="mapid" style="width:100%; height:500px;"></div>
+</div>
+
 
 <% @events.each do |event| %>
   <div class="">
@@ -16,6 +19,6 @@
 
 <%= javascript_include_tag 'events_index' %>
 
-<script>
-
-</script>
+<% if user_signed_in? %>
+  <%= javascript_include_tag 'event_new' %>
+<% end %>
