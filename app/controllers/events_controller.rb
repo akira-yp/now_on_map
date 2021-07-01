@@ -1,6 +1,6 @@
 class EventsController < ApplicationController
   before_action :authenticate_user!, only: %i[new create edit update destroy]
-  before_action :set_event, only: %i[show edit update]
+  before_action :set_event, only: %i[show edit update destroy]
 
   def index
     @events = Event.includes(:categories).all
@@ -35,9 +35,17 @@ class EventsController < ApplicationController
 
   def update
     if @event.update(event_params)
-      redirect_to event_path, notice:"イベント内容を変更しました"
+      redirect_to event_path(@event), notice:"イベント内容を変更しました"
     else
       render :edit
+    end
+  end
+
+  def destroy
+    if @event.destroy
+      redirect_to events_path, notice:"イベントを削除しました"
+    else
+      redirect_to event_path(@event)
     end
   end
 
