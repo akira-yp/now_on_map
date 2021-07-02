@@ -49,6 +49,12 @@ class EventsController < ApplicationController
     end
   end
 
+  def hashtag
+    @hashtag = Hashtag.find_by(name: params[:name])
+    @events = @hashtag.events
+    gon.events = @events.map { | event | { 'event':event, 'categories':event.categories.pluck(:name),'date':"#{event.start_date.strftime("%Y年%m月%d日")} ~ #{event.end_date.strftime("%Y年%m月%d日")}" } }
+  end
+
   private
   def event_params
     params.require(:event).permit(:title, :description, :location, :start_date, :end_date, :official_page, :image, :latitude, :longitude, :image_cache, category_ids:[])

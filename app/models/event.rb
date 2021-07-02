@@ -26,6 +26,7 @@ class Event < ApplicationRecord
       tag = Hashtag.find_or_create_by(name: hashtag.downcase.delete('/[#＃]/'))
       event.hashtags << tag
     end
+
   end
 
   before_update do
