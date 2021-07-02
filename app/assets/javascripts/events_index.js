@@ -18,6 +18,12 @@ gon.events.forEach((event) => {
   marker.bindPopup(content).addTo(mymap);
   markers.addLayer(marker);
 });
+
+var options = {
+  geocoder: new L.Control.Geocoder.Nominatim()
+};
+L.Control.geocoder(options).addTo(mymap);
+
 // <% @events.each do |event| %>
   // var categoryIcon = L.icon({
   //   iconUrl: "/centermarker.png",
@@ -26,3 +32,12 @@ gon.events.forEach((event) => {
   // });
 
 mymap.addLayer(markers);
+
+//クリック地点の座標を取得してポップアップする
+var popup = L.popup();
+
+function onMapClick(e) {
+    popup.setLatLng(e.latlng).setContent("You clicked the map at " + e.latlng.toString()).openOn(mymap);
+}
+
+mymap.on('click', onMapClick);

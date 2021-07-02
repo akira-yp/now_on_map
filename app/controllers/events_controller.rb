@@ -1,6 +1,6 @@
 class EventsController < ApplicationController
   before_action :authenticate_user!, only: %i[new create edit update destroy]
-  before_action :set_event, only: %i[show edit update]
+  before_action :set_event, only: %i[show edit update destroy]
 
   def index
     @events = Event.includes(:categories).all
@@ -35,10 +35,24 @@ class EventsController < ApplicationController
 
   def update
     if @event.update(event_params)
-      redirect_to event_path, notice:"イベント内容を変更しました"
+      redirect_to event_path(@event), notice:"イベント内容を変更しました"
     else
       render :edit
     end
+  end
+
+  def destroy
+    if @event.destroy
+      redirect_to events_path, notice:"イベントを削除しました"
+    else
+      redirect_to event_path(@event)
+    end
+  end
+
+  def hashtag
+    @hashtag = Hashtag.find_by(name: params[:name])
+    @events = @hashtag.events
+    gon.events = @events.map { | event | { 'event':event, 'categories':event.categories.pluck(:name),'date':"#{event.start_date.strftime("%Y年%m月%d日")} ~ #{event.end_date.strftime("%Y年%m月%d日")}" } }
   end
 
   private

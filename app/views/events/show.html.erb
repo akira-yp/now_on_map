@@ -20,7 +20,7 @@
     <%= @event.location %>
   </div>
   <div class="">
-    <%= @event.description %>
+    <%= render_with_hashtags(@event.description) %>
   </div>
   <div class="">
     <%= raw Rinku.auto_link(@event.official_page,:all,'target="_blank"') %>
