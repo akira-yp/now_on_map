@@ -1,0 +1,23 @@
+<h1><%= @hashtag.name %></h1>
+
+<div class="map-wrapper">
+  <div id="mapid" style="width:100%; height:500px;"></div>
+</div>
+
+
+<% @events.each do |event| %>
+  <div class="">
+    <%= event.title %>
+    <%= event.location %>
+    <%= event.latitude %>
+    <%= event.longitude %>
+    <%= link_to '詳細', event_path(event) %>
+  </div>
+<% end %>
+
+
+<%= javascript_include_tag 'events_index' %>
+
+<% if user_signed_in? %>
+  <%= javascript_include_tag 'event_new' %>
+<% end %>
