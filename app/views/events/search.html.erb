@@ -1,5 +1,9 @@
 <h1><%= l @day_searched, format: :date %>に開催中のイベント</h1>
 
+<div class="">
+  <%= render 'serch_form' %>
+</div>
+<!--
 <div class="search_form">
   <%= search_form_for(@q, url:search_events_path) do |f| %>
     <%= f.label :start_date,t('view.search_by_date') %>
@@ -7,7 +11,7 @@
     <%= f.hidden_field :end_date_gteq_all %>
     <%= f.submit %>
   <% end %>
-</div>
+</div> -->
 
 <div class="map-wrapper">
   <div id="mapid" style="width:100%; height:500px;"></div>

@@ -4,12 +4,14 @@ class EventsController < ApplicationController
 
   def index
     @q = Event.ransack(params[:q])
+    @categories = Category.all
     @events = Event.includes(:categories).where("start_date <= ?", Time.now).where("end_date >= ?", Time.now)
     gon.events = @events.map { | event | { 'event':event, 'categories':event.categories.pluck(:name),'date':"#{event.start_date.strftime("%Y年%m月%d日")} ~ #{event.end_date.strftime("%Y年%m月%d日")}" } }
   end
 
   def search
     @q = Event.ransack(params[:q])
+    @categories = Category.all
     @events = @q.result(search_params)
 
     @day_searched = change_time(search_params[:start_date_lteq_all])
@@ -79,6 +81,7 @@ class EventsController < ApplicationController
   end
 
   def change_time(day)
+    day = Time.now.strftime("%Y-%m-%d") if day == ""
     arr = day.split("-").map(&:to_i)
     Time.mktime(arr[0],arr[1],arr[2])
   end
