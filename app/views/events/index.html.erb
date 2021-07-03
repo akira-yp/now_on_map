@@ -2,7 +2,7 @@
 
 <div class="search_form">
   <%= search_form_for(@q, url:search_events_path) do |f| %>
-    <%= f.label :start_date %>
+    <%= f.label :start_date,t('view.search_by_date')%>
     <%= f.date_field :start_date_lteq_all %>
     <%= f.hidden_field :end_date_gteq_all %>
     <%= f.submit %>

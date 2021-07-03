@@ -5,6 +5,7 @@ ja:
     post: 投稿
     edit: 編集
     destroy: 削除
+    search_by_date: 開催日から検索
   activerecord:
     errors:
       messages:

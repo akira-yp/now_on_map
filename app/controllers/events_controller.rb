@@ -11,6 +11,9 @@ class EventsController < ApplicationController
   def search
     @q = Event.ransack(params[:q])
     @events = @q.result(search_params)
+
+    @day_searched = change_time(search_params[:start_date_lteq_all])
+
     gon.events = @events.map { | event | { 'event':event, 'categories':event.categories.pluck(:name),'date':"#{event.start_date.strftime("%Y年%m月%d日")} ~ #{event.end_date.strftime("%Y年%m月%d日")}" } }
   end
 
@@ -73,5 +76,10 @@ class EventsController < ApplicationController
 
   def search_params
     params.require(:q).permit!
+  end
+
+  def change_time(day)
+    arr = day.split("-").map(&:to_i)
+    Time.mktime(arr[0],arr[1],arr[2])
   end
 end
