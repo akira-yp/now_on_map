@@ -3,7 +3,14 @@ class EventsController < ApplicationController
   before_action :set_event, only: %i[show edit update destroy]
 
   def index
+    @q = Event.ransack(params[:q])
     @events = Event.includes(:categories).where("start_date <= ?", Time.now).where("end_date >= ?", Time.now)
+    gon.events = @events.map { | event | { 'event':event, 'categories':event.categories.pluck(:name),'date':"#{event.start_date.strftime("%Y年%m月%d日")} ~ #{event.end_date.strftime("%Y年%m月%d日")}" } }
+  end
+
+  def search
+    @q = Event.ransack(params[:q])
+    @events = @q.result(search_params)
     gon.events = @events.map { | event | { 'event':event, 'categories':event.categories.pluck(:name),'date':"#{event.start_date.strftime("%Y年%m月%d日")} ~ #{event.end_date.strftime("%Y年%m月%d日")}" } }
   end
 
@@ -64,4 +71,7 @@ class EventsController < ApplicationController
     @event = Event.find(params[:id])
   end
 
+  def search_params
+    params.require(:q).permit!
+  end
 end

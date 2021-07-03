@@ -8,6 +8,7 @@ Rails.application.routes.draw do
   resources :events do
     collection do
       get '/hashtag/:name', to:'events#hashtag'
+      get 'search', to:'events#search'
     end
   end
   resources :comments, only:[:index, :new, :create, :destroy]
