@@ -3,7 +3,7 @@ class EventsController < ApplicationController
   before_action :set_event, only: %i[show edit update destroy]
 
   def index
-    @events = Event.includes(:categories).all
+    @events = Event.includes(:categories).where("start_date <= ?", Time.now).where("end_date >= ?", Time.now)
     gon.events = @events.map { | event | { 'event':event, 'categories':event.categories.pluck(:name),'date':"#{event.start_date.strftime("%Y年%m月%d日")} ~ #{event.end_date.strftime("%Y年%m月%d日")}" } }
   end
 

@@ -72,3 +72,4 @@ end
 gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]
 gem 'rinku'
 gem 'gon'
+gem 'ransack'
