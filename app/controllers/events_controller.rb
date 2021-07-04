@@ -14,7 +14,7 @@ class EventsController < ApplicationController
     @categories = Category.all
     @events = @q.result(search_params)
 
-    @day_searched = change_time(search_params[:start_date_lteq_all])
+    @day_searched = change_to_timeclass(search_params[:start_date_lteq_all])
 
     gon.events = @events.map { | event | { 'event':event, 'categories':event.categories.pluck(:name),'date':"#{event.start_date.strftime("%Y年%m月%d日")} ~ #{event.end_date.strftime("%Y年%m月%d日")}" } }
   end
@@ -80,7 +80,7 @@ class EventsController < ApplicationController
     params.require(:q).permit!
   end
 
-  def change_time(day)
+  def change_to_timeclass(day)
     day = Time.now.strftime("%Y-%m-%d") if day == ""
     arr = day.split("-").map(&:to_i)
     Time.mktime(arr[0],arr[1],arr[2])
