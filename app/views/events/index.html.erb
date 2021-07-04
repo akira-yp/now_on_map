@@ -1,8 +1,12 @@
-<div class="">
-  <h1>本日開催中のイベント</h1>
+<div class="m-3">
+  <% if @day_searched.strftime('%Y%m%d') == Time.now.strftime('%Y%m%d') %>
+    <h1>本日開催中の<%= @keyword %>イベント</h1>
+  <% else %>
+    <h1><%= l @day_searched, format: :date %>に開催中の<%= @keyword %>イベント</h1>
+  <% end %>
 </div>
 
-<div class="container-fluid">
+<div class="container-fluid mt-3">
   <div class="row">
     <div class="map-wrapper col-sm-9">
       <div id="mapid" class="map-index"></div>

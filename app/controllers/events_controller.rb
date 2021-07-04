@@ -7,6 +7,8 @@ class EventsController < ApplicationController
     @categories = Category.all
     @events = Event.includes(:categories).where("start_date <= ?", Time.now).where("end_date >= ?", Time.now)
     gon.events = @events.map { | event | { 'event':event, 'categories':event.categories.pluck(:name),'date':"#{event.start_date.strftime("%Y年%m月%d日")} ~ #{event.end_date.strftime("%Y年%m月%d日")}" } }
+
+    @day_searched = Time.now
   end
 
   def search
@@ -16,7 +18,10 @@ class EventsController < ApplicationController
 
     @day_searched = change_to_timeclass(search_params[:start_date_lteq_all])
 
+    @keyword = @categories[search_params[:categories_id_eq].to_i - 1].name
+
     gon.events = @events.map { | event | { 'event':event, 'categories':event.categories.pluck(:name),'date':"#{event.start_date.strftime("%Y年%m月%d日")} ~ #{event.end_date.strftime("%Y年%m月%d日")}" } }
+    render :index
   end
 
   def new
@@ -62,9 +67,16 @@ class EventsController < ApplicationController
   end
 
   def hashtag
+    @q = Event.ransack(params[:q])
+    @categories = Category.all
     @hashtag = Hashtag.find_by(name: params[:name])
     @events = @hashtag.events
     gon.events = @events.map { | event | { 'event':event, 'categories':event.categories.pluck(:name),'date':"#{event.start_date.strftime("%Y年%m月%d日")} ~ #{event.end_date.strftime("%Y年%m月%d日")}" } }
+
+    @day_searched = Time.now
+    @keyword = "##{@hashtag.name}"
+
+    render :index
   end
 
   private

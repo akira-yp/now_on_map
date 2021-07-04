@@ -6,6 +6,8 @@
       </div>
       <div class="category-input">
         <%= f.collection_radio_buttons :categories_id_eq, @categories, :id, :name %>
+      </div>
+      <div class="">
         <%= f.radio_button :categories_id_eq, '', checked: true %>
         <%= f.label :categories_id_eq, "指定なし" %>
       </div>
