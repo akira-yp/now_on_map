@@ -35,7 +35,10 @@ class EventsController < ApplicationController
   def create
     @event = current_user.events.build(event_params)
     if @event.save
-      redirect_to events_path, notice:"新しいイベントを投稿しました"
+      gon.event = {'event' => @event, 'category' => @event.categories.pluck(:name)}
+      @categories = Category.all
+      @q = Event.ransack(params[:q])
+      render 'index', notice:"新しいイベントを投稿しました"
     else
       render :new
     end

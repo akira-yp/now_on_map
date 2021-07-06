@@ -1,8 +1,12 @@
 <div class="m-3">
-  <% if @day_searched.strftime('%Y%m%d') == Time.now.strftime('%Y%m%d') %>
-    <h1>本日開催中の<%= @keyword %>イベント</h1>
+  <% if action_name == 'create' || action_name == 'update' %>
+    <%= @event.title %>
   <% else %>
-    <h1><%= l @day_searched, format: :date %>に開催中の<%= @keyword %>イベント</h1>
+    <% if @day_searched.strftime('%Y%m%d') == Time.now.strftime('%Y%m%d') %>
+      <h1>本日開催中の<%= @keyword %>イベント</h1>
+    <% else %>
+      <h1><%= l @day_searched, format: :date %>に開催中の<%= @keyword %>イベント</h1>
+    <% end %>
   <% end %>
 </div>
 
@@ -17,7 +21,8 @@
   </div>
 </div>
 
-<% @events.each do |event| %>
+<% unless @events == nil %>
+  <% @events.each do |event| %>
   <div class="">
     <%= event.title %>
     <%= event.location %>
@@ -25,6 +30,7 @@
     <%= event.longitude %>
     <%= link_to '詳細', event_path(event) %>
   </div>
+  <% end %>
 <% end %>
 
 <div id="mask" class="hidden"></div>
@@ -34,7 +40,11 @@
   </div>
 <% end %>
 
-<%= javascript_include_tag 'events_index' %>
+<% if action_name == 'create' || action_name == 'update' %>
+  <%= javascript_include_tag 'event_show' %>
+<% else %>
+   <%= javascript_include_tag 'events_index' %>
+<% end %>
 
 <% if user_signed_in? %>
   <%= javascript_include_tag 'event_new' %>
