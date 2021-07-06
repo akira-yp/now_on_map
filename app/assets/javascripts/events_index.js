@@ -48,10 +48,13 @@ startform.addEventListener('input', inputChange);
 mymap.addLayer(markers);
 
 //クリック地点の座標を取得してポップアップする
-var popup = L.popup();
+// var popup = L.popup();
+//
+// function onMapClick(e) {
+//     let latlngArr = e.latlng.split(',')[0];
+//     let newlat = latlngArr[0];
+//     let newlng = latlngArr[1];
+//     popup.setLatLng(e.latlng).setContent("この場所にイベントを投稿する").openOn(mymap);
+// };
 
-function onMapClick(e) {
-    popup.setLatLng(e.latlng).setContent("You clicked the map at " + e.latlng.toString()).openOn(mymap);
-}
-
-mymap.on('click', onMapClick);
+// mymap.on('click', onMapClick);
