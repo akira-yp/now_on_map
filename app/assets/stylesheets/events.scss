@@ -85,6 +85,12 @@ a:active { color: #000000; }
   width: 500px;
 }
 
+#new_event_modal.hidden{
+  opacity: 0;
+  visibility: hidden;
+  transform: translate(0, 0) scale(0.8);
+}
+
 .modal-wrapper{
   background: #ffffff;
 }
