@@ -1,59 +1,81 @@
 
-<h1><%= @event.title %></h1>
-<div id="favorite_area" class="">
-  <%= render 'favorites/favorite', { favorite: @favorite, event: @event} %>
-</div>
-<div class="">
-  <% @event.categories.each do | category | %>
-    <span class="category"><%= category.name %></span>
-  <% end %>
-</div>
-<div id="mapid" style="width:400px; height:400px;"></div>
-<div class="">
-  <% if @event.image.present? %>
-    <%= image_tag @event.image.url %>
-  <% end %>
-</div>
 
-<div class="">
-  <div class="">
-    <%= @event.location %>
-  </div>
-  <div class="">
-    <%= render_with_hashtags(@event.description) %>
-  </div>
-  <div class="">
-    <%= raw Rinku.auto_link(@event.official_page,:all,'target="_blank"') %>
-  </div>
-  <div class="">
-    <%= l @event.start_date, format: :date %> ~ <%= l @event.end_date, format: :date %>
-  </div>
-</div>
-<% if user_signed_in? %>
-  <div class="">
-    <% if @event.user == current_user %>
-      <%= link_to t('view.edit'), edit_event_path(@event) %>
-      <%= link_to t('view.destroy'), event_path(@event), method: :delete %>
-    <% end %>
+<div class="container-fluid">
+  <div class="row justify-content-center">
+
   </div>
 
-  <div class="">
-    <%= link_to 'コメントを作成', new_comment_path(event_id: @event.id), remote:true %>
+  <div class="row justify-content-center">
+    <div class="col-sm-auto text-left my-3">
+
+      <div class="container">
+        <div class="row">
+          <div class="col">
+            <h1><%= @event.title %></h1>
+          </div>
+          <div class="col-sm-auto">
+            <% @event.categories.each do | category | %>
+              <span class="category"><%= category.name %></span>
+            <% end %>
+          </div>
+          <div id="favorite_area" class="col-sm-auto">
+            <%= render 'favorites/favorite', { favorite: @favorite, event: @event} %>
+          </div>
+        </div>
+      </div>
+
+    </div>
+    <div class="w-100"></div>
+    <div class="col-sm-auto">
+      <div id="mapid" style="width:400px; height:600px;"></div>
+
+    </div>
+
+    <div class="col-sm-auto">
+      <div class="">
+        <% if @event.image.present? %>
+          <%= image_tag @event.image.url %>
+        <% end %>
+      </div>
+      <div class="">
+        <div class="">
+          <%= @event.location %>
+        </div>
+        <div class="">
+          <%= render_with_hashtags(@event.description) %>
+        </div>
+        <div class="">
+          <%= raw Rinku.auto_link(@event.official_page,:all,'target="_blank"') %>
+        </div>
+        <div class="">
+          <%= l @event.start_date, format: :date %> ~ <%= l @event.end_date, format: :date %>
+        </div>
+      </div>
+      <% if user_signed_in? %>
+        <div class="">
+          <% if @event.user == current_user %>
+            <%= link_to t('view.edit'), edit_event_path(@event) %>
+            <%= link_to t('view.destroy'), event_path(@event), method: :delete %>
+          <% end %>
+        </div>
+
+        <div class="">
+          <%= link_to 'コメントを作成', new_comment_path(event_id: @event.id), remote:true %>
+        </div>
+      <% end %>
+      <div id="comments" class="">
+        <% if user_signed_in? %>
+          <div id="comment_modal" class="hidden">
+            <%= render 'comments/form', { comment: @comment } %>
+          </div>
+        <% end %>
+        <div id="comments_index" class="">
+          <%= render 'comments/index', { comments: @comments} %>
+        </div>
+      </div>
+    </div>
   </div>
-<% end %>
+</div>
 
 <div id="mask" class="hidden"></div>
-
-<div id="comments" class="">
-  <% if user_signed_in? %>
-    <div id="comment_modal" class="hidden">
-      <%= render 'comments/form', { comment: @comment } %>
-    </div>
-  <% end %>
-  <div id="comments_index" class="">
-    <%= render 'comments/index', { comments: @comments} %>
-  </div>
-</div>
-
-
 <%= javascript_include_tag 'event_show' %>

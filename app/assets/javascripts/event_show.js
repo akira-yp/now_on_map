@@ -1,5 +1,5 @@
 
-var mymap = L.map('mapid').setView([gon.event.event.latitude, gon.event.event.longitude], 16);
+var mymap = L.map('mapid').setView([gon.event.event.latitude, gon.event.event.longitude], 17);
 
 L.tileLayer('http://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
   attribution: 'Map data &copy; <a href="http://openstreetmap.org">OpenStreetMap</a>',
