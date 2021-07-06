@@ -27,6 +27,12 @@
   </div>
 <% end %>
 
+<div id="mask" class="hidden"></div>
+
+<% if user_signed_in? %>
+  <div id="new_event_modal" class="hidden">
+  </div>
+<% end %>
 
 <%= javascript_include_tag 'events_index' %>
 

@@ -25,7 +25,11 @@ class EventsController < ApplicationController
   end
 
   def new
-    @event = Event.new
+    @event = Event.new(latlng_params)
+    respond_to do |format|
+      format.html
+      format.js
+    end
   end
 
   def create
@@ -90,6 +94,10 @@ class EventsController < ApplicationController
 
   def search_params
     params.require(:q).permit!
+  end
+
+  def latlng_params
+    params.permit(:latitude,:longitude)
   end
 
   def change_to_timeclass(day)
