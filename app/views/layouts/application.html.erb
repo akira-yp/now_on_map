@@ -20,7 +20,8 @@
           <%= link_to t('view.log_out'), destroy_user_session_path, method: :delete %>
         <% else %>
           <%= link_to t('view.sign_in'), new_user_session_path %>
-          <%= link_to 'ゲストログイン', users_guest_sign_in_path, method: :post %>
+          <%= link_to 'ゲストログイン(一般)', users_guest_sign_in_path, method: :post %>
+          <%= link_to 'ゲストログイン(管理者)', users_guest_admin_sign_in_path, method: :post %>
         <% end %>
       </div>
     </header>

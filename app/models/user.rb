@@ -24,6 +24,14 @@ class User < ApplicationRecord
     end
   end
 
+  def self.guest_admin
+    find_or_create_by!(email:"guest_admin@guest.com") do |user|
+      user.name = "guest_admin"
+      user.password = SecureRandom.urlsafe_base64
+      user.admin = true
+    end
+  end
+
   def self.find_for_google(auth)
     user = User.find_by(email: auth.info.email)
     unless user
