@@ -24,6 +24,20 @@ var options = {
 };
 L.Control.geocoder(options).addTo(mymap);
 
+
+//end_date_gteq_allに検索と同じ値を設定
+
+var startform = document.getElementById('q_start_date_lteq_all');
+var endform = document.getElementById('q_end_date_gteq_all');
+function inputChange(){
+  endform.value = startform.value;
+}
+
+startform.addEventListener('input', inputChange);
+
+
+
+
 // <% @events.each do |event| %>
   // var categoryIcon = L.icon({
   //   iconUrl: "/centermarker.png",
@@ -34,10 +48,13 @@ L.Control.geocoder(options).addTo(mymap);
 mymap.addLayer(markers);
 
 //クリック地点の座標を取得してポップアップする
-var popup = L.popup();
+// var popup = L.popup();
+//
+// function onMapClick(e) {
+//     let latlngArr = e.latlng.split(',')[0];
+//     let newlat = latlngArr[0];
+//     let newlng = latlngArr[1];
+//     popup.setLatLng(e.latlng).setContent("この場所にイベントを投稿する").openOn(mymap);
+// };
 
-function onMapClick(e) {
-    popup.setLatLng(e.latlng).setContent("You clicked the map at " + e.latlng.toString()).openOn(mymap);
-}
-
-mymap.on('click', onMapClick);
+// mymap.on('click', onMapClick);
