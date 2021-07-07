@@ -6,6 +6,9 @@ Rails.application.routes.draw do
     sessions: 'users/sessions',
     omniauth_callbacks: "users/omniauth_callbacks"
   }
+  devise_scope :user do
+    post 'users/guest_sign_in', to:'users/sessions#guest_sign_in'
+  end
   resources :events do
     collection do
       get '/hashtag/:name', to:'events#hashtag'

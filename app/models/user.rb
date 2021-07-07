@@ -17,6 +17,13 @@ class User < ApplicationRecord
     SecureRandom.uuid
   end
 
+  def self.guest
+    find_or_create_by!(email:"guest@guest.com") do |user|
+      user.name = "guest"
+      user.password = SecureRandom.urlsafe_base64
+    end
+  end
+
   def self.find_for_google(auth)
     user = User.find_by(email: auth.info.email)
     unless user
