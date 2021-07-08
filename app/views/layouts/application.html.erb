@@ -16,7 +16,7 @@
       <div class="">
         <%= link_to "イベントマップ", events_path %>
         <% if user_signed_in? %>
-          <%= link_to 'マイページ', user_path(current_user.id)  %>
+          <%= link_to 'マイページ', mypage_user_path(current_user.id)  %>
           <%= link_to t('view.log_out'), destroy_user_session_path, method: :delete %>
         <% else %>
           <%= link_to t('view.sign_in'), new_user_session_path %>
