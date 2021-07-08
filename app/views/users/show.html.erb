@@ -1,0 +1,14 @@
+<h1><%= current_user.name %>さんのマイページ</h1>
+
+<div id="mapid" class="map-mypage"></div>
+
+
+<div id="mask" class="hidden"></div>
+
+<div id="new_event_modal" class="hidden"></div>
+
+<% if action_name == 'create' || action_name == 'update' %>
+  <%= javascript_include_tag 'event_show' %>
+<% else %>
+  <%= javascript_include_tag 'mypage' %>
+<% end %>
