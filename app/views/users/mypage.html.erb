@@ -1,6 +1,28 @@
 <h1><%= current_user.name %>さんのマイページ</h1>
 
-<div id="mapid" class="map-mypage"></div>
+<div class="container-fluid my-3">
+  <div class="row">
+    <div class="map-wrapper col-sm-9">
+      <div id="mapid" class="map-mypage">
+      </div>
+    </div>
+    <div class="col-sm-3">
+      <div class="">
+        <%= link_to '投稿したイベント一覧を表示', posts_index_user_path(current_user.id) %>
+      </div>
+      <div class="">
+        <%= link_to '気になるイベント一覧を表示', mypage_user_path(current_user.id) %>
+      </div>
+      <div class="">
+
+      </div>
+    </div>
+  </div>
+  <div class="">
+
+  </div>
+</div>
+
 
 
 <div id="mask" class="hidden"></div>

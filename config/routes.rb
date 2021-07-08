@@ -14,6 +14,7 @@ Rails.application.routes.draw do
   resources :users do
     member do
       get :mypage
+      get :posts_index
     end
   end
   resources :events do

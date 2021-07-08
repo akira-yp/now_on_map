@@ -5,7 +5,8 @@ class UsersController < ApplicationController
     gon.events = @events.map { |event | {
       'event': event,
       'categories': event.categories.pluck(:name),
-      'date': "#{event.start_date.strftime("%Y年%m月%d日")} ~ #{event.end_date.strftime("%Y年%m月%d日")}"
+      'date': "#{event.start_date.strftime("%Y年%m月%d日")} ~ #{event.end_date.strftime("%Y年%m月%d日")}",
+      'current_user':current_user.id
       }
     }
   end
@@ -15,8 +16,10 @@ class UsersController < ApplicationController
     gon.events = @events.map { |event | {
       'event': event,
       'categories': event.categories.pluck(:name),
-      'date': "#{event.start_date.strftime("%Y年%m月%d日")} ~ #{event.end_date.strftime("%Y年%m月%d日")}"
+      'date': "#{event.start_date.strftime("%Y年%m月%d日")} ~ #{event.end_date.strftime("%Y年%m月%d日")}",
+      'current_user': current_user.id
       }
     }
+    render 'mypage'
   end
 end
