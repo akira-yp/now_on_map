@@ -1,6 +1,6 @@
 <h1><%= current_user.name %>さんのマイページ</h1>
 
-<div class="container-fluid my-3">
+<div class="container-fluid mx-auto my-3">
   <div class="row">
     <div class="map-wrapper col-sm-9">
       <div id="mapid" class="map-mypage">
@@ -18,11 +18,27 @@
       </div>
     </div>
   </div>
-  <div class="">
-
-  </div>
 </div>
 
+<div class="container-fluid mx-auto">
+  <div class="row">
+    <div class="col d-flex flex-wrap">
+      <% @events.sort_by{|e| e.start_date }.each do |event| %>
+          <div class="border p-2 m-2  event-card">
+            <h5><%= event.title %></h3>
+            <p class="font-s">場所：<%= event.location %></p>
+            <p class="font-s" >開催期間：<%= l event.start_date, format: :date %> ~ <%= l event.end_date, format: :date %></p>
+            <%= link_to '詳細', event_path(event.id) %>
+            <% if event.user == current_user %>
+              <%= link_to '編集', edit_event_path(event.id) %>
+              <%= link_to '削除', event_path(event.id), method: :delete %>
+            <% end %>
+          </div>
+      <% end %>
+    </div>
+  </div>
+
+</div>
 
 
 <div id="mask" class="hidden"></div>
