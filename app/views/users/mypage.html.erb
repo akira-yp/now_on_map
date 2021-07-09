@@ -1,6 +1,12 @@
-<h1><%= current_user.name %>さんのマイページ</h1>
-
+<h6>マイページ</h6>
 <div class="container-fluid mx-auto my-3">
+  <div class="row">
+    <% if action_name == 'posts_index' %>
+      <h1><%= current_user.name %>さんが投稿したイベント一覧</h1>
+    <% else %>
+      <h1><%= current_user.name %>さんが気になるイベント一覧</h1>
+    <% end %>
+  </div>
   <div class="row">
     <div class="map-wrapper col-sm-9">
       <div id="mapid" class="map-mypage">
@@ -21,6 +27,7 @@
 </div>
 
 <div class="container-fluid mx-auto">
+</div>
   <div class="row">
     <div class="col d-flex flex-wrap">
       <% @events.sort_by{|e| e.start_date }.each do |event| %>
