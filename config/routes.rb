@@ -12,6 +12,7 @@ Rails.application.routes.draw do
     post 'users/guest_admin_sign_in', to:'users/sessions#guest_admin_sign_in'
   end
   resources :users do
+    resources :mylocations, only:[:new, :create, :destroy]
     member do
       get :mypage
       get :posts_index
