@@ -78,7 +78,7 @@ a:active { color: #000000; }
   border-radius: 15px;
 }
 
-#new_event_modal{
+#new_event_modal,#new_mylocation_modal{
   position: fixed;
   top: 10vh;
   left: 0;
@@ -90,7 +90,7 @@ a:active { color: #000000; }
   width: 500px;
 }
 
-#new_event_modal.hidden{
+#new_event_modal.hidden, #new_mylocation_modal.hidden{
   opacity: 0;
   visibility: hidden;
   transform: translate(0, 0) scale(0.8);

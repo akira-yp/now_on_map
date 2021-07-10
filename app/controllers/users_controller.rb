@@ -9,6 +9,7 @@ class UsersController < ApplicationController
       'current_user':current_user.id
       }
     }
+    gon.user_id = current_user.id
   end
 
   def posts_index
@@ -20,6 +21,7 @@ class UsersController < ApplicationController
       'current_user': current_user.id
       }
     }
+    gon.user_id = current_user.id
     render 'mypage'
   end
 end

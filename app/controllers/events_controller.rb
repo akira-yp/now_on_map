@@ -34,14 +34,18 @@ class EventsController < ApplicationController
 
   def create
     @event = current_user.events.build(event_params)
-    if @event.save
-      # gon.event = {'event' => @event, 'category' => @event.categories.pluck(:name)}
-      # @categories = Category.all
-      # @q = Event.ransack(params[:q])
+    respond_to do |format|
+      if @event.save
+        format.html { redirect_to mypage_user_path(current_user.id)}
+        format.js { render js: "window.location = '#{posts_index_user_path(current_user.id)}' " }
+        # gon.event = {'event' => @event, 'category' => @event.categories.pluck(:name)}
+        # @categories = Category.all
+        # @q = Event.ransack(params[:q])
 
-      redirect_to posts_index_user_path(current_user.id), notice:"新しいイベントを投稿しました"
-    else
-      render :new
+        # redirect_to posts_index_user_path(current_user.id), notice:"新しいイベントを投稿しました"
+      else
+        format.js
+      end
     end
   end
 

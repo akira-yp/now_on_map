@@ -37,7 +37,7 @@ var popup = L.popup();
 
 function onMapClick(e) {
   mymap.flyTo([e.latlng.lat,e.latlng.lng], 16, { duration: 1 });
-  popup.setLatLng(e.latlng).setContent(`<a data-remote="true" href="/events/new?latitude=${e.latlng.lat.toFixed(6)}&longitude=${e.latlng.lng.toFixed(6)}">この場所にイベントを投稿</a>`).openOn(mymap);
+  popup.setLatLng(e.latlng).setContent(`<div><a data-remote="true" href="/events/new?latitude=${e.latlng.lat.toFixed(6)}&longitude=${e.latlng.lng.toFixed(6)}">この場所にイベントを投稿</a></div><div><a data-remote="true" href="/users/${gon.user_id}/mylocations/new?my_latitude=${e.latlng.lat.toFixed(6)}&my_longitude=${e.latlng.lng.toFixed(6)}">この場所にマイロケーションを作成</div>`).openOn(mymap);
 }
 
 mymap.on('click', onMapClick);
