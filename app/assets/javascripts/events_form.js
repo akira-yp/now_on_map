@@ -1,5 +1,5 @@
 
-var mymap2 = L.map('mapid2').setView([35.678362, 139.715387], 13);
+var mymap2 = L.map('mapid2').setView(markerPosi, 13);
 
 L.tileLayer('http://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
   attribution: 'Map data &copy; <a href="http://openstreetmap.org">OpenStreetMap</a>',

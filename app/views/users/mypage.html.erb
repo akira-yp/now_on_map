@@ -26,9 +26,9 @@
         <h5>登録しているホーム</h5>
         <% if current_user.mylocations %>
           <% current_user.mylocations.each do |ml| %>
-            <div class="">
+            <div data-lat="<%= ml.my_latitude %>" data-lng="<%= ml.my_longitude %>" data-name="<%= ml.name %>" class="gotoMyloc" val="実験">
               <%= ml.name %>
-              <% ml.my_address %>
+              <%= ml.my_address %>
             </div>
           <% end %>
         <% end %>

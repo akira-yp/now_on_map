@@ -19,10 +19,12 @@ gon.events.forEach((event) => {
   markers.addLayer(marker);
 });
 
+//モーダルの地図に位置情報を渡す
 function getPosition(e){
   markerPosi = [e.latlng.lat.toFixed(6),e.latlng.lng.toFixed(6)]
 };
 
+//leafletの地名検索機能
 var options = {
   geocoder: new L.Control.Geocoder.Nominatim()
 };

@@ -33,8 +33,10 @@ var options = {
 L.Control.geocoder(options).addTo(mymap);
 
 
+
 var popup = L.popup();
 
+//地図クリックからイベント作成画面へのリンクを作成
 function onMapClick(e) {
   mymap.flyTo([e.latlng.lat,e.latlng.lng], 16, { duration: 1 });
   popup.setLatLng(e.latlng).setContent(`<div><a data-remote="true" href="/events/new?latitude=${e.latlng.lat.toFixed(6)}&longitude=${e.latlng.lng.toFixed(6)}">この場所にイベントを投稿</a></div><div><a data-remote="true" href="/users/${gon.user_id}/mylocations/new?my_latitude=${e.latlng.lat.toFixed(6)}&my_longitude=${e.latlng.lng.toFixed(6)}">この場所にマイロケーションを作成</div>`).openOn(mymap);
@@ -42,28 +44,21 @@ function onMapClick(e) {
 
 mymap.on('click', onMapClick);
 
+//モーダルの地図に位置情報を渡す
 function getPosition(e){
   markerPosi = [e.latlng.lat.toFixed(6),e.latlng.lng.toFixed(6)]
 };
 
-//end_date_gteq_allに検索と同じ値を設定
-//
-// var startform = document.getElementById('q_start_date_lteq_all');
-// var endform = document.getElementById('q_end_date_gteq_all');
-// function inputChange(){
-//   endform.value = startform.value;
-// }
-//
-// startform.addEventListener('input', inputChange);
+//マイロケーション地点へ地図上を遷移
+// function gotoMyloc(e){
+//   alert( e )
+// };
+$('.gotoMyloc').on('click',function(e){
+  // console.log(this.dataset.lat)
+  let distination = [this.dataset.lat, this.dataset.lng]
+  mymap.flyTo(distination, 14, { duration: 2 });
+  popup.setLatLng(distination).setContent(`<div><a data-remote="true" href="/events/new?latitude=${this.dataset.lat}&longitude=${this.dataset.lng}">この場所にイベントを投稿</a></div>`).openOn(mymap)
+})
 
-
-
-
-// <% @events.each do |event| %>
-  // var categoryIcon = L.icon({
-  //   iconUrl: "/centermarker.png",
-  //   iconSize:[48,48],
-  //   iconAnchor:[24,48]
-  // });
 
 mymap.addLayer(markers);
