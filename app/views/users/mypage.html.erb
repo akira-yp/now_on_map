@@ -26,9 +26,16 @@
         <h5>登録しているホーム</h5>
         <% if current_user.mylocations %>
           <% current_user.mylocations.each do |ml| %>
-            <div data-lat="<%= ml.my_latitude %>" data-lng="<%= ml.my_longitude %>" data-name="<%= ml.name %>" class="gotoMyloc" val="実験">
-              <%= ml.name %>
-              <%= ml.my_address %>
+            <div class="container">
+              <div class="row">
+                <div data-lat="<%= ml.my_latitude %>" data-lng="<%= ml.my_longitude %>" data-name="<%= ml.name %>" class="gotoMyloc col-auto">
+                  <%= ml.name %>
+                  <%= ml.my_address %>
+                </div>
+                <div class="col-auto">
+                  <%= link_to '削除', user_mylocation_path(current_user.id, ml.id),class:"btn btn-sm btn-outline-dark",method: :delete %></object>
+                </div>
+              </div>
             </div>
           <% end %>
         <% end %>

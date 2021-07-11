@@ -12,7 +12,7 @@ class MylocationsController < ApplicationController
     @mylocation = current_user.mylocations.build(mylocation_params)
     respond_to do |format|
       if @mylocation.save
-        format.html { redirect_to mypage_user_path(current_user.id) }
+        format.html { redirect_to mypage_user_path(current_user.id), notice:"マイロケーションを作成しました" }
         format.js { render js: "window.location = '#{mypage_user_path(current_user.id)}' " }
       else
         format.js
@@ -21,6 +21,12 @@ class MylocationsController < ApplicationController
   end
 
   def destroy
+    @mylocation = Mylocation.find(params[:id])
+    if @mylocation.destroy
+      redirect_to mypage_user_path(current_user.id), notice:"マイロケーションを削除しました"
+    else
+      redirect_to mypage_user_path(current_user.id)
+    end
   end
 
   private
