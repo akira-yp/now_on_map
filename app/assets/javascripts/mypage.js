@@ -18,7 +18,7 @@ var markers = L.markerClusterGroup();
 gon.events.forEach((event) => {
   var category = event.categories.reduce((html,cat) => html + `<span class="category">${cat}</span>`,`` );
   if (event.event.user_id == event.current_user){
-    var edit_link = '<div><a href="events/${event.id}/edit">編集する</div>'
+    var edit_link = `<div><a data-remote="true" href="/events/${event.event.id}/edit">編集する</a><a href="/events/${event.event.id}" data-method="delete">削除</a></div>`
   } else { edit_link = ''};
   var content = `<a href="/events/${event.event.id}">${event.event.title}</a><div>${event.date}<div><div>${category}</div>${edit_link}`;
   var latlon = [event.event.latitude, event.event.longitude]

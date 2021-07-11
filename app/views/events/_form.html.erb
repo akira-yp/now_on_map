@@ -7,7 +7,7 @@
       <div id="mapid2" class="col" style="width:400px; height:400px;" ></div>
     <% end %>
     <div class="col">
-      <%= form_with( model: event, remote: true ) do |f| %>
+      <%= form_with( model: event, url:choose_new_or_edit,remote: true ) do |f| %>
         <div id="event-messages"></div>
        <div>
          <%= f.label :title %>
@@ -58,3 +58,4 @@
     </div>
   </div>
 </div>
+<%= javascript_include_tag 'events_form' %>

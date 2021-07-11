@@ -60,13 +60,19 @@ class EventsController < ApplicationController
 
   def edit
     gon.event = @event
+    respond_to do |format|
+      format.js
+    end
   end
 
   def update
-    if @event.update(event_params)
-      redirect_to event_path(@event), notice:"イベント内容を変更しました"
-    else
-      render :edit
+    respond_to do |format|
+      if @event.update(event_params)
+        format.html { redirect_to posts_index_user_path(current_user.id),notice:"イベント内容を変更しました" }
+        format.js { render js: "window.location = '#{posts_index_user_path(current_user.id)}' " }
+      else
+        format.js
+      end
     end
   end
 

@@ -17,7 +17,7 @@ class Event < ApplicationRecord
   has_many :favorites, dependent: :destroy
   has_many :favorite_users, through: :favorites, source: :user
   has_many :comments, dependent: :destroy
-  has_many :hashtagings
+  has_many :hashtagings, dependent: :destroy
   has_many :hashtags, through: :hashtagings, source: :hashtag
 
   mount_uploader :image, ImageUploader
