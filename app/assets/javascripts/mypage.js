@@ -20,10 +20,10 @@ gon.events.forEach((event) => {
   if (event.event.user_id == event.current_user){
     var edit_link = `<div><a data-remote="true" href="/events/${event.event.id}/edit">編集する</a><a href="/events/${event.event.id}" data-method="delete">削除</a></div>`
   } else { edit_link = ''};
-  var content = `<a href="/events/${event.event.id}">${event.event.title}</a><div>${event.date}<div><div>${category}</div>${edit_link}`;
+  var content = `<a data-remote="true" href="/events/${event.event.id}">${event.event.title}</a><div>${event.date}<div><div>${category}</div>${edit_link}`;
   var latlon = [event.event.latitude, event.event.longitude]
   var marker = L.marker(latlon);
-  marker.bindPopup(content).addTo(mymap);
+  marker.bindPopup(content).addTo(mymap).on('click',getPosition);
   markers.addLayer(marker);
 });
 
@@ -41,6 +41,10 @@ function onMapClick(e) {
 }
 
 mymap.on('click', onMapClick);
+
+function getPosition(e){
+  markerPosi = [e.latlng.lat.toFixed(6),e.latlng.lng.toFixed(6)]
+};
 
 //end_date_gteq_allに検索と同じ値を設定
 //
