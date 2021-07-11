@@ -56,6 +56,9 @@ class EventsController < ApplicationController
       @favorite = current_user.favorites.find_by(event_id: @event.id)
     end
     gon.event = {'event' => @event, 'category' => @event.categories.pluck(:name)}
+    respond_to do |format|
+      format.js
+    end
   end
 
   def edit
