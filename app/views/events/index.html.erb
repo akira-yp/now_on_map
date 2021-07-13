@@ -34,17 +34,15 @@
 <% end %>
 
 <div id="mask" class="hidden"></div>
+<div id="show_event_modal" class="hidden"></div>
 
 <% if user_signed_in? %>
   <div id="new_event_modal" class="hidden">
   </div>
 <% end %>
 
-<% if action_name == 'create' || action_name == 'update' %>
-  <%= javascript_include_tag 'event_show' %>
-<% else %>
-   <%= javascript_include_tag 'events_index' %>
-<% end %>
+
+<%= javascript_include_tag 'events_index' %>
 
 <% if user_signed_in? %>
   <%= javascript_include_tag 'event_new' %>

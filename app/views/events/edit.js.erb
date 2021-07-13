@@ -1,0 +1,9 @@
+$('#edit_event_modal').html('<%= j(render 'form', { event: @event }) %>');
+
+$('#edit_event_modal').removeClass('hidden');
+$('#mask').removeClass('hidden');
+
+$('#mask').on('click',function(){
+  $('#edit_event_modal').addClass('hidden');
+  $('#mask').addClass('hidden');
+});

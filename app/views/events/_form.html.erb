@@ -7,14 +7,8 @@
       <div id="mapid2" class="col" style="width:400px; height:400px;" ></div>
     <% end %>
     <div class="col">
-      <%= form_with( model: event, local: true ) do |f| %>
-       <% if event.errors.any? %>
-         <div id="error_explanation">
-           <% event.errors.full_messages.each do |msg| %>
-            <p><%= msg %></p>
-           <% end %>
-         </div>
-       <% end %>
+      <%= form_with( model: event, url:choose_new_or_edit,remote: true ) do |f| %>
+        <div id="event-messages"></div>
        <div>
          <%= f.label :title %>
          <%= f.text_field :title %>
@@ -64,3 +58,6 @@
     </div>
   </div>
 </div>
+<% if action_name == 'edit' %>
+  <%= javascript_include_tag 'events_form' %>
+<% end %>

@@ -18,7 +18,11 @@ class EventsController < ApplicationController
 
     @day_searched = change_to_timeclass(search_params[:start_date_lteq_all])
 
-    @keyword = @categories[search_params[:categories_id_eq].to_i - 1].name
+    if search_params[:categories_id_eq] == ""
+      @keyword = "全"
+    else
+      @keyword = @categories[search_params[:categories_id_eq].to_i - 1].name
+    end
 
     gon.events = @events.map { | event | { 'event':event, 'categories':event.categories.pluck(:name),'date':"#{event.start_date.strftime("%Y年%m月%d日")} ~ #{event.end_date.strftime("%Y年%m月%d日")}" } }
     render :index
@@ -34,13 +38,13 @@ class EventsController < ApplicationController
 
   def create
     @event = current_user.events.build(event_params)
-    if @event.save
-      gon.event = {'event' => @event, 'category' => @event.categories.pluck(:name)}
-      @categories = Category.all
-      @q = Event.ransack(params[:q])
-      render 'index', notice:"新しいイベントを投稿しました"
-    else
-      render :new
+    respond_to do |format|
+      if @event.save
+        format.html { redirect_to mypage_user_path(current_user.id)}
+        format.js { render js: "window.location = '#{posts_index_user_path(current_user.id)}' " }
+      else
+        format.js
+      end
     end
   end
 
@@ -50,18 +54,27 @@ class EventsController < ApplicationController
       @comment = current_user.comments.build
       @favorite = current_user.favorites.find_by(event_id: @event.id)
     end
-    gon.event = {'event' => @event, 'category' => @event.categories.pluck(:name)}
+    # gon.event = {'event' => @event, 'category' => @event.categories.pluck(:name)}
+    respond_to do |format|
+      format.js
+    end
   end
 
   def edit
     gon.event = @event
+    respond_to do |format|
+      format.js
+    end
   end
 
   def update
-    if @event.update(event_params)
-      redirect_to event_path(@event), notice:"イベント内容を変更しました"
-    else
-      render :edit
+    respond_to do |format|
+      if @event.update(event_params)
+        format.html { redirect_to posts_index_user_path(current_user.id),notice:"イベント内容を変更しました" }
+        format.js { render js: "window.location = '#{posts_index_user_path(current_user.id)}' " }
+      else
+        format.js
+      end
     end
   end
 

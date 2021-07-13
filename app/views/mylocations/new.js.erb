@@ -1,0 +1,9 @@
+$('#new_mylocation_modal').html('<%= j(render 'form', { mylocation: @mylocation }) %>');
+
+$('#new_mylocation_modal').removeClass('hidden');
+$('#mask').removeClass('hidden');
+
+$('#mask').on('click',function(){
+  $('#new_mylocation_modal').addClass('hidden');
+  $('#mask').addClass('hidden');
+});

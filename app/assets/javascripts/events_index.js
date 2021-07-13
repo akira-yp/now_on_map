@@ -12,13 +12,19 @@ var markers = L.markerClusterGroup();
 
 gon.events.forEach((event) => {
   var category = event.categories.reduce((html,cat) => html + `<span class="category">${cat}</span>`,`` );
-  var content = `<a href="/events/${event.event.id}">${event.event.title}</a><div>${event.date}<div><div>${category}</div>`;
+  var content = `<a href="/events/${event.event.id}" data-remote="true" >${event.event.title}</a><div>${event.date}<div><div>${category}</div>`;
   var latlon = [event.event.latitude, event.event.longitude]
   var marker = L.marker(latlon);
-  marker.bindPopup(content).addTo(mymap);
+  marker.bindPopup(content).addTo(mymap).on('click',getPosition);
   markers.addLayer(marker);
 });
 
+//モーダルの地図に位置情報を渡す
+function getPosition(e){
+  markerPosi = [e.latlng.lat.toFixed(6),e.latlng.lng.toFixed(6)]
+};
+
+//leafletの地名検索機能
 var options = {
   geocoder: new L.Control.Geocoder.Nominatim()
 };
@@ -34,7 +40,21 @@ function inputChange(){
 }
 
 startform.addEventListener('input', inputChange);
+//
+// function popupClick(){
+//   let selectedLatlng =
+// }
+//
+// marker.on("click", function (ev) {
+//         var chagedPos = ev.target.getLatLng();
+//              this.bindPopup(chagedPos.toString()).openPopup();
+//              window.location = 'fmp://$/HelloWorld?script=script02&$id='+chagedPos.toString();
+// });
+// let selectedEvent = document.querySelectorAll('.leaflet-popup-content a')
 
+// $('.leaflet-marker-icon').addEventListener('click', function(){
+//   $('.leaflet-popup-content a')
+// });
 
 
 

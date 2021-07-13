@@ -1,0 +1,7 @@
+<% if mylocation.errors.any? %>
+ <div id="error_explanation">
+   <% mylocation.errors.full_messages.each do |msg| %>
+    <p><%= msg %></p>
+   <% end %>
+ </div>
+<% end %>

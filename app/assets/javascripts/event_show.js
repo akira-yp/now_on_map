@@ -1,12 +1,12 @@
 
-var mymap = L.map('mapid').setView([gon.event.event.latitude, gon.event.event.longitude], 17);
+var mymap2 = L.map('mapid2').setView(markerPosi, 17);
 
 L.tileLayer('http://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
   attribution: 'Map data &copy; <a href="http://openstreetmap.org">OpenStreetMap</a>',
   maxZoom: 18,
   minZoom: 4,
-}).addTo(mymap);
+}).addTo(mymap2);
 
-var latlon = [gon.event.event.latitude, gon.event.event.longitude]
-var marker = L.marker(latlon);
-marker.addTo(mymap);
+// var latlon_show = [gon.event.event.latitude, gon.event.event.longitude]
+var marker_show = L.marker(markerPosi);
+marker_show.addTo(mymap2);

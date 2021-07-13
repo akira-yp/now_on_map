@@ -1,0 +1,83 @@
+<h6>マイページ</h6>
+<div class="container-fluid mx-auto my-3">
+  <div class="row">
+    <div class="">
+      <% if action_name == 'posts_index' %>
+        <h1><%= current_user.name %>さんが投稿したイベント一覧</h1>
+      <% else %>
+        <h1><%= current_user.name %>さんが気になるイベント一覧</h1>
+      <% end %>
+    </div>
+
+  </div>
+  <div class="row">
+    <div class="map-wrapper col-sm-9">
+      <div id="mapid" class="map-mypage">
+      </div>
+    </div>
+    <div class="col-sm-3">
+      <div class="">
+        <%= link_to '投稿したイベント一覧を表示', posts_index_user_path(current_user.id) %>
+      </div>
+      <div class="">
+        <%= link_to '気になるイベント一覧を表示', mypage_user_path(current_user.id) %>
+      </div>
+      <div class="mt-3">
+        <h5>登録しているホーム</h5>
+        <% if current_user.mylocations %>
+          <% current_user.mylocations.each do |ml| %>
+            <div class="container">
+              <div class="row">
+                <div data-lat="<%= ml.my_latitude %>" data-lng="<%= ml.my_longitude %>" data-name="<%= ml.name %>" class="gotoMyloc col-auto">
+                  <%= ml.name %>
+                  <%= ml.my_address %>
+                </div>
+                <div class="col-auto">
+                  <%= link_to '削除', user_mylocation_path(current_user.id, ml.id),class:"btn btn-sm btn-outline-dark",method: :delete %></object>
+                </div>
+              </div>
+            </div>
+          <% end %>
+        <% end %>
+      </div>
+      <div class="">
+
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="container-fluid mx-auto">
+</div>
+  <div class="row">
+    <div class="col d-flex flex-wrap">
+      <% @events.sort_by{|e| e.start_date }.each do |event| %>
+          <div class="border p-2 m-2  event-card">
+            <h5><%= event.title %></h3>
+            <p class="font-s">場所：<%= event.location %></p>
+            <p class="font-s" >開催期間：<%= l event.start_date, format: :date %> ~ <%= l event.end_date, format: :date %></p>
+            <%= link_to '詳細', event_path(event.id) %>
+            <% if event.user == current_user %>
+              <%= link_to '編集', edit_event_path(event.id) %>
+              <%= link_to '削除', event_path(event.id), method: :delete %>
+            <% end %>
+          </div>
+      <% end %>
+    </div>
+  </div>
+
+</div>
+
+
+<div id="mask" class="hidden"></div>
+
+<div id="new_event_modal" class="hidden"></div>
+<div id="new_mylocation_modal" class="hidden"></div>
+<div id="edit_event_modal" class="hidden"></div>
+<div id="show_event_modal" class="hidden"></div>
+
+<% if action_name == 'create' || action_name == 'update' %>
+  <%= javascript_include_tag 'event_show' %>
+<% else %>
+  <%= javascript_include_tag 'mypage' %>
+<% end %>

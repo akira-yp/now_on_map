@@ -8,6 +8,7 @@ class User < ApplicationRecord
   has_many :favorites, dependent: :destroy
   has_many :favorite_events, through: :favorites, source: :event
   has_many :comments, dependent: :destroy
+  has_many :mylocations, dependent: :destroy
   # Include default devise modules. Others available are:
   # :confirmable, :lockable, :timeoutable, :trackable and :omniauthable
   devise :database_authenticatable, :registerable,
@@ -15,6 +16,21 @@ class User < ApplicationRecord
 
   def self.create_unique_string
     SecureRandom.uuid
+  end
+
+  def self.guest
+    find_or_create_by!(email:"guest@guest.com") do |user|
+      user.name = "guest"
+      user.password = SecureRandom.urlsafe_base64
+    end
+  end
+
+  def self.guest_admin
+    find_or_create_by!(email:"guest_admin@guest.com") do |user|
+      user.name = "guest_admin"
+      user.password = SecureRandom.urlsafe_base64
+      user.admin = true
+    end
   end
 
   def self.find_for_google(auth)

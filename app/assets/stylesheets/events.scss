@@ -23,9 +23,18 @@ a:active { color: #000000; }
   border-radius: 20px;
 }
 
+#mapid2 {
+  border-radius: 20px
+}
+
 .map-index {
   width: 100%;
   height: 500px;
+}
+
+.map-mypage {
+  width: 100%;
+  height: 400px;
 }
 
 .search-bar {
@@ -73,7 +82,7 @@ a:active { color: #000000; }
   border-radius: 15px;
 }
 
-#new_event_modal{
+#new_event_modal,#new_mylocation_modal{
   position: fixed;
   top: 10vh;
   left: 0;
@@ -85,7 +94,31 @@ a:active { color: #000000; }
   width: 500px;
 }
 
-#new_event_modal.hidden{
+#edit_event_modal{
+  position: fixed;
+  top: 10vh;
+  left: 0;
+  right: 0;
+  margin: 0 auto;
+  transform: translate(0, 0) scale(1);
+  transition: 0.2s;
+  z-index: 1300;
+  width: 700px;
+}
+
+#show_event_modal{
+  position: fixed;
+  top: 10vh;
+  left: 0;
+  right: 0;
+  margin: 0 auto;
+  transform: translate(0, 0) scale(1);
+  transition: 0.2s;
+  z-index: 1300;
+  width: 700px;
+}
+
+#new_event_modal.hidden, #new_mylocation_modal.hidden, #edit_event_modal.hidden,#show_event_modal.hidden{
   opacity: 0;
   visibility: hidden;
   transform: translate(0, 0) scale(0.8);
@@ -93,4 +126,16 @@ a:active { color: #000000; }
 
 .modal-wrapper{
   background: #ffffff;
+}
+
+.event-card {
+  width:250px;
+  height:250px;
+}
+.card-link {
+  display: block;
+}
+
+.font-s{
+  font-size: 0.75rem;
 }

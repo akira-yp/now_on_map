@@ -16,10 +16,12 @@
       <div class="">
         <%= link_to "イベントマップ", events_path %>
         <% if user_signed_in? %>
-          <%= link_to 'イベント投稿', new_event_path %>
+          <%= link_to 'マイページ', mypage_user_path(current_user.id)  %>
           <%= link_to t('view.log_out'), destroy_user_session_path, method: :delete %>
         <% else %>
           <%= link_to t('view.sign_in'), new_user_session_path %>
+          <%= link_to 'ゲストログイン(一般)', users_guest_sign_in_path, method: :post %>
+          <%= link_to 'ゲストログイン(管理者)', users_guest_admin_sign_in_path, method: :post %>
         <% end %>
       </div>
     </header>

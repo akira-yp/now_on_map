@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_07_01_144219) do
+ActiveRecord::Schema.define(version: 2021_07_09_143544) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -82,6 +82,17 @@ ActiveRecord::Schema.define(version: 2021_07_01_144219) do
     t.index ["name"], name: "index_hashtags_on_name", unique: true
   end
 
+  create_table "mylocations", force: :cascade do |t|
+    t.string "name", null: false
+    t.text "my_address"
+    t.float "my_latitude", null: false
+    t.float "my_longitude", null: false
+    t.bigint "user_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["user_id"], name: "index_mylocations_on_user_id"
+  end
+
   create_table "users", force: :cascade do |t|
     t.string "name", null: false
     t.text "image"
@@ -99,6 +110,7 @@ ActiveRecord::Schema.define(version: 2021_07_01_144219) do
     t.inet "last_sign_in_ip"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.boolean "admin", default: false
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
     t.index ["uid", "provider"], name: "index_users_on_uid_and_provider", unique: true
   end
@@ -112,4 +124,5 @@ ActiveRecord::Schema.define(version: 2021_07_01_144219) do
   add_foreign_key "favorites", "users"
   add_foreign_key "hashtagings", "events"
   add_foreign_key "hashtagings", "hashtags"
+  add_foreign_key "mylocations", "users"
 end
