@@ -1,5 +1,5 @@
-if ( gon.events == []){
-  var default_latlng = [35.678362, 139.715387]
+if ( gon.events.length == 0 ){
+  var default_latlng = [35.678362, 139.715387];
 } else {
   var default_latlng = [gon.events.slice(-1)[0].event.latitude, gon.events.slice(-1)[0].event.longitude]
 };
