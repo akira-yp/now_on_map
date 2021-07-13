@@ -18,7 +18,11 @@ class EventsController < ApplicationController
 
     @day_searched = change_to_timeclass(search_params[:start_date_lteq_all])
 
-    @keyword = @categories[search_params[:categories_id_eq].to_i - 1].name
+    if search_params[:categories_id_eq] == ""
+      @keyword = "全"
+    else
+      @keyword = @categories[search_params[:categories_id_eq].to_i - 1].name
+    end
 
     gon.events = @events.map { | event | { 'event':event, 'categories':event.categories.pluck(:name),'date':"#{event.start_date.strftime("%Y年%m月%d日")} ~ #{event.end_date.strftime("%Y年%m月%d日")}" } }
     render :index
@@ -38,11 +42,6 @@ class EventsController < ApplicationController
       if @event.save
         format.html { redirect_to mypage_user_path(current_user.id)}
         format.js { render js: "window.location = '#{posts_index_user_path(current_user.id)}' " }
-        # gon.event = {'event' => @event, 'category' => @event.categories.pluck(:name)}
-        # @categories = Category.all
-        # @q = Event.ransack(params[:q])
-
-        # redirect_to posts_index_user_path(current_user.id), notice:"新しいイベントを投稿しました"
       else
         format.js
       end
