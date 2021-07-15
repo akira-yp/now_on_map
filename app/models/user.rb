@@ -14,6 +14,9 @@ class User < ApplicationRecord
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :validatable, :omniauthable, omniauth_providers: %i(google)
 
+  THUMBNAIL_SIZE = [100, 100]
+  mount_uploader :image, ImageUploader
+
   def self.create_unique_string
     SecureRandom.uuid
   end

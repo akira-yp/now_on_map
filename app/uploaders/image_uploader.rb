@@ -6,8 +6,13 @@ class ImageUploader < CarrierWave::Uploader::Base
   # Choose what kind of storage to use for this uploader:
   storage :file
   # storage :fog
-  process :resize_to_limit => [400,400]
+  # process :resize_to_limit => [400,400]
+  process :dynamic_resize_fit
 
+  def dynamic_resize_fit
+    size = model.class::THUMBNAIL_SIZE
+    resize_to_fit size[0],size[1]
+  end
   # Override the directory where uploaded files will be stored.
   # This is a sensible default for uploaders that are meant to be mounted:
   def store_dir
@@ -31,7 +36,7 @@ class ImageUploader < CarrierWave::Uploader::Base
 
   # Create different versions of your uploaded files:
   # version :thumb do
-  #   process resize_to_fit: [50, 50]
+  #   process dynamic_resize_fit
   # end
 
   # Add a white list of extensions which are allowed to be uploaded.

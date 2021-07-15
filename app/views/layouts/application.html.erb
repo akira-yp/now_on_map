@@ -18,6 +18,7 @@
         <% if user_signed_in? %>
           <%= link_to 'マイページ', mypage_user_path(current_user.id)  %>
           <%= link_to t('view.log_out'), destroy_user_session_path, method: :delete %>
+          <%= link_to "ユーザー情報",edit_user_registration_path %>
         <% else %>
           <%= link_to t('view.sign_in'), new_user_session_path %>
           <%= link_to 'ゲストログイン(一般)', users_guest_sign_in_path, method: :post %>
