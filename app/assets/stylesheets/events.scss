@@ -139,3 +139,38 @@ a:active { color: #000000; }
 .font-s{
   font-size: 0.75rem;
 }
+
+.post-image-area{
+  position: relative;
+  height:100px;
+}
+
+@mixin imageBox{
+  height: 100px;
+  width: 100px;
+  cursor: pointer;
+  position: absolute;
+  top: 0;
+  left: 0;
+}
+
+#post-image{
+  @include imageBox;
+  z-index: 1;
+}
+
+.choice-box{
+  @include imageBox;
+  background-color: #d3d3d3;
+  pointer-events: none;
+  line-height: 100px;
+  text-align: center;
+  z-index: 2;
+  border: 2px dashed black;
+}
+
+.current-image{
+  position: absolute;
+  top: 0;
+  left: 100px;
+}
