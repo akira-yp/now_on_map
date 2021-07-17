@@ -1,10 +1,16 @@
 <% unless comments == nil %>
   <% comments.each do |comment| %>
-    <div class="">
-      <div class="">
-        <%= comment.user.name %>
+    <div class="d-flex justify-content-start">
+      <div class="align-self-center ml-3">
+        <%= link_to edit_user_registration_path do %>
+          <% if comment.user.image.present? %>
+            <% image_tag comment.user.image.url, class:"avatar-m" %>
+          <% else %>
+            <%= image_tag 'default_avatar', class:"avatar-m" %>
+          <% end %>
+        <% end %>
       </div>
-      <div class="">
+      <div class="align-self-center">
         <%= comment.content %>
       </div>
     </div>
