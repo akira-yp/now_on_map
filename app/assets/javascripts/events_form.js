@@ -1,11 +1,11 @@
 
-var mymap2 = L.map('mapid2').setView(markerPosi, 13);
+var mymap3 = L.map('mapid3').setView(markerPosi, 13);
 
 L.tileLayer('http://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
   attribution: 'Map data &copy; <a href="http://openstreetmap.org">OpenStreetMap</a>',
   maxZoom: 18,
   minZoom: 4,
-}).addTo(mymap2);
+}).addTo(mymap3);
 
 // var centerIcon = L.icon({
 //   iconUrl: '/centermarker.png',
@@ -13,17 +13,17 @@ L.tileLayer('http://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
 //   iconAnchor: [24, 48]
 // });
 
-var centerMarker = L.marker( mymap2.getCenter(),{zIndexOffset:3,interactive:false} ).addTo(mymap2).bindPopup('<p>イベントの設置位置を修正できます</p>').openPopup();
+var centerMarker = L.marker( mymap3.getCenter(),{zIndexOffset:3,interactive:false} ).addTo(mymap3).bindPopup('<p>イベントの設置位置を修正できます</p>').openPopup();
 
-mymap2.on('move', function(e) {
-    centerMarker.setLatLng(mymap2.getCenter()); //センタークロス表示用
+mymap3.on('move', function(e) {
+    centerMarker.setLatLng(mymap3.getCenter()); //センタークロス表示用
     //マップムーブイベントで値を出力
-    outputPos(mymap2);
+    outputPos(mymap3);
   });
 
   //現在の緯度・経度・倍率を取得して指定の要素に情報を出力する関数
-function outputPos(mymap2){
-  var pos = mymap2.getCenter();
+function outputPos(mymap3){
+  var pos = mymap3.getCenter();
   document.getElementById('latitude').value = pos.lat.toFixed(6) ;
   document.getElementById('longitude').value = pos.lng.toFixed(6) ;
 }
