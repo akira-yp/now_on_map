@@ -115,7 +115,9 @@ a:active { color: #000000; }
   transform: translate(0, 0) scale(1);
   transition: 0.2s;
   z-index: 1300;
-  width: 700px;
+  width: 80%;
+  height: 500px;
+  overflow: auto;
 }
 
 #new_event_modal.hidden, #new_mylocation_modal.hidden, #edit_event_modal.hidden,#show_event_modal.hidden{
@@ -138,4 +140,48 @@ a:active { color: #000000; }
 
 .font-s{
   font-size: 0.75rem;
+}
+
+
+//ユーザ関連
+.post-image-area{
+  position: relative;
+  height:100px;
+}
+
+@mixin imageBox{
+  height: 100px;
+  width: 100px;
+  cursor: pointer;
+  position: absolute;
+  top: 0;
+  left: 0;
+}
+
+#post-image{
+  @include imageBox;
+  z-index: 1;
+}
+
+.choice-box{
+  @include imageBox;
+  background-color: #d3d3d3;
+  pointer-events: none;
+  line-height: 100px;
+  text-align: center;
+  z-index: 2;
+  border: 2px dashed black;
+}
+
+.current-image{
+  position: absolute;
+  top: 0;
+  left: 100px;
+}
+
+.avatar-m {
+  width: 40px;
+  height: 40px;
+  border-radius: 20px;
+  background: #ffffff;
 }

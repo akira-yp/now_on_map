@@ -14,6 +14,9 @@ class User < ApplicationRecord
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :validatable, :omniauthable, omniauth_providers: %i(google)
 
+  THUMBNAIL_SIZE = [100, 100]
+  mount_uploader :image, ImageUploader
+
   def self.create_unique_string
     SecureRandom.uuid
   end
@@ -45,5 +48,18 @@ class User < ApplicationRecord
     end
     user.save
     user
+  end
+
+  def update_without_current_password(params, *options)
+    params.delete(:current_password)
+
+    if params[:password].blank? && params[:password_confirmation].blank?
+      params.delete(:password)
+      params.delete(:password_confirmation)
+    end
+
+    result = update_attributes(params, *options)
+    clean_up_passwords
+    result
   end
 end

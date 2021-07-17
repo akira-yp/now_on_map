@@ -1,6 +1,6 @@
 
 
-<div class="container-fluid modal-wrapper">
+<div class="container-fluid modal-wrapper ">
   <div class="row justify-content-center">
 
   </div>
@@ -54,7 +54,7 @@
       <% if user_signed_in? %>
         <div class="">
           <% if @event.user == current_user %>
-            <%= link_to t('view.edit'), edit_event_path(@event) %>
+            <%= link_to t('view.edit'), edit_event_path(@event),remote: true %>
             <%= link_to t('view.destroy'), event_path(@event), method: :delete %>
           <% end %>
         </div>

@@ -20,6 +20,7 @@ class Event < ApplicationRecord
   has_many :hashtagings, dependent: :destroy
   has_many :hashtags, through: :hashtagings, source: :hashtag
 
+  THUMBNAIL_SIZE = [400, 400]
   mount_uploader :image, ImageUploader
 
   def start_end_check
