@@ -24,7 +24,9 @@ class Event < ApplicationRecord
   mount_uploader :image, ImageUploader
 
   def start_end_check
-    errors.add(:end_date, "は開始日より後になるよう設定してください") if self.start_date > self.end_date
+    if self.start_date && self.end_date
+      errors.add(:end_date, "は開始日より後になるよう設定してください") if self.start_date > self.end_date
+    end
   end
 
   after_create do
