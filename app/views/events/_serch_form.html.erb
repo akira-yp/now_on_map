@@ -4,11 +4,9 @@
       <div class="">
         <label>カテゴリーで絞りこむ</label>
       </div>
-      <div class="category-input">
+      <div class="category-input d-flex flex-wrap">
         <%= f.collection_radio_buttons :categories_id_eq, @categories, :id, :name %>
-      </div>
-      <div class="">
-        <%= f.radio_button :categories_id_eq, '', checked: true %>
+        <%= f.radio_button :categories_id_eq, '', checked: true,id:"q_categories_id_eq" %>
         <%= f.label :categories_id_eq, "指定なし" %>
       </div>
     </div>
@@ -20,8 +18,8 @@
         <%= f.date_field :start_date_lteq_all %>
         <%= f.hidden_field :end_date_gteq_all %>
       </div>
-      <div class="m-3">
-        <%= f.submit class:"btn-sm btn-primary"%>
+      <div class="m-3 text-right">
+        <%= f.submit class:"action-btn px-2"%>
       </div>
     </div>
   <% end %>
