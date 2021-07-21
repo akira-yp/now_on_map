@@ -27,3 +27,19 @@ function outputPos(mymap3){
   document.getElementById('latitude').value = pos.lat.toFixed(6) ;
   document.getElementById('longitude').value = pos.lng.toFixed(6) ;
 }
+
+
+$('#event-post-image').change(function(){
+  console.log('change');
+  $('.event-image').remove();
+  var file = $(this).prop('files')[0];
+  if(!file.type.match('image.*')){
+    return;
+  }
+  var fileReader = new FileReader();
+  fileReader.onloadend = function() {
+    $('.current-image').html('<img src="' + fileReader.result + '" style="width:150px; height:150px; object-fit:cover;"/>');
+    $('.choice-box').css('opacity','0');
+  }
+  fileReader.readAsDataURL(file);
+});

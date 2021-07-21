@@ -3,9 +3,20 @@ ja:
     sign_in: ログイン
     log_out: ログアウト
     post: 投稿
+    update: 変更
     edit: 編集
     destroy: 削除
     search_by_date: 開催日から検索
+    event:
+      title: イベント名
+      description: イベント詳細
+      location: 開催地
+      period: 開催期間
+      start_date: 開催日
+      end_date: 終了日
+      image: 関連画像
+      official_page: サイトurl
+    category: カテゴリー
   activerecord:
     errors:
       messages:
