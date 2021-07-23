@@ -9,8 +9,25 @@
   left: 0;
 }
 
+@keyframes fadein {
+  0% {
+    opacity:0;
+  }
+  100% {
+    opacity:1;
+  }
+}
+@keyframes fadeout {
+  0% {
+    opacity:1;
+  }
+  100% {
+    opacity:0;
+  }
+}
+
 body {
-  background: $bg_color2;
+  background: $bg_color1;
   color: $f_color1;
 }
 //#eeebe2
@@ -26,7 +43,9 @@ header {
   .gloval-navi{
     background: $bg_color2;
     position:fixed;
+    height:60px;
     z-index:1001;
+    margin:0;
   }
 }
 
@@ -47,6 +66,10 @@ a {
   &:active { color: $f_color1; }
 }
 
+label{
+  font-size:0.8rem;
+}
+
 //global-navi
 .menu-item{
   background: #ffffff;
@@ -58,7 +81,8 @@ a {
 }
 
 .spacing-header{
-  height:50px;
+  height:60px;
+  background-color: $bg_color1;
 }
 
 .map-wrapper{
@@ -92,7 +116,7 @@ a {
 
 
 #mapid {
-  border-radius: 20px;
+  border-radius: 10px;
   border:1px solid;
   border-color: $bg_color1;
 }
@@ -104,7 +128,7 @@ a {
 }
 
 #mapid2 {
-  border-radius: 20px;
+  border-radius: 10px;
 }
 
 .map-index {
@@ -183,7 +207,7 @@ a {
 
 .module {
   background: #f0f0f0;
-  border-radius: 15px;
+  border-radius: 10px;
 }
 
 #new_event_modal,#new_mylocation_modal{
@@ -233,6 +257,7 @@ a {
 .modal-wrapper{
   background: $bg_color2;
   width:auto;
+  height: auto;
   min-width: 600px;
   max-height:600px;
   overflow: auto;
@@ -358,5 +383,30 @@ a {
     text-align: center;
     z-index: 1305;
     border: 1px dashed black;
+  }
+}
+
+//notice
+.notice{
+  background-color: $ac_color;
+  border-radius: 5px;
+  min-height: 40px;
+  position:fixed;
+  top:65px;
+  right:5px;
+  z-index:1002;
+  display:flex;
+  align-items:center;
+  animation-name: fadeout;
+  animation-duration: 1s;
+  animation-timing-function: ease;
+  animation-delay: 2s;
+  animation-iteration-count: 1;
+  animation-fill-mode: forwards;
+  p{
+    display: block;
+    font-size: 0.8rem;
+    color:#ffffff;
+    text-align: center;
   }
 }

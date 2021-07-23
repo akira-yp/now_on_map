@@ -9,7 +9,7 @@
     <div class="col">
       <%= form_with( model: event, url:choose_new_or_edit,remote: true ) do |f| %>
 
-      <div class="container p-0">
+      <div class="container p-0 mt-1">
         <div id="event-messages" class="row"></div>
         <div class="row p-0 m-0">
           <div class="col-8 p-0 mx-0 mb-1">
@@ -19,7 +19,10 @@
                   <%= f.label :title, t('view.event.title') %><span class="must_need">*<span>
                 </div>
                 <div class="col-9 pr-0">
-                  <%= f.text_field :title ,placeholder:t('view.event.title') ,required:true %>
+                  <%= f.text_field :title ,placeholder:t('view.event.title') ,required:true,class:"is-invalid" %>
+                </div>
+                <div class="invalid-feedback">
+                  タイトルが入力されていません。
                 </div>
               </div>
               <div class="row mb-1">
@@ -102,7 +105,7 @@
             <% end %>
           </div>
         </div>
-        <div class="text-center my-4">
+        <div class="text-center my-3">
           <%= f.hidden_field :latitude , id:"latitude" %>
           <%= f.hidden_field :longitude , id:"longitude" %>
           <%= f.submit t('view.post'),class:"submit-btn px-5" %>
