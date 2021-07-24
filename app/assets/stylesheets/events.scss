@@ -129,7 +129,7 @@ label{
 
 #mapid2 {
   width:400px;
-  height:500px;
+  height:600px;
 }
 
 .map-index {
@@ -171,7 +171,7 @@ label{
   }
 }
 
-a.btn-inshow{
+a.link-inshow{
   font-size: 0.8rem;
   display:inline-block;
   background:$bg_color1;
@@ -183,6 +183,21 @@ a.btn-inshow{
     background:$ac_color;
   }
 }
+
+.btn-inshow{
+  font-size: 0.8rem;
+  background:$bg_color1;
+  border-radius: 15px;
+  border: none;
+  color:#ffffff;
+  padding:0 10px;
+  padding:0 10px;
+  &:hover{
+    background:$ac_color;
+  }
+}
+
+
 
 
 //お気に入り機能
@@ -279,32 +294,35 @@ a.btn-inshow{
 }
 
 .overflow-wrap{
-  height:500px;
+  height:600px;
   overflow-y: scroll;
 }
 
-#comments_index{
-  max-width:400px;
-  max-height:400px;
-  padding:10px;
-  // background: #ffffff;
-  border-radius: 15px;
-  .comment-wrapper{
-    max-width:350px;
-    margin:0 0 10px 0;
-    background: #ffffff;
-    border-radius: 15px;
-    p{
-      font-size: 0.8rem;
-    }
-  }
-}
+
 
 #new_event_modal.hidden, #new_mylocation_modal.hidden, #edit_event_modal.hidden,#show_event_modal.hidden{
   opacity: 0;
   visibility: hidden;
   transform: translate(0, 0) scale(0.8);
 }
+
+
+#mask {
+  background-color: rgba(0, 0, 0, 0.5);
+  position: fixed;
+  top: 0;
+  bottom: 0;
+  right: 0;
+  left: 0;
+  z-index: 1200;
+}
+
+
+#mask.hidden {
+  opacity: 0;
+  visibility: hidden;
+}
+
 
 .modal-wrapper{
   background: $bg_color2;

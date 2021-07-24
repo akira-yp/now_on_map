@@ -51,7 +51,8 @@ class EventsController < ApplicationController
   def show
     @comments = @event.comments.all.order(created_at: "DESC")
     if user_signed_in?
-      @comment = current_user.comments.build
+      # @comment = current_user.comments.build
+      @comment = current_user.comments.build(event_id: params[:id])
       @favorite = current_user.favorites.find_by(event_id: @event.id)
     end
     # gon.event = {'event' => @event, 'category' => @event.categories.pluck(:name)}
