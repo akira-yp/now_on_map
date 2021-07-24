@@ -104,7 +104,7 @@ label{
 }
 
 .category {
-  background: $bg_color2;
+  background: #ffffff;
   color: $bg_color1;
   display: inline-block;
   padding:3px 5px;
@@ -128,7 +128,8 @@ label{
 }
 
 #mapid2 {
-  border-radius: 10px;
+  width:400px;
+  height:500px;
 }
 
 .map-index {
@@ -145,6 +146,8 @@ label{
   min-width: 400px;
 }
 
+
+//ボタン系
 .action-btn{
   display:inline-block;
   background:$bg_color1;
@@ -168,17 +171,36 @@ label{
   }
 }
 
+a.btn-inshow{
+  font-size: 0.8rem;
+  display:inline-block;
+  background:$bg_color1;
+  border-radius: 15px;
+  border: none;
+  color:#ffffff;
+  padding:0 10px;
+  &:hover{
+    background:$ac_color;
+  }
+}
 
 
 //お気に入り機能
 .like img{
-  width:20px;
-  height:20px;
+  width:10px;
+  height:10px;
 }
 
 .dislike img{
-  width:20px;
-  height:20px;
+  width:10px;
+  height:10px;
+}
+
+#favorite_area{
+  font-size:0.7rem;
+  background:#ffffff;
+  border-radius: 5px;
+  padding:0 5px;
 }
 
 //検索
@@ -236,16 +258,46 @@ label{
 
 #show_event_modal{
   position: fixed;
-  top: 10vh;
+  top: 3rem;
   left: 0;
   right: 0;
   margin: 0 auto;
+  padding: 0;
   transform: translate(0, 0) scale(1);
   transition: 0.2s;
   z-index: 1300;
-  width: 80%;
-  height: 500px;
-  overflow: auto;
+  width:80%;
+  max-width: 850px;
+  background: $bg_color2;
+  h1{
+    display:inline-block;
+    margin-right:5px;
+  }
+  .event-image{
+
+  }
+}
+
+.overflow-wrap{
+  height:500px;
+  overflow-y: scroll;
+}
+
+#comments_index{
+  max-width:400px;
+  max-height:400px;
+  padding:10px;
+  // background: #ffffff;
+  border-radius: 15px;
+  .comment-wrapper{
+    max-width:350px;
+    margin:0 0 10px 0;
+    background: #ffffff;
+    border-radius: 15px;
+    p{
+      font-size: 0.8rem;
+    }
+  }
 }
 
 #new_event_modal.hidden, #new_mylocation_modal.hidden, #edit_event_modal.hidden,#show_event_modal.hidden{
@@ -325,6 +377,8 @@ label{
 //   border: 2px dashed black;
 // }
 
+
+
 .current-image{
   position: absolute;
   top: 0;
@@ -335,8 +389,16 @@ label{
 .avatar-m {
   width: 40px;
   height: 40px;
-  border-radius: 20px;
+  border-radius: 50%;
   background: #ffffff;
+}
+
+.avatar-s {
+  width:30px;
+  height:30px;
+  margin:5px;
+  border-radius: 50%;
+  background:#ffffff;
 }
 
 //投稿フォーム
@@ -410,3 +472,6 @@ label{
     text-align: center;
   }
 }
+
+
+//comment

@@ -1,79 +1,65 @@
 
 
-<div class="container-fluid modal-wrapper ">
-  <div class="row justify-content-center">
+<div class="container-fluid m-0 p-0">
+  <div class="row m-0 p-0 justify-content-start">
 
-  </div>
-
-  <div class="row justify-content-center">
-    <div class="col-sm-auto text-left my-3">
-
-      <div class="container">
-        <div class="row">
-          <div class="col">
-            <h1><%= @event.title %></h1>
-          </div>
-          <div class="col-sm-auto">
-            <% @event.categories.each do | category | %>
-              <span class="category"><%= category.name %></span>
-            <% end %>
-          </div>
-          <div id="favorite_area" class="col-sm-auto">
-            <%= render 'favorites/favorite', { favorite: @favorite, event: @event} %>
-          </div>
-        </div>
-      </div>
-
-    </div>
-    <div class="w-100"></div>
-    <div class="col-sm-auto">
-      <div id="mapid2" style="width:400px; height:400px;"></div>
-
+    <div class="col-auto p-0">
+      <div id="mapid2"></div>
     </div>
 
-    <div class="col-sm-auto">
-      <div class="">
+    <div class="col overflow-wrap">
+      <div class="event-image">
         <% if @event.image.present? %>
           <%= image_tag @event.image.url %>
         <% end %>
       </div>
       <div class="">
-        <div class="">
-          <%= @event.location %>
-        </div>
-        <div class="">
-          <%= render_with_hashtags(@event.description) %>
-        </div>
-        <div class="">
-          <%= raw Rinku.auto_link(@event.official_page,:all,'target="_blank"') %>
-        </div>
-        <div class="">
-          <%= l @event.start_date, format: :date %> ~ <%= l @event.end_date, format: :date %>
-        </div>
+        <h1><%= @event.title %></h1><span id="favorite_area"><%= render 'favorites/favorite', { favorite: @favorite, event: @event} %></span>
       </div>
-      <% if user_signed_in? %>
-        <div class="">
-          <% if @event.user == current_user %>
-            <%= link_to t('view.edit'), edit_event_path(@event),remote: true %>
-            <%= link_to t('view.destroy'), event_path(@event), method: :delete %>
-          <% end %>
-        </div>
-
-        <div class="">
-          <%= link_to 'コメントを作成', new_comment_path(event_id: @event.id), remote:true %>
-        </div>
-      <% end %>
-      <div id="comments" class="">
+      <div class="">
+        <% @event.categories.each do | category | %>
+          <span class="category"><%= category.name %></span>
+        <% end %>
+      </div>
+      <!-- <div id="favorite_area" class="col-sm-auto">
+        <%= render 'favorites/favorite', { favorite: @favorite, event: @event} %>
+      </div> -->
+      <div class="">
+        <span>住所：<%= @event.location %></span>
+      </div>
+      <div class="">
+        <span>開催期間：<%= l @event.start_date, format: :date %> ~ <%= l @event.end_date, format: :date %></span>
+      </div>
+      <div class="mt-2">
+        <%= render_with_hashtags(@event.description) %>
+      </div>
+      <div class="">
+        <%= raw Rinku.auto_link(@event.official_page,:all,'target="_blank"') %>
+      </div>
+      <div class="">
         <% if user_signed_in? %>
-          <div id="comment_modal" class="hidden">
-            <%= render 'comments/form', { comment: @comment } %>
+          <div class="text-right">
+            <% if @event.user == current_user %>
+              <%= link_to t('view.edit'), edit_event_path(@event),remote: true,class:"btn-inshow" %>
+              <%= link_to t('view.destroy'), event_path(@event), method: :delete,class:"btn-inshow" %>
+            <% end %>
+          </div>
+
+          <div id="comments" class="">
+            <%= link_to 'コメントを作成', new_comment_path(event_id: @event.id), remote:true %>
           </div>
         <% end %>
-        <div id="comments_index" class="">
-          <%= render 'comments/index', { comments: @comments} %>
-        </div>
       </div>
+      <div id="comments_index">
+        <%= render 'comments/index', { comments: @comments} %>
+      </div>
+      <% if user_signed_in? %>
+        <div id="comment_modal" class="hidden">
+          <%= render 'comments/form', { comment: @comment } %>
+        </div>
+      <% end %>
     </div>
+
   </div>
 </div>
 
