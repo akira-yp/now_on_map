@@ -34,6 +34,41 @@ ja:
     comment:
       post: このイベントにコメントする？
   activerecord:
+    models:
+      mylocation: マイロケーション
+      user: ユーザー
+      event: イベント
+      comment: コメント
+      favorites: お気に入り
+      hashtag: ハッシュタグ
+      category: カテゴリー
+    attributes:
+      user:
+        id: ID
+        name: 名前
+        email: メールアドレス
+        image: プロフィール画像
+        encrypted_password: パスワード
+        admin: 管理者権限
+      mylocation:
+        name: マイロケーション名
+        my_address: 住所
+      hashtag:
+        name: ハッシュタグ名
+      event:
+        title: イベント名
+        description: イベント内容
+        start_date: 開始日
+        end_date: 終了日
+        official_page: イベントURL
+        image: イベント画像
+        location: 住所
+        latitude: 緯度
+        longitude: 経度
+      comment:
+        content: コメント内容
+      category:
+        name: カテゴリー名
     errors:
       messages:
         record_invalid: 'バリデーションに失敗しました: %{errors}'
