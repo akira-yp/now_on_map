@@ -41,7 +41,9 @@ class EventsController < ApplicationController
     respond_to do |format|
       if @event.save
         format.html { redirect_to mypage_user_path(current_user.id)}
-        format.js { render js: "window.location = '#{posts_index_user_path(current_user.id)}' " }
+        format.js {
+          flash[:notice] = "新しいイベントを投稿しました"
+          render js: "window.location = '#{posts_index_user_path(current_user.id)}' " }
       else
         format.js
       end
@@ -51,7 +53,8 @@ class EventsController < ApplicationController
   def show
     @comments = @event.comments.all.order(created_at: "DESC")
     if user_signed_in?
-      @comment = current_user.comments.build
+      # @comment = current_user.comments.build
+      @comment = current_user.comments.build(event_id: params[:id])
       @favorite = current_user.favorites.find_by(event_id: @event.id)
     end
     # gon.event = {'event' => @event, 'category' => @event.categories.pluck(:name)}
@@ -71,7 +74,9 @@ class EventsController < ApplicationController
     respond_to do |format|
       if @event.update(event_params)
         format.html { redirect_to posts_index_user_path(current_user.id),notice:"イベント内容を変更しました" }
-        format.js { render js: "window.location = '#{posts_index_user_path(current_user.id)}' " }
+        format.js {
+          flash[:notice] = "イベント情報を更新しました"
+          render js: "window.location = '#{posts_index_user_path(current_user.id)}' " }
       else
         format.js
       end

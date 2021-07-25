@@ -1,4 +1,4 @@
-$('#show_event_modal').html('<%= j(render 'detail', { event: @event }) %>');
+$('#show_event_modal').html('<%= j(render 'detail', { event: @event, comment:@comment }) %>');
 
 $('#show_event_modal').removeClass('hidden');
 $('#mask').removeClass('hidden');

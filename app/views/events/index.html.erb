@@ -1,25 +1,28 @@
-<div class="m-3">
-  <% if action_name == 'create' || action_name == 'update' %>
-    <%= @event.title %>
-  <% else %>
-    <% if @day_searched.strftime('%Y%m%d') == Time.now.strftime('%Y%m%d') %>
-      <h1>本日開催中の<%= @keyword %>イベント</h1>
+<div class="map-wrapper p-3">
+  <div class="result-message p-3">
+    <% if action_name == 'create' || action_name == 'update' %>
+      <%= @event.title %>
     <% else %>
-      <h1><%= l @day_searched, format: :date %>に開催中の<%= @keyword %>イベント</h1>
+      <% if @day_searched.strftime('%Y%m%d') == Time.now.strftime('%Y%m%d') %>
+        <h1>本日開催中の<%= @keyword %>イベント</h1>
+      <% else %>
+        <h1><%= l @day_searched, format: :date %>に開催中の<%= @keyword %>イベント</h1>
+      <% end %>
     <% end %>
-  <% end %>
-</div>
+  </div>
 
-<div class="container-fluid my-3">
-  <div class="row">
-    <div class="map-wrapper col-sm-9">
-      <div id="mapid" class="map-index"></div>
-    </div>
-    <div class="col-sm-3">
-      <%= render 'serch_form' %>
+  <div class="container-fluid my-3 px-3">
+    <div class="row">
+      <div class="map-wrapper col-sm-9">
+        <div id="mapid" class="map-index"></div>
+      </div>
+      <div class="col-sm-3">
+        <%= render 'serch_form' %>
+      </div>
     </div>
   </div>
 </div>
+
 
 <% unless @events == nil %>
   <% @events.each do |event| %>

@@ -14,41 +14,71 @@
   <body>
     <header>
 
-      <div class="container-fluid">
-        <div class="row d-flex justify-content-between">
-          <div class="col-auto">
-            <%= link_to "イベントマップ", events_path %>
+      <div class="container-fluid gloval-navi">
+        <div class="row d-flex align-items-center justify-content-between h-100">
+          <div class="col-auto d-flex align-items-center">
+            <div class="menu-item mr-2 py-1 px-2">
+              <%= link_to t('view.event.index'), events_path %>
+            </div>
             <% if user_signed_in? %>
-              <%= link_to 'マイページ', mypage_user_path(current_user.id)  %>
-              <%= link_to t('view.log_out'), destroy_user_session_path, method: :delete %>
-              <%= link_to "ユーザー情報",edit_user_registration_path %>
+              <div class="menu-item mr-2 py-1 px-2">
+                <%= link_to t('view.mypage'), mypage_user_path(current_user.id)  %>
+              </div>
+              <div class="menu-item mr-2 py-1 px-2">
+                <%= link_to t('view.log_out'), destroy_user_session_path, method: :delete %>
+              </div>
+              <div class="menu-item mr-2 py-1 px-2">
+                <%= link_to t('view.user_info'),edit_user_registration_path %>
+              </div>
             <% else %>
-              <%= link_to t('view.sign_in'), new_user_session_path %>
-              <%= link_to 'ゲストログイン(一般)', users_guest_sign_in_path, method: :post %>
-              <%= link_to 'ゲストログイン(管理者)', users_guest_admin_sign_in_path, method: :post %>
+              <div class="menu-item mr-2 py-1 px-2">
+                <%= link_to t('view.sign_in'), new_user_session_path %>
+              </div>
+              <div class="menu-item mr-2 py-1 px-2">
+                <%= link_to 'ゲストログイン(一般)', users_guest_sign_in_path, method: :post %>
+              </div>
+              <div class="menu-item mr-2 py-1 px-2">
+                <%= link_to 'ゲストログイン(管理者)', users_guest_admin_sign_in_path, method: :post %>
+              </div>
             <% end %>
           </div>
           <div class="col-1">
             <% if user_signed_in? %>
-              <%= link_to edit_user_registration_path do %>
-                <% if current_user.image.present? %>
-                  <% image_tag current_user.image.url, class:"avatar-m" %>
-                <% else %>
-                  <%= image_tag 'default_avatar', class:"avatar-m" %>
+              <div class="mr-2 py-1 px-2">
+                <%= link_to edit_user_registration_path do %>
+                  <% if current_user.image.present? %>
+                    <% image_tag current_user.image.url, class:"avatar-m" %>
+                  <% else %>
+                    <%= image_tag 'default_avatar', class:"avatar-m" %>
+                  <% end %>
                 <% end %>
-              <% end %>
+              </div>
             <% end %>
           </div>
         </div>
       </div>
 
     </header>
+    <div class="spacing-header">
+    </div>
     <% if notice  %>
-      <p><%= notice %></p>
+      <div class="notice p-1">
+        <p><%= notice %></p>
+      </div>
     <% end %>
     <% if alert %>
-      <p><%= alert %></p>
+      <div class="notice p-1">
+        <p><%= alert %></p>
+      </div>
     <% end %>
     <%= yield %>
+
+    <footer>
+      <div>
+        <p class="text-center">
+          © 2021 Now On Map All rights reserved.
+        </p></p>
+      </div>
+    </footer>
   </body>
 </html>

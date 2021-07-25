@@ -3,10 +3,73 @@ ja:
     sign_in: ログイン
     log_out: ログアウト
     post: 投稿
+    register: 登録
+    image: 画像
+    update: 変更
     edit: 編集
     destroy: 削除
     search_by_date: 開催日から検索
+    mypage: マイページ
+    user_info: ユーザー情報
+    search:
+      category: カテゴリーで絞り込む
+      event: イベント検索
+    mylocation:
+      index: マイロケーション一覧
+      posts: 投稿したイベント一覧
+      favorites: 気になったイベント一覧
+      delete?: このマイロケーションを削除しますか？
+    event:
+      title: イベント名
+      description: イベント詳細
+      location: 開催地
+      period: 開催期間
+      start_date: 開催日
+      end_date: 終了日
+      image: 関連画像
+      official_page: サイトurl
+      index: イベントマップ
+    user:
+      image: ユーザー画像
+    category: カテゴリー
+    comment:
+      post: このイベントにコメントする？
   activerecord:
+    models:
+      mylocation: マイロケーション
+      user: ユーザー
+      event: イベント
+      comment: コメント
+      favorites: お気に入り
+      hashtag: ハッシュタグ
+      category: カテゴリー
+    attributes:
+      user:
+        id: ID
+        name: 名前
+        email: メールアドレス
+        image: プロフィール画像
+        encrypted_password: パスワード
+        admin: 管理者権限
+      mylocation:
+        name: マイロケーション名
+        my_address: 住所
+      hashtag:
+        name: ハッシュタグ名
+      event:
+        title: イベント名
+        description: イベント内容
+        start_date: 開始日
+        end_date: 終了日
+        official_page: イベントURL
+        image: イベント画像
+        location: 住所
+        latitude: 緯度
+        longitude: 経度
+      comment:
+        content: コメント内容
+      category:
+        name: カテゴリー名
     errors:
       messages:
         record_invalid: 'バリデーションに失敗しました: %{errors}'

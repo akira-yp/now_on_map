@@ -12,7 +12,7 @@ class CommentsController < ApplicationController
     @comment = current_user.comments.build(comment_params)
     respond_to do |format|
       if @comment.save
-      @comments = @comment.event.comments.all.order(created_at: 'DESC')
+        @comments = Comment.where(event_id:@comment.event_id).order(created_at: 'DESC')
         format.js
       else
         format.html { render event_path(@comment.event.id) }
