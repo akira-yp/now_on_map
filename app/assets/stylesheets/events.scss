@@ -27,6 +27,7 @@
 }
 
 body {
+  font-family: verdana, arial, helvetica, sans-serif;
   min-height: 100vh;
   position:relative;
   background: $bg_color1;
@@ -523,5 +524,13 @@ footer{
   p{
     color:#ffffff;
     font-size: 0.8rem;
+  }
+}
+
+.popup{
+  a{
+    font-size: 0.8rem;
+    display:inline-block;
+    margin-right:5px;
   }
 }

@@ -41,7 +41,9 @@ class EventsController < ApplicationController
     respond_to do |format|
       if @event.save
         format.html { redirect_to mypage_user_path(current_user.id)}
-        format.js { render js: "window.location = '#{posts_index_user_path(current_user.id)}' " }
+        format.js {
+          flash[:notice] = "新しいイベントを投稿しました"
+          render js: "window.location = '#{posts_index_user_path(current_user.id)}' " }
       else
         format.js
       end
