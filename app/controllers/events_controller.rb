@@ -74,7 +74,9 @@ class EventsController < ApplicationController
     respond_to do |format|
       if @event.update(event_params)
         format.html { redirect_to posts_index_user_path(current_user.id),notice:"イベント内容を変更しました" }
-        format.js { render js: "window.location = '#{posts_index_user_path(current_user.id)}' " }
+        format.js {
+          flash[:notice] = "イベント情報を更新しました"
+          render js: "window.location = '#{posts_index_user_path(current_user.id)}' " }
       else
         format.js
       end
