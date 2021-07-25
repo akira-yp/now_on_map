@@ -3,6 +3,7 @@ ja:
     sign_in: ログイン
     log_out: ログアウト
     post: 投稿
+    image: 画像
     update: 変更
     edit: 編集
     destroy: 削除
@@ -16,6 +17,8 @@ ja:
       end_date: 終了日
       image: 関連画像
       official_page: サイトurl
+    user:
+      image: ユーザー画像
     category: カテゴリー
   activerecord:
     errors:

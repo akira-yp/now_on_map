@@ -27,6 +27,7 @@
 }
 
 body {
+  height: 100%;
   background: $bg_color1;
   color: $f_color1;
 }
@@ -81,7 +82,7 @@ label{
 }
 
 .spacing-header{
-  height:60px;
+  height:50px;
   background-color: $bg_color1;
 }
 
@@ -139,7 +140,7 @@ label{
 
 .map-mypage {
   width: 100%;
-  height: 400px;
+  height: 500px;
 }
 
 .search-bar {
@@ -197,6 +198,57 @@ a.link-inshow{
   }
 }
 
+.myindex-btn{
+  display:inline-block;
+  background:$bg_color2;
+  border-radius: 20px;
+  padding:0 10px;
+  border: none;
+  color:$bg_color1;
+  &:hover{
+    background:$ac_color;
+    color:#ffffff;
+  }
+}
+
+.gotoMyloc{
+  display: inline-block;
+  background:#ffffff;
+  font-size: 1rem;
+  border:none;
+  border-radius: 5px;
+  position: relative;
+  cursor: pointer;
+  &:hover{
+    background:$ac_color;
+    color:#ffffff;
+    a{
+      color: #ffffff;
+    }
+    // .info{
+    //   display:
+    // }
+  }
+  object{
+    position: absolute;
+    top:3px;
+    right: 3px;
+    a{
+      text-align: center;
+      vertical-align: middle;
+      line-height: 100%;
+      display: block;
+      padding: 0;
+      margin: 0;
+      width:15px;
+      height:15px;
+      border-radius:50%;
+      background: $bg_color1;
+      color: #ffffff;
+      font-size: 0.8rem;
+    }
+  }
+}
 
 
 
@@ -364,24 +416,28 @@ a.link-inshow{
 
 
 //ユーザ関連
-.post-image-area{
-  position: relative;
-  height:100px;
-  .choice-box{
-    @include imagebox(100px,100px);
-    background-color: #d3d3d3;
-    pointer-events: none;
-    line-height: 100px;
-    text-align: center;
-    z-index: 2;
-    border: 1px dashed black;
-  }
-}
-
-#post-image{
-  @include imagebox(100px,100px);
-  z-index: 1;
-}
+// .post-image-area{
+//   position: relative;
+//   height:100px;
+//   .choice-box{
+//     @include imagebox(100px,100px);
+//     background-color: #d3d3d3;
+//     pointer-events: none;
+//     line-height: 100px;
+//     text-align: center;
+//     z-index: 2;
+//     border: 1px dashed black;
+//   }
+// }
+//
+// #post-image{
+//   @include imagebox(100px,100px);
+//   z-index: 1;
+// }
+//
+// .event-image{
+//   z-index:1;
+// }
 
 
 
@@ -448,7 +504,12 @@ a.link-inshow{
 
 #event-post-image{
   @include imagebox(150px,150px);
-  z-index: 1301;
+  display:none;
+  z-index: 1304;
+}
+
+.current-image{
+  z-index: 1303
 }
 
 .event-image-area{
@@ -492,4 +553,4 @@ a.link-inshow{
 }
 
 
-//comment
+//mypage
