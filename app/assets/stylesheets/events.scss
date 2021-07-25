@@ -27,7 +27,8 @@
 }
 
 body {
-  height: 100%;
+  min-height: 100vh;
+  position:relative;
   background: $bg_color1;
   color: $f_color1;
 }
@@ -414,45 +415,6 @@ a.link-inshow{
   font-size: 0.75rem;
 }
 
-
-//ユーザ関連
-// .post-image-area{
-//   position: relative;
-//   height:100px;
-//   .choice-box{
-//     @include imagebox(100px,100px);
-//     background-color: #d3d3d3;
-//     pointer-events: none;
-//     line-height: 100px;
-//     text-align: center;
-//     z-index: 2;
-//     border: 1px dashed black;
-//   }
-// }
-//
-// #post-image{
-//   @include imagebox(100px,100px);
-//   z-index: 1;
-// }
-//
-// .event-image{
-//   z-index:1;
-// }
-
-
-
-// .choice-box{
-//   @include userimagebox;
-//   background-color: #d3d3d3;
-//   pointer-events: none;
-//   line-height: 100px;
-//   text-align: center;
-//   z-index: 2;
-//   border: 2px dashed black;
-// }
-
-
-
 .current-image{
   position: absolute;
   top: 0;
@@ -553,4 +515,13 @@ a.link-inshow{
 }
 
 
-//mypage
+footer{
+  position:absolute;
+  bottom:0;
+  text-align: center;
+  width:100%;
+  p{
+    color:#ffffff;
+    font-size: 0.8rem;
+  }
+}
