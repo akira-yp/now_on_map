@@ -9,12 +9,21 @@ L.tileLayer('http://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
 
 var markers = L.markerClusterGroup();
 
+var markerIcon = L.icon({
+  iconUrl: '/assets/marker-icon.png',
+  shadowUrl: '/assets/marker-shadow.png',
+  iconSize:[26,40],
+  iconAnchor:[13,40],
+  shoadowSize:[40,40],
+  shadowAnchor:[13,40],
+  popupAnchor: [0, -40]
+});
 
 gon.events.forEach((event) => {
   var category = event.categories.reduce((html,cat) => html + `<span class="category">${cat}</span>`,`` );
   var content = `<a href="/events/${event.event.id}" data-remote="true" >${event.event.title}</a><div>${event.date}<div><div>${category}</div>`;
   var latlon = [event.event.latitude, event.event.longitude]
-  var marker = L.marker(latlon);
+  var marker = L.marker(latlon,{icon: markerIcon});
   marker.bindPopup(content).addTo(mymap).on('click',getPosition);
   markers.addLayer(marker);
 });
