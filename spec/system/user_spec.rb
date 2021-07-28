@@ -1,12 +1,9 @@
 require 'rails_helper'
 
 RSpec.describe 'イベント投稿機能', type: :system do
-
-  let(:category_1){ FactoryBot.create(:category1) }
-  let(:category_2){ FactoryBot.create(:category2) }
-  let!(:user_1){ FactoryBot.create(:user) }
-
   before do
+    FactoryBot.create(:category)
+    @user = FactoryBot.create(:user)
     visit new_user_session_path
     fill_in 'メールアドレス', with:'user1@test.com'
     fill_in 'パスワード', with:'password'
@@ -15,7 +12,6 @@ RSpec.describe 'イベント投稿機能', type: :system do
 
   describe 'イベント新規投稿機能' do
     before do
-      FactoryBot.create(:category1)
       visit events_path
       page.first('#mapid').click
       click_link 'この場所にイベントを投稿'
@@ -43,18 +39,12 @@ RSpec.describe 'イベント投稿機能', type: :system do
   end
 
   describe 'イベント検索機能' do
-    let!(:event1){ FactoryBot.create(:event, :with_category1, user: user_1) }
-    let!(:event2){ FactoryBot.create(:event2, :with_category2, user: user_1) }
-    before do
-      visit events_path
-    end
     it 'デフォルト状態で現在開催中のイベントが表示される' do
-      expect(all('.leaflet-marker-icon').size).to eq(1)
+
     end
     context 'カテゴリーで検索した場合' do
       it '一致したカテゴリーを含むイベントが表示される' do
-        find('label', text: 'category1').click
-        click_on 
+
       end
     end
     context '開催日で検索した場合' do

@@ -32,7 +32,7 @@ gon.events.forEach((event) => {
   } else { edit_link = ''};
   var content = `<a data-remote="true" href="/events/${event.event.id}">${event.event.title}</a><div>${event.date}<div><div>${category}</div>${edit_link}`;
   var latlon = [event.event.latitude, event.event.longitude]
-  var marker = L.marker(latlon,{icon: markerIcon});
+  var marker = L.marker(latlon,{icon: markerIcon, alt: "event-marker"});
   marker.bindPopup(content).addTo(mymap).on('click',getPosition);
   markers.addLayer(marker);
 });
