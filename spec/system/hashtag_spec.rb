@@ -1,6 +1,6 @@
 require 'rails_helper'
 
-RSpec.describe 'イベント機能', type: :system do
+RSpec.describe 'ハッシュタグ機能', type: :system do
   before do
     FactoryBot.create(:category)
     @user = FactoryBot.create(:user)
@@ -23,11 +23,6 @@ RSpec.describe 'イベント機能', type: :system do
       end
       it '地図上にイベントが表示される',js: true do
         expect(page).to have_selector '.leaflet-marker-icon'
-      end
-      it 'ハッシュタグにリンクが表示される', js: true do
-        visit event_path(1)
-        expect(page).to have_link '#ハッシュタグテスト'
-        end
       end
     end
 
