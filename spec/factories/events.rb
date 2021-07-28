@@ -18,8 +18,8 @@ FactoryBot.define do
   factory :event2,class: Event do
     title { 'factory_event2' }
     description { 'event_description2'}
-    start_date { Time.now.since(7.days) }
-    end_date { Time.now.since(14.days) }
+    start_date { Time.now.since(8.days) }
+    end_date { Time.now.since(15.days) }
     location { '新国立競技場' }
     latitude { 35.678021 }
     longitude { 139.714769 }

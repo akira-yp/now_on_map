@@ -54,12 +54,17 @@ RSpec.describe 'イベント投稿機能', type: :system do
     context 'カテゴリーで検索した場合' do
       it '一致したカテゴリーを含むイベントが表示される' do
         find('label', text: 'category1').click
-        click_on 
+        click_on '検索'
+        find('.leaflet-marker-icon').click
+        expect(page).to have_selector '.cat-in-popup',text:'category1'
       end
     end
     context '開催日で検索した場合' do
       it '開催期間内に開催日があるイベントが表示される' do
-
+        fill_in '開催日から検索',with: Time.now.since(10.days).strftime('%Y-%m-%d')
+        click_on '検索'
+        find('.leaflet-marker-icon').click
+        expect(page).to have_selector '.event-title',text:'factory_event2'
       end
     end
   end
