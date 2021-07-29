@@ -365,7 +365,7 @@ a.link-inshow{
 
 
 #new_event_modal.hidden, #new_mylocation_modal.hidden, #edit_event_modal.hidden,#show_event_modal.hidden{
-  opacity: 0;
+  // opacity: 0;
   visibility: hidden;
   transform: translate(0, 0) scale(0.8);
 }
