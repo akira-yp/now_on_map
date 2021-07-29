@@ -49,41 +49,6 @@ function inputChange(){
 }
 
 startform.addEventListener('input', inputChange);
-//
-// function popupClick(){
-//   let selectedLatlng =
-// }
-//
-// marker.on("click", function (ev) {
-//         var chagedPos = ev.target.getLatLng();
-//              this.bindPopup(chagedPos.toString()).openPopup();
-//              window.location = 'fmp://$/HelloWorld?script=script02&$id='+chagedPos.toString();
-// });
-// let selectedEvent = document.querySelectorAll('.leaflet-popup-content a')
 
-// $('.leaflet-marker-icon').addEventListener('click', function(){
-//   $('.leaflet-popup-content a')
-// });
-
-
-
-// <% @events.each do |event| %>
-  // var categoryIcon = L.icon({
-  //   iconUrl: "/centermarker.png",
-  //   iconSize:[48,48],
-  //   iconAnchor:[24,48]
-  // });
 
 mymap.addLayer(markers);
-
-//クリック地点の座標を取得してポップアップする
-// var popup = L.popup();
-//
-// function onMapClick(e) {
-//     let latlngArr = e.latlng.split(',')[0];
-//     let newlat = latlngArr[0];
-//     let newlng = latlngArr[1];
-//     popup.setLatLng(e.latlng).setContent("この場所にイベントを投稿する").openOn(mymap);
-// };
-
-// mymap.on('click', onMapClick);
