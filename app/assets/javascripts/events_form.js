@@ -7,17 +7,21 @@ L.tileLayer('http://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
   minZoom: 4,
 }).addTo(mymap3);
 
-// var centerIcon = L.icon({
-//   iconUrl: '/centermarker.png',
-//   iconSize: [48, 48],
-//   iconAnchor: [24, 48]
-// });
+var markerIcon = L.icon({
+  iconUrl: '/assets/marker-icon.png',
+  shadowUrl: '/assets/marker-shadow.png',
+  iconSize:[26,40],
+  iconAnchor:[13,40],
+  shoadowSize:[40,40],
+  shadowAnchor:[13,40],
+  popupAnchor: [0, -40]
+});
 
-var centerMarker = L.marker( mymap3.getCenter() ).addTo(mymap3).bindPopup('<p>イベントの設置位置を修正できます</p>').openPopup();
+ var centerMarker = L.marker( markerPosi,{icon: markerIcon, alt: "event-marker"}).addTo(mymap3);
+// .bindPopup('<p>イベントの設置位置を修正できます</p>').openPopup();
 
 mymap3.on('move', function(e) {
-    // centerMarker.setLatLng(mymap3.getCenter());
-    //センタークロス表示用
+    centerMarker.setLatLng(mymap3.getCenter());
     //マップムーブイベントで値を出力
     outputPos(mymap3);
   });
