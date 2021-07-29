@@ -13,10 +13,11 @@ L.tileLayer('http://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
 //   iconAnchor: [24, 48]
 // });
 
-var centerMarker = L.marker( mymap3.getCenter(),{zIndexOffset:3,interactive:false} ).addTo(mymap3).bindPopup('<p>イベントの設置位置を修正できます</p>').openPopup();
+var centerMarker = L.marker( mymap3.getCenter() ).addTo(mymap3).bindPopup('<p>イベントの設置位置を修正できます</p>').openPopup();
 
 mymap3.on('move', function(e) {
-    centerMarker.setLatLng(mymap3.getCenter()); //センタークロス表示用
+    // centerMarker.setLatLng(mymap3.getCenter());
+    //センタークロス表示用
     //マップムーブイベントで値を出力
     outputPos(mymap3);
   });
