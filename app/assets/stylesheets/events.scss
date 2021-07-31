@@ -540,7 +540,7 @@ a.link-inshow{
   display:flex;
   align-items:center;
   animation-name: fadeout;
-  animation-duration: 1s;
+  animation-duration: 5s;
   animation-timing-function: ease;
   animation-delay: 2s;
   animation-iteration-count: 1;
@@ -550,6 +550,8 @@ a.link-inshow{
     font-size: 0.8rem;
     color:#ffffff;
     text-align: center;
+    vertical-align: middle;
+    margin:0;
   }
 }
 
