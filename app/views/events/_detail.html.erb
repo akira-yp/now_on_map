@@ -33,9 +33,11 @@
       <div class="mt-2">
         <%= render_with_hashtags(@event.description) %>
       </div>
-      <div class="">
-        <%= raw Rinku.auto_link(@event.official_page,:all,'target="_blank"') %>
-      </div>
+      <% if @event.official_page.present? %>
+        <div class="">
+          <%= raw Rinku.auto_link(@event.official_page,:all,'target="_blank"') %>
+        </div>
+      <% end %>
       <div class="">
         <% if user_signed_in? %>
           <div class="text-right">

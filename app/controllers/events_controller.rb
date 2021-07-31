@@ -21,7 +21,8 @@ class EventsController < ApplicationController
     if search_params[:categories_id_eq] == ""
       @keyword = "全"
     else
-      @keyword = @categories[search_params[:categories_id_eq].to_i - 1].name
+      cat_index = @categories.ids.index(search_params[:categories_id_eq].to_i)
+      @keyword = @categories[cat_index].name
     end
 
     gon.events = @events.map { | event | { 'event':event, 'categories':event.categories.pluck(:name),'date':"#{event.start_date.strftime("%Y年%m月%d日")} ~ #{event.end_date.strftime("%Y年%m月%d日")}" } }
