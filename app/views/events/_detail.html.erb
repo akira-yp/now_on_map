@@ -25,7 +25,7 @@
         <%= render 'favorites/favorite', { favorite: @favorite, event: @event} %>
       </div> -->
       <div class="">
-        <span>住所：<%= @event.location %></span>
+        <span>開催場所：<%= @event.location %></span>
       </div>
       <div class="">
         <span>開催期間：<%= l @event.start_date, format: :date %> ~ <%= l @event.end_date, format: :date %></span>
