@@ -41,6 +41,9 @@
                 <%= link_to 'ゲストログイン(管理者)', users_guest_admin_sign_in_path, method: :post %>
               </div>
             <% end %>
+            <div class="menu-item mr-2 py-1 px-2">
+              <a href="#" id="introduction-pop">?</a>
+            </div>
           </div>
           <div class="col-1">
             <% if user_signed_in? %>
@@ -72,6 +75,107 @@
       </div>
     <% end %>
     <%= yield %>
+
+    <div id="introduction-modal" class="hidden p-0 container slider">
+      <a href="#slide-1">1</a>
+      <a href="#slide-2">2</a>
+      <a href="#slide-3">3</a>
+      <a href="#slide-4">4</a>
+      <a href="#slide-5">5</a>
+      <a href="#slide-6">6</a>
+      <div class="slides">
+        <div id="slide-1" class="slide-item">
+          <div class="">
+            <div class="text-center">
+              <h2>NOW ON MAPとは?</h2>
+            </div>
+            <div class="content">
+              <div class="align-middle">
+                <p>地図からイベント情報を投稿・発見できるサイトです。</p>
+                <p>「今日近くで何かやってないかな？」</p>
+                <p>「地域の人にイベントを知らせたい」</p>
+                <p>「旅行先でその時しか体験できないことは？」</p>
+                <p>ぜひ使ってみてください</p>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div id="slide-2" class="slide-item">
+          <div class="">
+            <div class="text-center">
+              <h2>カテゴリーと日付からイベントを探せます</h2>
+            </div>
+            <div class="content">
+              <div class="align-middle">
+
+              </div>
+            </div>
+          </div>
+        </div>
+        <div id="slide-3" class="slide-item">
+          <div class="">
+            <div class="text-center">
+              <h2>地図をクリックすると<br>
+                その場所にイベントを投稿できます</h2>
+            </div>
+            <div class="content">
+              <div class="align-middle">
+
+              </div>
+            </div>
+          </div>
+        </div>
+        <div id="slide-4" class="slide-item">
+          <div class="">
+            <div class="text-center">
+              <h2>イベント情報にコメントを残せます</h2>
+            </div>
+            <div class="content">
+              <div class="align-middle">
+
+              </div>
+            </div>
+          </div>
+        </div>
+        <div id="slide-5" class="slide-item">
+          <div class="">
+            <div class="text-center">
+              <h2>お気に入りしたイベントは<br>
+                マイページで表示できます</h2>
+            </div>
+            <div class="content">
+              <div class="align-middle">
+
+              </div>
+            </div>
+          </div>
+        </div>
+        <div id="slide-6" class="slide-item">
+          <div class="">
+            <div class="text-center">
+              <h2>よく使う場所を登録しておけば<br>
+                ワンクリックで遷移できます</h2>
+            </div>
+            <div class="content">
+              <div class="align-middle">
+
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <script>
+        $('#introduction-pop').on('click',function(){
+          $('#introduction-modal').removeClass('hidden');
+          $('#mask').removeClass('hidden');
+        });
+
+        $('#mask').on('click',function(){
+          $('#introduction-modal').addClass('hidden');
+          $('#mask').addClass('hidden');
+        });
+    </script>
 
     <footer>
       <div>

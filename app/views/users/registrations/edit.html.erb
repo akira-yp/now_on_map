@@ -13,7 +13,7 @@
         </div>
 
         <div class="field">
-          <%= f.label :image, t('view.user.image')+"※画像ファイルをドラッグ＆ドロップできます" %><br />
+          <%= f.label :image, t('view.user.image') %><br />
           <label>
             <div class="post-image-area">
               <%= f.file_field :image , id:"post-image" %>
@@ -75,3 +75,5 @@
     </div>
   </div>
 </div>
+
+<div id="mask" class="hidden"></div>

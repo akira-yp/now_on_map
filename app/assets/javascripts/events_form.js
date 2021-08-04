@@ -35,7 +35,6 @@ function outputPos(mymap3){
 
 
 $('#event-post-image').change(function(){
-  console.log('change');
   $('.event-image').remove();
   var file = $(this).prop('files')[0];
   if(!file.type.match('image.*')){

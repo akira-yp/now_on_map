@@ -311,7 +311,7 @@ a.link-inshow{
   border-radius: 10px;
 }
 
-#new_event_modal,#new_mylocation_modal{
+#new_event_modal,#new_mylocation_modal,#introduction-modal{
   position: fixed;
   top: 3rem;
   left: 0;
@@ -364,8 +364,7 @@ a.link-inshow{
 
 
 
-#new_event_modal.hidden, #new_mylocation_modal.hidden, #edit_event_modal.hidden,#show_event_modal.hidden{
-  // opacity: 0;
+#new_event_modal.hidden, #new_mylocation_modal.hidden, #edit_event_modal.hidden,#show_event_modal.hidden,#introduction-modal.hidden{
   visibility: hidden;
   transform: translate(0, 0) scale(0.8);
 }
@@ -506,11 +505,19 @@ a.link-inshow{
 #event-post-image{
   @include imagebox(150px,150px);
   display:none;
-  z-index: 1304;
+  z-index: 1306;
 }
 
 .current-image{
-  z-index: 1303
+  z-index: 1303;
+  .event-image {
+      width:150px;
+      height:150px;
+  }
+  .user-image{
+    width:100px;
+    height:100px;
+  }
 }
 
 .event-image-area{
@@ -520,10 +527,11 @@ a.link-inshow{
   .choice-box{
     @include imagebox(150px,150px);
     background-color: #d3d3d3;
-    pointer-events: none;
+    pointer-events: auto;
     line-height: 150px;
     text-align: center;
     z-index: 1305;
+    opacity:0.5;
     border: 1px dashed black;
   }
 }
@@ -582,4 +590,57 @@ a.hashtag{
   border-radius: 10px;
   background: #ffffff;
   color: #5c5ced;
+}
+
+//introduction slider
+.slider{
+  text-align: center;
+  overflow: hidden;
+  & > a{
+    display: inline-flex;
+    width: 1.5rem;
+    height: 1.5rem;
+    background: $bg_color2;
+    text-decoration: none;
+    align-items: center;
+    justify-content: center;
+    border-radius: 50%;
+    margin: 0 0 0.5rem 0;
+    position: relative;
+  }
+}
+
+.slides{
+  display: flex;
+  overflow-x:auto;
+  scroll-snap-type: x mandatory;
+  scroll-behavior: smooth;
+  -webkit-overflow-scrolling: touch;
+  .slide-item{
+    scroll-snap-align: start;
+    flex-shrink: 0;
+    width: 600px;
+    height: 400px;
+    margin-right: 50px;
+    padding: 2rem;
+    background: $bg_color2;
+    transform-origin: center center;
+    transform: scale(1);
+    transition: transform 0.5s;
+    position: relative;
+    .content{
+      height:300px;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+  }
+}
+.slides::-webkit-scrollbar {
+  width: 10px;
+  height: 10px;
+}
+.slides::-webkit-scrollbar-thumb {
+  background: black;
+  border-radius: 10px;
 }

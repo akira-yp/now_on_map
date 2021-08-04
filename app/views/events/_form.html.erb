@@ -65,13 +65,14 @@
               <label>
                 <div class="event-image-area">
                   <%= f.file_field :image , id:"event-post-image" %>
-                  <div class="choice-box">
-                    ＋
-                  </div>
-                  <div class="current-image">
-                    <img class="event-image" src="#">
-                  </div>
-                  <%= f.hidden_field :image_cache %>
+                    <div class="choice-box">
+                      ＋
+                    </div>
+                    <div class="current-image">
+                      <% if event.image.present? %>
+                        <%= image_tag event.image.url, class:"event-image" %>
+                      <% end %>
+                    </div>
                 </div>
               </label>
             </div>
