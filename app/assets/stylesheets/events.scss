@@ -315,6 +315,7 @@ a.link-inshow{
   border-radius: 10px;
 }
 
+//モーダル
 #new_event_modal,#new_mylocation_modal,#introduction-modal{
   position: fixed;
   top: 3rem;
@@ -441,6 +442,22 @@ a.link-inshow{
     &:hover{
       background:$ac_color;
       color:#ffffff;
+    }
+  }
+}
+
+.official-page{
+  a{
+    display: inline-block;
+    padding: 0 10px;
+    background: #ffffff;
+    font-weight: bold;
+    color:$bg_color1;
+    border-radius: 10px;
+    border: none;
+    &:hover{
+      color:#ffffff;
+      background: $ac_color;
     }
   }
 }
@@ -593,7 +610,24 @@ a.hashtag{
   border: none;
   border-radius: 10px;
   background: #ffffff;
-  color: #5c5ced;
+  color: $bg_color1;
+}
+
+.hashtag-index{
+  a{
+    display: inline-block;
+    margin:5px 5px 5px 0 ;
+    padding:0 10px;
+    border: none;
+    border-radius: 10px;
+    background: $bg_color2;
+    color: $bg_color1;
+    font-size: 0.9rem;
+    &:hover{
+      background: $ac_color;
+      color: $bg_color2;
+    }
+  }
 }
 
 //introduction slider

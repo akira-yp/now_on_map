@@ -38,7 +38,11 @@
                   <%= f.label :start_date, t('view.event.start_date') %><span class="must_need">*<span>
                 </div>
                 <div class="col-9 pr-0">
-                  <%= f.date_field :start_date,value:Time.now.strftime("%Y-%m-%d"), class:"calender" %>
+                  <% if action_name == "new" %>
+                    <%= f.date_field :start_date,value:Time.now.strftime("%Y-%m-%d"), class:"calender" %>
+                  <% else %>
+                    <%= f.date_field :start_date, class:"calender" %>
+                  <% end %>
                 </div>
               </div>
               <div class="row mb-2">
@@ -46,7 +50,11 @@
                   <%= f.label :end_date, t('view.event.end_date') %><span class="must_need">*<span>
                 </div>
                 <div class="col-9 pr-0">
-                  <%= f.date_field :end_date ,value:Time.now.since(7.days).strftime("%Y-%m-%d"),class:"calender" %>
+                  <% if action_name == "new" %>
+                    <%= f.date_field :end_date ,value:Time.now.since(7.days).strftime("%Y-%m-%d"),class:"calender" %>
+                  <% else %>
+                    <%= f.date_field :end_date, class:"calender" %>
+                  <% end %>
                 </div>
               </div>
               <div class="row mb-1">

@@ -9,13 +9,14 @@ class EventsController < ApplicationController
     gon.events = @events.map { | event | { 'event':event, 'categories':event.categories.pluck(:name),'date':"#{event.start_date.strftime("%Y年%m月%d日")} ~ #{event.end_date.strftime("%Y年%m月%d日")}" } }
 
     @day_searched = Time.now
+    @hashtags = Hashtag.last(10).pluck(:name)
   end
 
   def search
     @q = Event.ransack(params[:q])
     @categories = Category.all
     @events = @q.result(search_params)
-
+    @hashtags = Hashtag.last(10).pluck(:name)
     @day_searched = change_to_timeclass(search_params[:start_date_lteq_all])
 
     if search_params[:categories_id_eq] == ""
@@ -95,6 +96,7 @@ class EventsController < ApplicationController
   def hashtag
     @q = Event.ransack(params[:q])
     @categories = Category.all
+    @hashtags = Hashtag.last(10).pluck(:name)
     @hashtag = Hashtag.find_by(name: params[:name])
     @events = @hashtag.events
     gon.events = @events.map { | event | { 'event':event, 'categories':event.categories.pluck(:name),'date':"#{event.start_date.strftime("%Y年%m月%d日")} ~ #{event.end_date.strftime("%Y年%m月%d日")}" } }

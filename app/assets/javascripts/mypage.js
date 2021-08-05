@@ -1,10 +1,10 @@
 if ( gon.events.length == 0 ){
-  var default_latlng = [35.678362, 139.715387];
+  var default_latlng = [35.681833, 139.749949];
 } else {
   var default_latlng = [gon.events.slice(-1)[0].event.latitude, gon.events.slice(-1)[0].event.longitude]
 };
 
-var mymap = L.map('mapid').setView(default_latlng, 8);
+var mymap = L.map('mapid').setView(default_latlng, 12);
 
 L.tileLayer('http://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
   attribution: 'Map data &copy; <a href="http://openstreetmap.org">OpenStreetMap</a>',
@@ -50,8 +50,9 @@ var popup = L.popup();
 function onMapClick(e) {
   mymap.flyTo([e.latlng.lat,e.latlng.lng], 16, { duration: 1 });
   popup.setLatLng(e.latlng).setContent(`<div><a data-remote="true" href="/events/new?latitude=${e.latlng.lat.toFixed(6)}&longitude=${e.latlng.lng.toFixed(6)}">この場所にイベントを投稿</a></div><div><a data-remote="true" href="/users/${gon.user_id}/mylocations/new?my_latitude=${e.latlng.lat.toFixed(6)}&my_longitude=${e.latlng.lng.toFixed(6)}">この場所にマイロケーションを作成</div>`).openOn(mymap);
-  // console.log(e.latlng.lat.toFixed(6));
-  // console.log(e.latlng.lng.toFixed(6));
+
+  console.log(e.latlng.lat.toFixed(6));
+  console.log(e.latlng.lng.toFixed(6));
 }
 
 mymap.on('click', onMapClick);
