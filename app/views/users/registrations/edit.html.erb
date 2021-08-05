@@ -1,75 +1,77 @@
 <div class="container">
   <div class="row align-items-center ">
     <div class="col-auto users-form">
-
-      <h2><%= t('.title', resource: resource.model_name.human) %></h2>
-
+      <div class="text-center">
+        <h2><%= t('.title', resource: resource.model_name.human) %></h2>
+      </div>
       <%= form_for(resource, as: resource_name, url: registration_path(resource_name), html: { method: :put }) do |f| %>
         <%= render "devise/shared/error_messages", resource: resource %>
-
-        <div class="field">
-          <%= f.label :name %><br />
-          <%= f.text_field :name %>
-        </div>
-
-        <div class="field">
-          <%= f.label :image, t('view.user.image') %><br />
-          <label>
-            <div class="post-image-area">
-              <%= f.file_field :image , id:"post-image" %>
-              <div class="choice-box">
-                +
-              </div>
-              <div class="current-image">
-                <%= image_tag(current_user.image.url, class:"user-image") if current_user.image && current_user.image.url %>
-              </div>
-              <%= f.hidden_field :image_cache %>
+        <div class="flex-area">
+          <div class="left">
+            <div class="field mb-1">
+              <%= f.label :name %><br />
+              <%= f.text_field :name %>
             </div>
-          </label>
-        </div>
-
-
-        <% if current_user.provider == "" %>
-          <div class="field">
-            <%= f.label :email %><br />
-            <%= f.email_field :email, autofocus: true, autocomplete: "email" %>
-          </div>
-        <% end %>
-
-        <% if devise_mapping.confirmable? && resource.pending_reconfirmation? %>
-          <div><%= t('.currently_waiting_confirmation_for_email', email: resource.unconfirmed_email) %></div>
-        <% end %>
-
-        <% if current_user.provider == "" %>
-          <div class="field">
-            <%= f.label :password %> <i>(<%= t('.leave_blank_if_you_don_t_want_to_change_it') %>)</i><br />
-            <%= f.password_field :password, autocomplete: "new-password" %>
-            <% if @minimum_password_length %>
-              <br />
-              <em><%= t('devise.shared.minimum_password_length', count: @minimum_password_length) %></em>
+            <% if current_user.provider == "" %>
+              <div class="field mb-1">
+                <%= f.label :email %><br />
+                <%= f.email_field :email, autofocus: true, autocomplete: "email" %>
+              </div>
             <% end %>
+
+            <% if devise_mapping.confirmable? && resource.pending_reconfirmation? %>
+              <div><%= t('.currently_waiting_confirmation_for_email', email: resource.unconfirmed_email) %></div>
+            <% end %>
+
+            <% if current_user.provider == "" %>
+              <div class="field mb-1">
+                <%= f.label :password %> <i>(<%= t('.leave_blank_if_you_don_t_want_to_change_it') %>)</i><br />
+                <%= f.password_field :password, autocomplete: "new-password",placeholder:"6字以上" %>
+                <!-- <% if @minimum_password_length %>
+                  <br />
+                  <em><%= t('devise.shared.minimum_password_length', count: @minimum_password_length) %></em>
+                <% end %> -->
+              </div>
+
+              <div class="field mb-1">
+                <%= f.label :password_confirmation %><br />
+                <%= f.password_field :password_confirmation, autocomplete: "new-password" %>
+              </div>
+              <!-- <div class="field">
+                <%= f.label :current_password %> <i>(<%= t('.we_need_your_current_password_to_confirm_your_changes') %>)</i><br />
+                <%= f.password_field :current_password, autocomplete: "current-password" %>
+              </div> -->
+              <!-- <h3><%= t('.cancel_my_account') %></h3>
+
+              <p><%= t('.unhappy') %> <%= button_to t('.cancel_my_account'), registration_path(resource_name), data: { confirm: t('.are_you_sure') }, method: :delete %></p> -->
+            <% end %>
+
+          </div>
+          <div class="right">
+            <div class="field">
+              <%= f.label :image, t('view.user.image') %><br />
+              <label>
+                <div class="post-image-area">
+                  <%= f.file_field :image , id:"post-image" %>
+                  <div class="choice-box">
+                    +
+                  </div>
+                  <div class="current-image">
+                    <%= image_tag(current_user.image.url, class:"user-image") if current_user.image && current_user.image.url %>
+                  </div>
+                  <%= f.hidden_field :image_cache %>
+                </div>
+              </label>
+            </div>
+
           </div>
 
-          <div class="field">
-            <%= f.label :password_confirmation %><br />
-            <%= f.password_field :password_confirmation, autocomplete: "new-password" %>
-          </div>
-        <% end %>
-        <!-- <div class="field">
-          <%= f.label :current_password %> <i>(<%= t('.we_need_your_current_password_to_confirm_your_changes') %>)</i><br />
-          <%= f.password_field :current_password, autocomplete: "current-password" %>
-        </div> -->
-
-        <div class="actions">
-          <%= f.submit t('.update') %>
+        </div>
+        <div class="actions text-center mt-4">
+          <%= link_to t('devise.shared.links.back'), :back ,class:"action-btn"%>
+          <%= f.submit t('.update'),class:"action-btn" %>
         </div>
       <% end %>
-
-      <!-- <h3><%= t('.cancel_my_account') %></h3>
-
-      <p><%= t('.unhappy') %> <%= button_to t('.cancel_my_account'), registration_path(resource_name), data: { confirm: t('.are_you_sure') }, method: :delete %></p> -->
-
-      <%= link_to t('devise.shared.links.back'), :back %>
 
       <%= javascript_include_tag 'user_edit' %>
     </div>

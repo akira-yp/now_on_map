@@ -2,6 +2,7 @@ ja:
   view:
     sign_in: ログイン
     log_out: ログアウト
+    sign_up: アカウント登録
     post: 投稿
     register: 登録
     image: 画像
@@ -11,6 +12,8 @@ ja:
     search_by_date: 開催日から検索
     mypage: マイページ
     user_info: ユーザー情報
+    sign_in_with_google: Googleでログイン
+    forgot_your_password: パスワードを忘れましたか？
     search:
       category: カテゴリーで絞り込む
       event: イベント検索
