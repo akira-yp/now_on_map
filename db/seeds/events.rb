@@ -37,12 +37,16 @@ Event.create!([
   {title: "tttt", description: "ttttt", start_date: "2021-07-09 15:00:00", end_date: "2021-07-16 15:00:00", official_page: "", image: nil, location: "tttt", latitude: 35.706707, longitude: 139.696573, user_id: 4},
   {title: "夜のすいぞくかん", description: "暗くなった水槽で、生きものたちの様子をじっくり観察できる。さらに、博多湾のきれいな夜景をバックにジャンプする「夜のイルカショー」も。\r\n\r\n営業時間 9時30分〜21時まで（最終入館20時まで）", start_date: "2021-07-28 15:00:00", end_date: "2021-08-30 15:00:00", official_page: "https://marine-world.jp/whats-new/events/event_66/", image: nil, location: "福岡市東区西戸崎18-28　マリンワールド海の中道", latitude: 33.661212, longitude: 130.363365, user_id: 11},
   {title: "gggg", description: "gggg\r\n#テスト", start_date: "2021-07-21 15:00:00", end_date: "2021-07-28 15:00:00", official_page: "", image: nil, location: "gggg", latitude: 35.672866, longitude: 139.652817, user_id: 8},
+  {title: "大人のかき氷", description: "表参道ヒルズのお店が「TRIP」をテーマに、様々な国や街をイメージしたかき氷を揃えた、毎年恒例「大人のかき氷」を開催！\r\n#かき氷", start_date: "2021-08-03 15:00:00", end_date: "2021-08-10 15:00:00", official_page: "https://www.omotesandohills.com/sp/shavedice/", image: "kakigoori.jpg", location: "表参道ヒルズ", latitude: 35.667225, longitude: 139.708796, user_id: 11},
+  {title: "マリー・アントワネット ～シークレット サマーフルーツ ガーデン", description: "マリー・アントワネットに献上したケーキを忠実に再現したケーキが登場！王妃が愛した最高級の紅茶と旬のフルーツ満載のスイーツを楽しむアフタヌーンティー。\r\n#スイーツ\r\n\r\n平日5,280円、土日祝　6,380円", start_date: "2021-06-30 15:00:00", end_date: "2021-08-30 15:00:00", official_page: "https://www.tokyo.grand.hyatt.co.jp/restaurants/recommended/french-kitchen-sweetsfesta-afternoontea/?utm_source=google&utm_medium=cpc&utm_campaign=sitelink&gclid=CjwKCAjw0qOIBhBhEiwAyvVcfwcynfdkYbytq0qJa7H5xEKIvKYtDkCC6YIp41_J-A8jwIrXeHUJuRoCvNEQAvD_BwE&gclsrc=aw.ds", image: nil, location: "グランド ハイアット 東京", latitude: 35.659776, longitude: 139.728353, user_id: 11},
   {title: "テスト", description: "テスト", start_date: "2021-07-24 15:00:00", end_date: "2021-07-31 15:00:00", official_page: "https://railsguides.jp/i18n.html", image: nil, location: "テスト", latitude: 36.452218, longitude: 136.545917, user_id: 8},
   {title: "hoge", description: "gegeegggeg\r\n#huga", start_date: "2021-07-24 15:00:00", end_date: "2021-07-31 15:00:00", official_page: "https://railsguides.jp/i18n.html", image: "blogging01.png", location: "fz  ggzfzg zg z", latitude: 36.21236, longitude: 139.559175, user_id: 4},
   {title: "hoge", description: "hoge", start_date: "2021-07-24 15:00:00", end_date: "2021-07-31 15:00:00", official_page: "", image: nil, location: "hoge", latitude: 35.436198, longitude: 140.196362, user_id: 4},
   {title: "e", description: "e", start_date: "2021-07-26 15:00:00", end_date: "2021-08-02 15:00:00", official_page: "", image: nil, location: "e", latitude: 37.453875, longitude: 137.201349, user_id: 8},
   {title: "d", description: "d", start_date: "2021-07-28 15:00:00", end_date: "2021-08-04 15:00:00", official_page: "https://railsguides.jp/i18n.html", image: nil, location: "d", latitude: 43.090203, longitude: 141.589768, user_id: 8},
-  {title: "自転車祭り2021", description: "佐渡島一周４０キロメートルを自転車で走破するレース。#ロードバイク", start_date: "2021-07-28 15:00:00", end_date: "2021-08-04 15:00:00", official_page: "", image: "bicycle-1868162_640.jpg", location: "佐渡島1-1", latitude: 37.996372, longitude: 138.272791, user_id: 8}
+  {title: "自転車祭り2021", description: "佐渡島一周４０キロメートルを自転車で走破するレース。#ロードバイク", start_date: "2021-07-28 15:00:00", end_date: "2021-08-04 15:00:00", official_page: "", image: "bicycle-1868162_640.jpg", location: "佐渡島1-1", latitude: 37.996372, longitude: 138.272791, user_id: 8},
+  {title: "わくわく！ウォーターガーデン", description: "障害物のあるアスレチックアトラクション「ホエールアドベンチャー」をはじめ、大好評のストレートとカーブのウォータースライダー「ざぶ～んダブルスライダー」､ふわふわの泡で遊ぶ「あわあわホイップ」など、ミストシャワーが湧きでる涼しい空間で、水に濡れながら楽しく元気に遊ぶことのできる4つのアトラクションを展開！\r\n\r\n", start_date: "2021-07-16 15:00:00", end_date: "2021-09-11 15:00:00", official_page: "https://at-raku.com/event/wakuwaku_watergarden/", image: nil, location: "東京ドームシティアトラクションズ", latitude: 35.704278, longitude: 139.754268, user_id: 11},
+  {title: "イケセイアイスパーク", description: "デパ地下の特設会場にて「イケセイアイスパーク」を開設、かき氷やジェラートなどが週替わりで登場。初登場のイタリアンかき氷や老舗肉問屋が作る102年の歴史が生んだかき氷など、のべ15店舗の味が楽しめる。\r\n#かき氷", start_date: "2021-08-28 15:00:00", end_date: "2021-08-30 15:00:00", official_page: "https://ignite.jp/2021/07/287637/", image: nil, location: "西武池袋本店", latitude: 35.728825, longitude: 139.711664, user_id: 11}
 ])
 User.create!([
   {name: "testuser", image: "avatar18.png", email: "testuser@test.com", encrypted_password: "$2a$12$b8Gf0zJEinaGk3Ctit0pBOxi9sno/5nKcWneeKEVSuarrr/cDl7LO", provider: "", uid: "4fcae10e-a584-4619-b86e-4a22721779df", reset_password_token: nil, reset_password_sent_at: nil, remember_created_at: nil, sign_in_count: 0, current_sign_in_at: nil, last_sign_in_at: nil, current_sign_in_ip: nil, last_sign_in_ip: nil, admin: false},
@@ -115,7 +119,12 @@ Categorizing.create!([
   {event_id: 36, category_id: 9},
   {event_id: 37, category_id: 9},
   {event_id: 37, category_id: 10},
-  {event_id: 38, category_id: 10}
+  {event_id: 38, category_id: 10},
+  {event_id: 40, category_id: 3},
+  {event_id: 40, category_id: 5},
+  {event_id: 41, category_id: 3},
+  {event_id: 42, category_id: 7},
+  {event_id: 43, category_id: 3}
 ])
 Comment.create!([
   {user_id: 4, event_id: 1, content: "テスト"},
@@ -145,7 +154,9 @@ Comment.create!([
   {user_id: 8, event_id: 31, content: "test２"},
   {user_id: 8, event_id: 31, content: "test3"},
   {user_id: 8, event_id: 12, content: "テスト"},
-  {user_id: 8, event_id: 12, content: "テスト"}
+  {user_id: 8, event_id: 12, content: "テスト"},
+  {user_id: 6, event_id: 42, content: "テスト"},
+  {user_id: 6, event_id: 42, content: "テスト２"}
 ])
 Favorite.create!([
   {user_id: 4, event_id: 1},
@@ -155,7 +166,15 @@ Favorite.create!([
   {user_id: 4, event_id: 14},
   {user_id: 4, event_id: 17},
   {user_id: 8, event_id: 17},
-  {user_id: 8, event_id: 12}
+  {user_id: 8, event_id: 12},
+  {user_id: 11, event_id: 25},
+  {user_id: 11, event_id: 11},
+  {user_id: 11, event_id: 36},
+  {user_id: 11, event_id: 12},
+  {user_id: 11, event_id: 38},
+  {user_id: 11, event_id: 40},
+  {user_id: 11, event_id: 41},
+  {user_id: 6, event_id: 42}
 ])
 Hashtag.create!([
   {name: "インド料理"},
@@ -172,7 +191,9 @@ Hashtag.create!([
   {name: "huga"},
   {name: "港"},
   {name: "テスト"},
-  {name: "ロードバイク"}
+  {name: "ロードバイク"},
+  {name: "かき氷"},
+  {name: "スイーツ"}
 ])
 Hashtaging.create!([
   {event_id: 9, hashtag_id: 1},
@@ -186,7 +207,10 @@ Hashtaging.create!([
   {event_id: 11, hashtag_id: 8},
   {event_id: 21, hashtag_id: 14},
   {event_id: 8, hashtag_id: 12},
-  {event_id: 31, hashtag_id: 15}
+  {event_id: 31, hashtag_id: 15},
+  {event_id: 40, hashtag_id: 16},
+  {event_id: 41, hashtag_id: 17},
+  {event_id: 43, hashtag_id: 16}
 ])
 Mylocation.create!([
   {name: "テスト", my_address: "テスト", my_latitude: 35.348736, my_longitude: 139.505028, user_id: 4},

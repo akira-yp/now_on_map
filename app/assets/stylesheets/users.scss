@@ -43,6 +43,9 @@
   i{
     font-size: 0.5rem;
   }
+  em{
+    font-size: 0.8rem;
+  }
   .action-btn{
     display:inline-block;
     font-size: 0.8rem;
@@ -70,28 +73,6 @@
     }
   }
  }
-
-
-
- // #event-post-image{
- //   @include imagebox(150px,150px);
- //   z-index: 1301;
- // }
- //
- // .event-image-area{
- //   position: relative;
- //   width:150px;
- //   height:150px;
- //   .choice-box{
- //     @include imagebox(150px,150px);
- //     background-color: #d3d3d3;
- //     pointer-events: none;
- //     line-height: 150px;
- //     text-align: center;
- //     z-index: 1305;
- //     border: 1px dashed black;
- //   }
- // }
 
  .post-image-area{
    position: relative;
