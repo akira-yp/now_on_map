@@ -35,14 +35,17 @@
                 <%= link_to t('view.sign_in'), new_user_session_path %>
               </div>
               <div class="menu-item mr-2 py-1 px-2">
-                <%= link_to 'ゲストログイン(一般)', users_guest_sign_in_path, method: :post %>
+                <%= link_to 'ゲストログイン(一般)', users_guest_sign_in_path,method: :post %>
               </div>
               <div class="menu-item mr-2 py-1 px-2">
                 <%= link_to 'ゲストログイン(管理者)', users_guest_admin_sign_in_path, method: :post %>
               </div>
             <% end %>
-            <div class="menu-item mr-2 py-1 px-2">
-              <a href="#" id="introduction-pop">?</a>
+            <div class="mr-2 py-1 px-2 position-relative help">
+              <a href="#" id="introduction-pop" class="help-button">?</a>
+              <span class="help-description">
+                NOW ON MAPの使い方を見る
+              </span>
             </div>
           </div>
           <div class="col-1">
