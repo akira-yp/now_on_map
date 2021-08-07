@@ -29,10 +29,16 @@ FactoryBot.define do
         event.categories << build(:category2)
       end
     end
+  end
 
-
-    # user_id { 1 }
-    # association :user, factory: :user2
+  factory :event3,class: Event do
+    title { 'factory_event3' }
+    description { 'event_description3'}
+    start_date { Time.now.since(8.days) }
+    end_date { Time.now.since(15.days) }
+    location { 'テスト' }
+    latitude { 35.678030 }
+    longitude { 139.714730 }
   end
 
 end
