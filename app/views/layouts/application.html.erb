@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <title>NowOnMap</title>
+    <title>NW ON MAP</title>
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
 
@@ -17,12 +17,15 @@
       <div class="container-fluid gloval-navi">
         <div class="row d-flex align-items-center justify-content-between h-100">
           <div class="col-auto d-flex align-items-center">
-            <div class="menu-item mr-2 py-1 px-2">
+            <div class="top-logo mr-2">
+              <%= link_to image_tag("logo.png"), events_path %>
+            </div>
+            <div class="logo menu-item mr-2 py-1 px-2">
               <%= link_to t('view.event.index'), events_path %>
             </div>
             <% if user_signed_in? %>
               <div class="menu-item mr-2 py-1 px-2">
-                <%= link_to t('view.mypage'), mypage_user_path(current_user.id)  %>
+                <%= link_to t('view.mypage'), mypage_user_path(current_user.id) %>
               </div>
               <div class="menu-item mr-2 py-1 px-2">
                 <%= link_to t('view.log_out'), destroy_user_session_path, method: :delete %>
