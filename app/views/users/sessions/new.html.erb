@@ -9,12 +9,12 @@
         <div class="center">
           <div class="field mb-1">
             <%= f.label :email %><br />
-            <%= f.email_field :email, autofocus: true, autocomplete: "email" %>
+            <%= f.email_field :email, autofocus: true, autocomplete: "email",required:"require" %>
           </div>
 
           <div class="field mb-1">
             <%= f.label :password %><br />
-            <%= f.password_field :password, autocomplete: "current-password" %>
+            <%= f.password_field :password, autocomplete: "current-password", required:"require" %>
           </div>
 
           <% if devise_mapping.rememberable? %>

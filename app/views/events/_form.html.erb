@@ -19,10 +19,7 @@
                   <%= f.label :title, t('view.event.title') %><span class="must_need">*<span>
                 </div>
                 <div class="col-9 pr-0">
-                  <%= f.text_field :title ,placeholder:t('view.event.title') ,required:true,class:"is-invalid" %>
-                </div>
-                <div class="invalid-feedback">
-                  タイトルが入力されていません。
+                  <%= f.text_field :title ,placeholder:t('view.event.title') ,required:"required" %>
                 </div>
               </div>
               <div class="row mb-1">
@@ -30,7 +27,7 @@
                   <%= f.label :location, t('view.event.location') %><span class="must_need">*<span>
                 </div>
                 <div class="col-9 pr-0">
-                  <%= f.text_field :location,placeholder:t('view.event.location') %>
+                  <%= f.text_field :location,placeholder:t('view.event.location'),required:"required" %>
                 </div>
               </div>
               <div class="row mb-2">
@@ -92,7 +89,7 @@
             <%= f.label :description, t('view.event.description') %><span class="must_need">*<span>
           </div>
           <div class="col-10 pr-0">
-            <%= f.text_area :description,placeholder:"イベントの詳しい内容" ,class:"description-form"%>
+            <%= f.text_area :description,placeholder:"イベントの詳しい内容",required:"required" ,class:"description-form"%>
           </div>
         </div>
 

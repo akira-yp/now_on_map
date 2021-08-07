@@ -11,11 +11,11 @@
         <div class="center">
           <div class="field mb-1">
             <%= f.label :name %><br />
-            <%= f.text_field :name, autofocus: true, autocomplete: "name" %>
+            <%= f.text_field :name, autofocus: true, autocomplete: "name",required:"require" %>
           </div>
           <div class="field mb-1">
             <%= f.label :email %><br />
-            <%= f.email_field :email, autofocus: true, autocomplete: "email" %>
+            <%= f.email_field :email, autofocus: true, autocomplete: "email",required:"require" %>
           </div>
 
           <div class="field mb-1">
@@ -23,12 +23,12 @@
             <% if @minimum_password_length %>
             <em><%= t('devise.shared.minimum_password_length', count: @minimum_password_length) %></em>
             <% end %><br />
-            <%= f.password_field :password, autocomplete: "new-password" %>
+            <%= f.password_field :password, autocomplete: "new-password",required:"require" %>
           </div>
 
           <div class="field mb-1">
             <%= f.label :password_confirmation %><br />
-            <%= f.password_field :password_confirmation, autocomplete: "new-password" %>
+            <%= f.password_field :password_confirmation, autocomplete: "new-password",required:"require" %>
           </div>
         </div>
         <div class="actions text-center m-3">

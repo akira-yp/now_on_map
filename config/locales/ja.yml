@@ -66,11 +66,12 @@ ja:
         end_date: 終了日
         official_page: イベントURL
         image: イベント画像
-        location: 住所
+        location: 開催地
         latitude: 緯度
         longitude: 経度
+        categories: カテゴリー
       comment:
-        content: コメント内容
+        content: コメント詳細
       category:
         name: カテゴリー名
     errors:

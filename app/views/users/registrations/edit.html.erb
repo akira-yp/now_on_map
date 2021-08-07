@@ -10,12 +10,12 @@
           <div class="left">
             <div class="field mb-1">
               <%= f.label :name %><br />
-              <%= f.text_field :name %>
+              <%= f.text_field :name,required:"require" %>
             </div>
             <% if current_user.provider == "" %>
               <div class="field mb-1">
                 <%= f.label :email %><br />
-                <%= f.email_field :email, autofocus: true, autocomplete: "email" %>
+                <%= f.email_field :email, autofocus: true, autocomplete: "email",required:"require" %>
               </div>
             <% end %>
 

@@ -140,7 +140,13 @@ label{
   background:$bg_color1;
   a{
     color:#ffffff;
-    font-size: 1.1rem;
+    font-size: 0.9rem;
+    display: inline-block;
+    padding:5px;
+    border-radius: 10px;
+    &:hover{
+      background: #000000;
+    }
   }
   div{
     color:#ffffff;
@@ -722,4 +728,24 @@ a.hashtag{
 .slides::-webkit-scrollbar-thumb {
   background: black;
   border-radius: 10px;
+}
+
+
+//エラーメッセージ
+#error_explanation{
+  p{
+    font-size: 0.7rem;
+    line-height: 0.7rem;
+    color:red;
+  }
+  h2{
+    font-size: 0.7rem;
+    line-height: 0.7rem;
+    color:red;
+  }
+  li{
+    font-size: 0.7rem;
+    line-height: 0.7rem;
+    color:red;
+  }
 }
