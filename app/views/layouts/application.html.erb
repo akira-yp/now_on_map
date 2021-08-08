@@ -1,15 +1,205 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <title>NowOnMap</title>
+    <title>NW ON MAP</title>
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
+
+    <%= include_gon %>
 
     <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
   </head>
 
   <body>
+    <header>
+
+      <div class="container-fluid gloval-navi">
+        <div class="row d-flex align-items-center justify-content-between h-100">
+          <div class="col-auto d-flex align-items-center">
+            <div class="top-logo mr-2">
+              <%= link_to image_tag("logo.png"), events_path %>
+            </div>
+            <div class="logo menu-item mr-2 py-1 px-2">
+              <%= link_to t('view.event.index'), events_path %>
+            </div>
+            <% if user_signed_in? %>
+              <div class="menu-item mr-2 py-1 px-2">
+                <%= link_to t('view.mypage'), mypage_user_path(current_user.id) %>
+              </div>
+              <div class="menu-item mr-2 py-1 px-2">
+                <%= link_to t('view.log_out'), destroy_user_session_path, method: :delete %>
+              </div>
+              <div class="menu-item mr-2 py-1 px-2">
+                <%= link_to t('view.user_info'),edit_user_registration_path %>
+              </div>
+            <% else %>
+              <div class="menu-item mr-2 py-1 px-2">
+                <%= link_to t('view.sign_in'), new_user_session_path %>
+              </div>
+              <div class="menu-item mr-2 py-1 px-2">
+                <%= link_to 'ゲストログイン(一般)', users_guest_sign_in_path,method: :post %>
+              </div>
+              <div class="menu-item mr-2 py-1 px-2">
+                <%= link_to 'ゲストログイン(管理者)', users_guest_admin_sign_in_path, method: :post %>
+              </div>
+            <% end %>
+            <div class="mr-2 py-1 px-2 position-relative help">
+              <a href="#" id="introduction-pop" class="help-button">?</a>
+              <span class="help-description">
+                NOW ON MAPの使い方を見る
+              </span>
+            </div>
+          </div>
+          <div class="col-1">
+            <% if user_signed_in? %>
+              <div class="mr-2 py-1 px-2">
+                <%= link_to edit_user_registration_path do %>
+                  <% if current_user.image.present? %>
+                    <% image_tag current_user.image.url, class:"avatar-m" %>
+                  <% else %>
+                    <%= image_tag 'default_avatar', class:"avatar-m" %>
+                  <% end %>
+                <% end %>
+              </div>
+            <% end %>
+          </div>
+        </div>
+      </div>
+
+    </header>
+    <div class="spacing-header">
+    </div>
+    <% if notice  %>
+      <div class="notice p-1">
+        <p class="notice-content"><%= notice %></p>
+      </div>
+    <% end %>
+    <% if alert %>
+      <div class="notice p-1">
+        <p><%= alert %></p>
+      </div>
+    <% end %>
     <%= yield %>
+
+    <div id="introduction-modal" class="hidden p-0 container slider">
+      <a href="#slide-1">1</a>
+      <a href="#slide-2">2</a>
+      <a href="#slide-3">3</a>
+      <a href="#slide-4">4</a>
+      <a href="#slide-5">5</a>
+      <a href="#slide-6">6</a>
+      <div class="slides">
+        <div id="slide-1" class="slide-item">
+          <div class="">
+            <div class="text-center">
+              <h2>NOW ON MAPとは?</h2>
+            </div>
+            <div class="content">
+              <div class="align-middle">
+                <p>地図からイベント情報を投稿・発見できるサイトです。</p>
+                <p>「今日近くで何かやってないかな？」</p>
+                <p>「地域の人にイベントを知らせたい」</p>
+                <p>「旅行先でその時しか体験できないことは？」</p>
+                <p>ぜひ使ってみてください。</p>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div id="slide-2" class="slide-item">
+          <div class="">
+            <div class="text-center">
+              <h2>カテゴリーと日付からイベントを探せます</h2>
+            </div>
+            <div class="content">
+              <div class="align-middle text-left">
+                <p>カテゴリーと日付を選択すると、その日に開催中のイベントを地図に表示されます。</p>
+                <p>地図上のマーカーをクリックして表示するポップアップから、イベントの詳細を表示できます。</p>
+                <p>イベントのハッシュタグをクリックすると、同じハッシュタグの付いたイベント一覧が表示されます。</p>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div id="slide-3" class="slide-item">
+          <div class="">
+            <div class="text-center">
+              <h2>地図をクリックすると<br>
+                その場所にイベントを投稿できます</h2>
+            </div>
+            <div class="content">
+              <div class="align-middle text-left">
+                <p class="must_need">*ログインが必要です</p>
+                <p>投稿したい場所をクリックするとポップアップが表示され、そこからイベント投稿フォームを表示できます。</p>
+                <p>自分が投稿したイベントはマイページから確認することができます。</p>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div id="slide-4" class="slide-item">
+          <div class="">
+            <div class="text-center">
+              <h2>イベント情報にコメントを残せます</h2>
+            </div>
+            <div class="content">
+              <div class="align-middle">
+                <p class="must_need">*ログインが必要です</p>
+                <p>イベント詳細画面のフォームからコメントを投稿することができます。感想や疑問など何でもコメントしてみてください。</p>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div id="slide-5" class="slide-item">
+          <div class="">
+            <div class="text-center">
+              <h2>お気に入りしたイベントは<br>
+                マイページで表示できます</h2>
+            </div>
+            <div class="content">
+              <div class="align-middle text-left">
+                <p class="must_need">*ログインが必要です</p>
+                <p>イベント詳細のハートマークをクリックするとお気に入りに登録することができます。</p>
+                <p>お気に入りしたイベントは、「マイページ」の「気になった投稿一覧」をクリックすると地図に表示されます。</p>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div id="slide-6" class="slide-item">
+          <div class="">
+            <div class="text-center">
+              <h2>よく使う場所を登録しておけば<br>
+                ワンクリックで遷移できます</h2>
+            </div>
+            <div class="content">
+              <div class="align-middle text-left">
+                <p class="must_need">*ログインが必要です</p>
+                <p>マイページではよく使う場所を「マイロケーション」として登録しておくことができます。</p>
+                <p>イベントを探す時だけでなく、同じ場所で定期的にイベントを登録したい場合などに活用できます</p>
+                <p>地図上で登録したい場所をクリック→「マイロケーションに登録」から作成フォームが立ち上がります。</p>
+                <p>マイロケーションに登録されたボタンをクリックすると、地図が登録地点にジャンプします。そこからイベントを作成することもできます。</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <script>
+        $('#introduction-pop').on('click',function(){
+          $('#introduction-modal').removeClass('hidden');
+          $('#mask').removeClass('hidden');
+        });
+
+        $('#mask').on('click',function(){
+          $('#introduction-modal').addClass('hidden');
+          $('#mask').addClass('hidden');
+        });
+    </script>
+
+    <footer>
+      <div>
+        <p class="text-center">
+          © 2021 Now On Map All rights reserved.
+        </p></p>
+      </div>
+    </footer>
   </body>
 </html>

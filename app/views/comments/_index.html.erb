@@ -1,0 +1,16 @@
+<% unless comments == nil %>
+  <% comments.each do |comment| %>
+    <div class="d-flex justify-content-start comment-wrapper">
+      <div class="align-self-top">
+        <% if comment.user.image.present? %>
+          <%= image_tag comment.user.image.url, class:"avatar-s" %>
+        <% else %>
+          <%= image_tag 'default_avatar', class:"avatar-s" %>
+        <% end %>
+      </div>
+      <div class="align-self-center pt-3">
+        <p><%= comment.content %></p>
+      </div>
+    </div>
+  <% end %>
+<% end %>

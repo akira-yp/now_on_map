@@ -1,0 +1,55 @@
+<div class="map-wrapper p-3">
+  <div class="result-message p-3">
+    <% if action_name == 'posts_index' %>
+      <h1><%= current_user.name %>さんが投稿したイベントを表示</h1>
+    <% else %>
+      <h1><%= current_user.name %>さんが気になったイベントを表示</h1>
+    <% end %>
+  </div>
+  <div class="">
+    <%= link_to t('view.mylocation.posts'), posts_index_user_path(current_user.id),class:"myindex-btn mr-3" %><%= link_to t('view.mylocation.favorites'), mypage_user_path(current_user.id) , class:"myindex-btn" %>
+  </div>
+  <div class="container-fluid my-3 px-3">
+    <div class="row">
+      <div class="map-wrapper col-sm-9">
+        <div id="mapid" class="map-mypage">
+        </div>
+      </div>
+      <div class="col-sm-3">
+        <div class="module p-2">
+          <h6><%= t('view.mylocation.index')%></h6>
+          <p>※クリックすると地図が遷移します</p>
+          <% if current_user.mylocations %>
+            <div class="">
+              <% current_user.mylocations.each do |ml| %>
+                <span data-lat="<%= ml.my_latitude %>" data-lng="<%= ml.my_longitude %>" data-name="<%= ml.name %>" class="gotoMyloc mb-2 py-1 pl-1 pr-5">
+                  <object>
+                    <%= link_to '×', user_mylocation_path(current_user.id, ml.id),data:{confirm:t('view.mylocation.delete?')},method: :delete %>
+                  </object>
+                  <%= ml.name %><br>
+                  <p><%= ml.my_address %></p>
+                </span><br>
+              <% end %>
+            </div>
+          <% end %>
+        </div>
+        <div class="">
+
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div id="mask" class="hidden"></div>
+
+<div id="new_event_modal" class="hidden"></div>
+<div id="new_mylocation_modal" class="hidden"></div>
+<div id="edit_event_modal" class="hidden"></div>
+<div id="show_event_modal" class="hidden"></div>
+
+<% if action_name == 'create' || action_name == 'update' %>
+  <%= javascript_include_tag 'event_show' %>
+<% else %>
+  <%= javascript_include_tag 'mypage' %>
+<% end %>

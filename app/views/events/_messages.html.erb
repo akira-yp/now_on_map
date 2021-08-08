@@ -1,0 +1,7 @@
+<% if event.errors.any? %>
+ <div id="error_explanation">
+   <% event.errors.full_messages.each do |msg| %>
+    <p><%= msg %></p>
+   <% end %>
+ </div>
+<% end %>

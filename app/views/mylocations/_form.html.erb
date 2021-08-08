@@ -1,0 +1,42 @@
+<div class="modal-mylocation p-5 container">
+  <div class="row">
+
+    <div class="col">
+      <%= form_with( model: mylocation, url:user_mylocations_path(current_user.id),remote: true ) do |f| %>
+        <div id="messages"></div>
+        <div class="container">
+          <div class="row justify-content-start g-0">
+            <div class="col-4 text-right">
+             <%= f.label :name %>
+            </div>
+            <div class="col-8">
+              <%= f.text_field :name %>
+            </div>
+          </div>
+          <div class="row justify-content-start">
+            <div class="col-4 text-right">
+              <%= f.label :my_address %>
+            </div>
+            <div class="col-8">
+              <%= f.text_field :my_address %>
+            </div>
+          </div>
+        </div>
+
+        <div>
+
+
+        </div>
+
+        <div class="">
+         <%= f.hidden_field :my_latitude , id:"latitude" %>
+         <%= f.hidden_field :my_longitude , id:"longitude" %>
+        </div>
+
+        <div class="text-center mt-3">
+         <%= f.submit t('view.register'),class:"submit-btn px-5" %>
+        </div>
+      <% end %>
+    </div>
+  </div>
+</div>

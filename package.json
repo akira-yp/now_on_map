@@ -1,5 +1,11 @@
 {
   "name": "now_on_map",
   "private": true,
-  "dependencies": {}
+  "dependencies": {
+    "bootstrap": "4",
+    "jquery": "^3.6.0",
+    "leaflet": "^1.7.1",
+    "leaflet-control-geocoder": "^2.3.0",
+    "leaflet.markercluster": "^1.5.0"
+  }
 }

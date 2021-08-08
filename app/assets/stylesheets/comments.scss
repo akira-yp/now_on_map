@@ -1,0 +1,27 @@
+@import "./variables";
+
+.comment-form{
+  border:0;
+  font-size:1rem;
+  border-radius:5px;
+  width:400px;
+  color: $f_color1;
+}
+
+
+#comments_index{
+  max-width:400px;
+  max-height:400px;
+  padding:10px;
+  // background: #ffffff;
+  border-radius: 15px;
+  .comment-wrapper{
+    max-width:350px;
+    margin:0 0 10px 0;
+    background: #ffffff;
+    border-radius: 15px;
+    p{
+      font-size: 0.8rem;
+    }
+  }
+}
