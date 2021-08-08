@@ -29,6 +29,7 @@ gem 'omniauth','1.9.1'
 gem 'omniauth-google-oauth2'
 
 gem 'carrierwave'
+gem 'mimemagic', '0.3.7'
 gem 'mini_magick'
 
 gem 'unicorn'
