@@ -33,4 +33,8 @@ RSpec.describe 'イベントモデル機能', type: :model do
     event = FactoryBot.build(:event, location: nil)
     expect(event).not_to be_valid
   end
+  it "カテゴリーが紐づけられていないと無効になる" do
+    event3 = FactoryBot.build(:event3)
+    expect(event3).not_to be_valid
+  end
 end

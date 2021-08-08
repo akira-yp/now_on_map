@@ -18,7 +18,6 @@ RSpec.describe 'コメント機能', type: :system do
   context 'コメントを投稿した場合' do
     it 'コメントが新しく表示される',js: true do
       find('.leaflet-marker-icon').click
-      # find('.event-title').click
       click_link event1.title
 
       fill_in 'このイベントにコメントする？' ,with:'コメントテスト'

@@ -1,8 +1,8 @@
 
 var mymap = L.map('mapid').setView([35.678362, 139.715387], 13);
 
-L.tileLayer('http://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
-  attribution: 'Map data &copy; <a href="http://openstreetmap.org">OpenStreetMap</a>',
+L.tileLayer('https://api.maptiler.com/maps/jp-mierune-gray/256/{z}/{x}/{y}.png?key=kQ7jEXOFcCTPC5D4Q9xX', {
+  attribution: '<a href="https://maptiler.jp/" target="_blank">&copy; MIERUNE</a> <a href="https://www.maptiler.com/copyright/" target="_blank">&copy; MapTiler</a> <a href="https://www.openstreetmap.org/copyright" target="_blank">&copy; OpenStreetMap contributors</a>',
   maxZoom: 18,
   minZoom: 4,
 }).addTo(mymap);

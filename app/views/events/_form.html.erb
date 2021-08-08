@@ -19,10 +19,7 @@
                   <%= f.label :title, t('view.event.title') %><span class="must_need">*<span>
                 </div>
                 <div class="col-9 pr-0">
-                  <%= f.text_field :title ,placeholder:t('view.event.title') ,required:true,class:"is-invalid" %>
-                </div>
-                <div class="invalid-feedback">
-                  タイトルが入力されていません。
+                  <%= f.text_field :title ,placeholder:t('view.event.title') ,required:"required" %>
                 </div>
               </div>
               <div class="row mb-1">
@@ -30,7 +27,7 @@
                   <%= f.label :location, t('view.event.location') %><span class="must_need">*<span>
                 </div>
                 <div class="col-9 pr-0">
-                  <%= f.text_field :location,placeholder:t('view.event.location') %>
+                  <%= f.text_field :location,placeholder:t('view.event.location'),required:"required" %>
                 </div>
               </div>
               <div class="row mb-2">
@@ -38,7 +35,11 @@
                   <%= f.label :start_date, t('view.event.start_date') %><span class="must_need">*<span>
                 </div>
                 <div class="col-9 pr-0">
-                  <%= f.date_field :start_date,value:Time.now.strftime("%Y-%m-%d"), class:"calender" %>
+                  <% if action_name == "new" %>
+                    <%= f.date_field :start_date,value:Time.now.strftime("%Y-%m-%d"), class:"calender" %>
+                  <% else %>
+                    <%= f.date_field :start_date, class:"calender" %>
+                  <% end %>
                 </div>
               </div>
               <div class="row mb-2">
@@ -46,7 +47,11 @@
                   <%= f.label :end_date, t('view.event.end_date') %><span class="must_need">*<span>
                 </div>
                 <div class="col-9 pr-0">
-                  <%= f.date_field :end_date ,value:Time.now.since(7.days).strftime("%Y-%m-%d"),class:"calender" %>
+                  <% if action_name == "new" %>
+                    <%= f.date_field :end_date ,value:Time.now.since(7.days).strftime("%Y-%m-%d"),class:"calender" %>
+                  <% else %>
+                    <%= f.date_field :end_date, class:"calender" %>
+                  <% end %>
                 </div>
               </div>
               <div class="row mb-1">
@@ -65,13 +70,14 @@
               <label>
                 <div class="event-image-area">
                   <%= f.file_field :image , id:"event-post-image" %>
-                  <div class="choice-box">
-                    ＋
-                  </div>
-                  <div class="current-image">
-                    <img class="event-image" src="#">
-                  </div>
-                  <%= f.hidden_field :image_cache %>
+                    <div class="choice-box">
+                      ＋
+                    </div>
+                    <div class="current-image">
+                      <% if event.image.present? %>
+                        <%= image_tag event.image.url, class:"event-image" %>
+                      <% end %>
+                    </div>
                 </div>
               </label>
             </div>
@@ -83,7 +89,7 @@
             <%= f.label :description, t('view.event.description') %><span class="must_need">*<span>
           </div>
           <div class="col-10 pr-0">
-            <%= f.text_area :description,placeholder:"イベントの詳しい内容" ,class:"description-form"%>
+            <%= f.text_area :description,placeholder:"イベントの詳しい内容",required:"required" ,class:"description-form"%>
           </div>
         </div>
 

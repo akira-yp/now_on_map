@@ -7,7 +7,7 @@
 <% end %>
 
 <div class="map-wrapper p-3">
-  <div class="result-message p-3">
+  <div class="result-message mt-3">
     <% if action_name == 'create' || action_name == 'update' %>
       <%= @event.title %>
     <% else %>
@@ -16,7 +16,9 @@
       <% else %>
         <h1><%= l @day_searched, format: :date %>に開催中の<%= @keyword %>イベント</h1>
       <% end %>
+        <p>マップ上に<%= @events.size %>件のイベントを表示しています。</p>
     <% end %>
+
   </div>
 
   <div class="container-fluid my-3 px-3">
@@ -26,11 +28,12 @@
       </div>
       <div class="col-sm-3">
         <%= render 'serch_form' %>
+        <%= render 'hashtags/index' %>
       </div>
     </div>
   </div>
 </div>
-
+<!--
 
 <% unless @events == nil %>
   <% @events.each do |event| %>
@@ -43,7 +46,7 @@
   </div>
   <% end %>
 <% end %>
-
+ -->
 
 
 
