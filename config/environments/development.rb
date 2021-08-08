@@ -49,6 +49,8 @@ Rails.application.configure do
   # number of complex assets.
   config.assets.debug = true
 
+  config.assets.js_compressor = Uglifier.new(harmony: true)
+
   # Suppress logger output for asset requests.
   config.assets.quiet = true
 
