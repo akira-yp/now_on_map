@@ -1,0 +1,5 @@
+<div class="hashtag-index mt-2">
+  <% @hashtags.each do |tag| %>
+    <%= link_to "##{tag}", "/events/hashtag/#{tag.delete('/[#＃]/')}" %>
+  <% end %>
+</div>

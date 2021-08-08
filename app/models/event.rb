@@ -1,16 +1,4 @@
 class Event < ApplicationRecord
-  with_options presence: true do
-    validates :title
-    validates :description
-    validates :start_date
-    validates :end_date
-    validates :location
-    validates :latitude
-    validates :longitude
-  end
-
-  validate :start_end_check
-
   belongs_to :user
   has_many :categorizings, dependent: :destroy
   has_many :categories, through: :categorizings, source: :category
@@ -19,6 +7,19 @@ class Event < ApplicationRecord
   has_many :comments, dependent: :destroy
   has_many :hashtagings, dependent: :destroy
   has_many :hashtags, through: :hashtagings, source: :hashtag
+
+  with_options presence: true do
+    validates :title
+    validates :description
+    validates :start_date
+    validates :end_date
+    validates :location
+    validates :latitude
+    validates :longitude
+    validates :categories
+  end
+
+  validate :start_end_check
 
   THUMBNAIL_SIZE = [400, 400]
   mount_uploader :image, ImageUploader

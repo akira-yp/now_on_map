@@ -1,9 +1,0 @@
-$('#comment_modal').html('<%= j(render 'comments/form', { comment: @comment }) %>');
-
-$('#comment_modal').removeClass('hidden');
-$('#mask').removeClass('hidden');
-
-$('#mask').on('click',function(){
-  $('#comment_modal').addClass('hidden');
-  $('#mask').addClass('hidden');
-});

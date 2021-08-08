@@ -83,6 +83,54 @@ label{
   }
 }
 
+.help-button{
+  text-align: center;
+  line-height: 30px;
+  display:block;
+  font-weight: bold;
+  width:30px;
+  height:30px;
+  background: #ffffff;
+  border-radius: 50%;
+
+}
+
+.help{
+  .help-description{
+    visibility: hidden;
+    display: inline-block;
+    width:100px;
+    padding:5px;
+    position:absolute;
+    background: #ffffff;
+    border-radius: 5px;
+    color:$bg_color1;
+    font-size: 0.7rem;
+    left:30px;
+    top:30px;
+    z-index: 1002;
+    box-shadow: 10px;
+  }
+  &:hover{
+    a{
+      background:$ac_color;
+      color:#ffffff;
+    }
+    .help-description{
+      visibility: visible;
+    }
+  }
+
+}
+
+
+.top-logo{
+  width:150px;
+  img{
+    width:100%;
+  }
+}
+
 .spacing-header{
   height:50px;
   background-color: $bg_color1;
@@ -99,7 +147,13 @@ label{
   background:$bg_color1;
   a{
     color:#ffffff;
-    font-size: 1.1rem;
+    font-size: 0.9rem;
+    display: inline-block;
+    padding:5px;
+    border-radius: 10px;
+    &:hover{
+      background: #000000;
+    }
   }
   div{
     color:#ffffff;
@@ -127,6 +181,10 @@ label{
 .result-message{
   h1{
     color:#ffffff;
+  }
+  p{
+    color:#ffffff;
+    font-size: 0.8rem;
   }
 }
 
@@ -311,7 +369,8 @@ a.link-inshow{
   border-radius: 10px;
 }
 
-#new_event_modal,#new_mylocation_modal{
+//モーダル
+#new_event_modal,#new_mylocation_modal,#introduction-modal{
   position: fixed;
   top: 3rem;
   left: 0;
@@ -364,8 +423,7 @@ a.link-inshow{
 
 
 
-#new_event_modal.hidden, #new_mylocation_modal.hidden, #edit_event_modal.hidden,#show_event_modal.hidden{
-  // opacity: 0;
+#new_event_modal.hidden, #new_mylocation_modal.hidden, #edit_event_modal.hidden,#show_event_modal.hidden,#introduction-modal.hidden{
   visibility: hidden;
   transform: translate(0, 0) scale(0.8);
 }
@@ -442,6 +500,22 @@ a.link-inshow{
   }
 }
 
+.official-page{
+  a{
+    display: inline-block;
+    padding: 0 10px;
+    background: #ffffff;
+    font-weight: bold;
+    color:$bg_color1;
+    border-radius: 10px;
+    border: none;
+    &:hover{
+      color:#ffffff;
+      background: $ac_color;
+    }
+  }
+}
+
 .event-card {
   width:250px;
   height:250px;
@@ -506,11 +580,19 @@ a.link-inshow{
 #event-post-image{
   @include imagebox(150px,150px);
   display:none;
-  z-index: 1304;
+  z-index: 1306;
 }
 
 .current-image{
-  z-index: 1303
+  z-index: 1303;
+  .event-image {
+      width:150px;
+      height:150px;
+  }
+  .user-image{
+    width:100px;
+    height:100px;
+  }
 }
 
 .event-image-area{
@@ -520,10 +602,11 @@ a.link-inshow{
   .choice-box{
     @include imagebox(150px,150px);
     background-color: #d3d3d3;
-    pointer-events: none;
+    pointer-events: auto;
     line-height: 150px;
     text-align: center;
     z-index: 1305;
+    opacity:0.5;
     border: 1px dashed black;
   }
 }
@@ -581,5 +664,95 @@ a.hashtag{
   border: none;
   border-radius: 10px;
   background: #ffffff;
-  color: #5c5ced;
+  color: $bg_color1;
+}
+
+.hashtag-index{
+  a{
+    display: inline-block;
+    margin:5px 5px 5px 0 ;
+    padding:0 10px;
+    border: none;
+    border-radius: 10px;
+    background: $bg_color2;
+    color: $bg_color1;
+    font-size: 0.9rem;
+    &:hover{
+      background: $ac_color;
+      color: $bg_color2;
+    }
+  }
+}
+
+//introduction slider
+.slider{
+  text-align: center;
+  overflow: hidden;
+  & > a{
+    display: inline-flex;
+    width: 1.5rem;
+    height: 1.5rem;
+    background: $bg_color2;
+    text-decoration: none;
+    align-items: center;
+    justify-content: center;
+    border-radius: 50%;
+    margin: 0 0 0.5rem 0;
+    position: relative;
+  }
+}
+
+.slides{
+  display: flex;
+  overflow-x:auto;
+  scroll-snap-type: x mandatory;
+  scroll-behavior: smooth;
+  -webkit-overflow-scrolling: touch;
+  .slide-item{
+    scroll-snap-align: start;
+    flex-shrink: 0;
+    width: 600px;
+    height: 400px;
+    margin-right: 50px;
+    padding: 2rem;
+    background: $bg_color2;
+    transform-origin: center center;
+    transform: scale(1);
+    transition: transform 0.5s;
+    position: relative;
+    .content{
+      height:300px;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+  }
+}
+.slides::-webkit-scrollbar {
+  width: 10px;
+  height: 10px;
+}
+.slides::-webkit-scrollbar-thumb {
+  background: black;
+  border-radius: 10px;
+}
+
+
+//エラーメッセージ
+#error_explanation{
+  p{
+    font-size: 0.7rem;
+    line-height: 0.7rem;
+    color:red;
+  }
+  h2{
+    font-size: 0.7rem;
+    line-height: 0.7rem;
+    color:red;
+  }
+  li{
+    font-size: 0.7rem;
+    line-height: 0.7rem;
+    color:red;
+  }
 }
