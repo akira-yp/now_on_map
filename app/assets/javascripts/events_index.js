@@ -10,8 +10,8 @@ L.tileLayer('https://api.maptiler.com/maps/jp-mierune-gray/256/{z}/{x}/{y}.png?k
 var markers = L.markerClusterGroup();
 
 var markerIcon = L.icon({
-  iconUrl: '/assets/marker-icon.png',
-  shadowUrl: '/assets/marker-shadow.png',
+  iconUrl: '/imgs/marker-icon.png',
+  shadowUrl: '/imgs/marker-shadow.png',
   iconSize:[26,40],
   iconAnchor:[13,40],
   shoadowSize:[40,40],
