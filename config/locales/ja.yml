@@ -43,9 +43,11 @@ ja:
       user: ユーザー
       event: イベント
       comment: コメント
-      favorites: お気に入り
+      favorite: お気に入り
       hashtag: ハッシュタグ
       category: カテゴリー
+      categorizing: カテゴリー紐付け
+      hashtagging: ハッシュタグ紐付け
     attributes:
       user:
         id: ID

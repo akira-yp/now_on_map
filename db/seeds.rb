@@ -16,7 +16,7 @@ user1 = User.create!(
 )
 
 user2 = User.create!(
-  id:2, name: "guest_admin", image: open("#{Rails.root}/db/image/avatar0.png"), email: "test2@test.com", password: "password", provider: "", uid: "0896af91-2c2c-47af-a8a8-935af4f64800", admin: true
+  id:2, name: "guest_admin", image: open("#{Rails.root}/db/image/avatar0.png"), email: "guest_admin@guest.com", password: "password", provider: "", uid: "0896af91-2c2c-47af-a8a8-935af4f64800", admin: true
 )
 
 user3 = User.create!(
