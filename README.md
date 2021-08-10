@@ -9,6 +9,7 @@
 ---
 - devise
 - Ajax
+- aws
 
 ## カリキュラム外の技術
 ---
@@ -22,6 +23,7 @@ $ git clone git@github.com:akira-yp/now_on_map.git
 $ cd now_on_map
 $ bundle install
 $ rails db:create && rails db:migrate
+$ rails db:seed
 $ rails s
 ```
 

@@ -12,7 +12,7 @@ class User < ApplicationRecord
   # Include default devise modules. Others available are:
   # :confirmable, :lockable, :timeoutable, :trackable and :omniauthable
   devise :database_authenticatable, :registerable,
-         :recoverable, :rememberable, :validatable, :omniauthable, omniauth_providers: %i(google)
+         :recoverable, :rememberable, :validatable, :trackable, :omniauthable, omniauth_providers: %i(google)
 
   THUMBNAIL_SIZE = [100, 100]
   mount_uploader :image, ImageUploader
