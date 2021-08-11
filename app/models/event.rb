@@ -24,6 +24,10 @@ class Event < ApplicationRecord
   THUMBNAIL_SIZE = [400, 400]
   mount_uploader :image, ImageUploader
 
+  def self.ransackable_attributes(auth_object = nil)
+    %w[start_date end_date]
+  end
+
   def start_end_check
     if self.start_date && self.end_date
       errors.add(:end_date, "は開始日より後になるよう設定してください") if self.start_date > self.end_date
