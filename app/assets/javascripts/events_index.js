@@ -41,7 +41,6 @@ L.Control.geocoder(options).addTo(mymap);
 
 
 //end_date_gteq_allに検索と同じ値を設定
-
 var startform = document.getElementById('q_start_date_lteq_all');
 var endform = document.getElementById('q_end_date_gteq_all');
 function inputChange(){

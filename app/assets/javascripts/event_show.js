@@ -7,6 +7,5 @@ L.tileLayer('http://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
   minZoom: 4,
 }).addTo(mymap2);
 
-// var latlon_show = [gon.event.event.latitude, gon.event.event.longitude]
 var marker_show = L.marker(markerPosi,{icon: markerIcon});
 marker_show.addTo(mymap2);

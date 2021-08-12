@@ -18,11 +18,9 @@ var markerIcon = L.icon({
 });
 
  var centerMarker = L.marker( markerPosi,{icon: markerIcon, alt: "event-marker"}).addTo(mymap3);
-// .bindPopup('<p>イベントの設置位置を修正できます</p>').openPopup();
 
 mymap3.on('move', function(e) {
     centerMarker.setLatLng(mymap3.getCenter());
-    //マップムーブイベントで値を出力
     outputPos(mymap3);
   });
 

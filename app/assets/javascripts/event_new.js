@@ -1,5 +1,3 @@
-// mymap.addLayer(markers);
-
 //クリック地点の座標を取得してポップアップする
 var popup = L.popup();
 
