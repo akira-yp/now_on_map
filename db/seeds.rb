@@ -12,23 +12,23 @@ Category.create!([
 ])
 
 user1 = User.create!(
-  id:1, name: "testuser", image: open("#{Rails.root}/db/image/avatar18.png"), email: "testuser@test.com", password: "password", provider: "", uid: "4fcae10e-a584-4619-b86e-4a22721779df", admin: false
+  name: "testuser", image: open("#{Rails.root}/db/image/avatar18.png"), email: "testuser@test.com", password: "password", provider: "", uid: "4fcae10e-a584-4619-b86e-4a22721779df", admin: false
 )
 
 user2 = User.create!(
-  id:2, name: "guest_admin", image: open("#{Rails.root}/db/image/avatar0.png"), email: "guest_admin@guest.com", password: "password", provider: "", uid: "0896af91-2c2c-47af-a8a8-935af4f64800", admin: true
+  name: "guest_admin", image: open("#{Rails.root}/db/image/avatar0.png"), email: "guest_admin@guest.com", password: "password", provider: "", uid: "0896af91-2c2c-47af-a8a8-935af4f64800", admin: true
 )
 
 user3 = User.create!(
-  id:3, name: "guest", image: open("#{Rails.root}/db/image/avatar24.png"), email: "guest@guest.com", password: "password", provider: "", uid: "bc7d7170-6c35-4ad5-9aaa-38287942f58a", admin: false
+  name: "guest", image: open("#{Rails.root}/db/image/avatar24.png"), email: "guest@guest.com", password: "password", provider: "", uid: "bc7d7170-6c35-4ad5-9aaa-38287942f58a", admin: false
 )
 
 user4 = User.create!(
-  id:4, name: "testuser4", image: open("#{Rails.root}/db/image/avatar25.png"), email: "testuser4@test.com", password: "password", provider: "", uid: "703fd425-e909-4d74-b092-98db3d14d61e", admin: false
+  name: "testuser4", image: open("#{Rails.root}/db/image/avatar25.png"), email: "testuser4@test.com", password: "password", provider: "", uid: "703fd425-e909-4d74-b092-98db3d14d61e", admin: false
 )
 
 user5 = User.create!(
-  id:5, name: "testuser5", image: open("#{Rails.root}/db/image/avatar27.png"), email: "testuser5@test.com", password: "password", provider: "", uid: "9365f2a0-9988-4161-80f0-635ae483ce8c", admin: false
+  name: "testuser5", image: open("#{Rails.root}/db/image/avatar27.png"), email: "testuser5@test.com", password: "password", provider: "", uid: "9365f2a0-9988-4161-80f0-635ae483ce8c", admin: false
 )
 
 user1.events.create([
