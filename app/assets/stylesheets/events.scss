@@ -36,7 +36,7 @@ body {
 
 header {
   .gloval-navi{
-    background: $bg_color2;
+    background: $main_color;
     position:fixed;
     height:60px;
     z-index:1001;
@@ -67,11 +67,11 @@ label{
 
 //global-navi
 .menu-item{
-  background: #ffffff;
+  background: $bg_color1;
   border-radius: 20px;
   &:hover{
     background:$ac_color;
-    a { color:#ffffff; }
+    a { color:$bg_color1; }
   }
 }
 
@@ -82,7 +82,7 @@ label{
   font-weight: bold;
   width:30px;
   height:30px;
-  background: #ffffff;
+  background: $bg_color1;
   border-radius: 50%;
 
 }
@@ -94,9 +94,9 @@ label{
     width:100px;
     padding:5px;
     position:absolute;
-    background: #ffffff;
+    background: $bg_color2;
     border-radius: 5px;
-    color:$bg_color1;
+    color:$f_color1;
     font-size: 0.7rem;
     left:30px;
     top:30px;
@@ -106,7 +106,7 @@ label{
   &:hover{
     a{
       background:$ac_color;
-      color:#ffffff;
+      color:$f_color2;
     }
     .help-description{
       visibility: visible;
@@ -136,9 +136,9 @@ label{
 
 //popupデザイン
 .leaflet-popup-content-wrapper, .leaflet-popup-tip{
-  background:$bg_color1;
+  background:$bg_color3;
   a{
-    color:#ffffff;
+    color:$f_color2;
     font-size: 0.9rem;
     display: inline-block;
     padding:5px;
@@ -148,13 +148,13 @@ label{
     }
   }
   div{
-    color:#ffffff;
+    color:$f_color2;
   }
 }
 
 .category {
-  background: #ffffff;
-  color: $bg_color1;
+  background: $bg_color1;
+  color: $f_color1;
   display: inline-block;
   padding:3px 5px;
   margin-right: 5px;
@@ -172,10 +172,10 @@ label{
 
 .result-message{
   h1{
-    color:#ffffff;
+    color:$f_color1;
   }
   p{
-    color:#ffffff;
+    color:$f_color1;
     font-size: 0.8rem;
   }
 }
@@ -203,34 +203,34 @@ label{
 //ボタン系
 .action-btn{
   display:inline-block;
-  background:$bg_color1;
+  background:$bg_color3;
   border-radius: 20px;
   border: none;
-  color:#ffffff;
+  color:$f_color2;
   &:hover{
     background:$ac_color;
-    color:#ffffff;
+    color:$f_color2;
   }
 }
 .submit-btn{
   display:inline-block;
-  background:$bg_color1;
+  background:$bg_color3;
   border-radius: 20px;
   border: none;
-  color:#ffffff;
+  color:$f_color1;
   &:hover{
     background:$ac_color;
-    color:#ffffff;
+    color:$f_color1;
   }
 }
 
 a.link-inshow{
   font-size: 0.8rem;
   display:inline-block;
-  background:$bg_color1;
+  background:$bg_color3;
   border-radius: 15px;
   border: none;
-  color:#ffffff;
+  color:$f_color1;
   padding:0 10px;
   &:hover{
     background:$ac_color;
@@ -239,10 +239,10 @@ a.link-inshow{
 
 .btn-inshow{
   font-size: 0.8rem;
-  background:$bg_color1;
+  background:$bg_color3;
   border-radius: 15px;
   border: none;
-  color:#ffffff;
+  color:$f_color2;
   padding:0 10px;
   padding:0 10px;
   &:hover{
@@ -259,13 +259,13 @@ a.link-inshow{
   color:$bg_color1;
   &:hover{
     background:$ac_color;
-    color:#ffffff;
+    color:$f_color2;
   }
 }
 
 .gotoMyloc{
   display: inline-block;
-  background:#ffffff;
+  background:$bg_color1;
   font-size: 1rem;
   border:none;
   border-radius: 5px;
@@ -278,13 +278,10 @@ a.link-inshow{
   }
   &:hover{
     background:$ac_color;
-    color:#ffffff;
+    color:$f_color2;
     a{
-      color: #ffffff;
+      color: $f_color2;
     }
-    // .info{
-    //   display:
-    // }
   }
   object{
     position: absolute;
@@ -300,8 +297,8 @@ a.link-inshow{
       width:15px;
       height:15px;
       border-radius:50%;
-      background: $bg_color1;
-      color: #ffffff;
+      background: $bg_color3;
+      color: $f_color2;
       font-size: 0.8rem;
     }
   }
@@ -322,7 +319,7 @@ a.link-inshow{
 
 #favorite_area{
   font-size:0.7rem;
-  background:#ffffff;
+  background:$bg_color1;
   border-radius: 5px;
   padding:0 5px;
 }
@@ -334,7 +331,7 @@ a.link-inshow{
     display: none;
   }
   label {
-    background: #ffffff;
+    background: $bg_color1;
     padding: 5px 10px;
     margin-top: 5px;
     margin-bottom: 5px;
@@ -343,12 +340,12 @@ a.link-inshow{
     cursor: pointer;
     &:hover{
       background-color: $ac_color;
-      color: #ffffff;
+      color: $f_color2;
     }
   }
   input:checked + label{
     background-color: $ac_color;
-    color: #ffffff;
+    color: $f_color2;
   }
 }
 
@@ -453,13 +450,13 @@ a.link-inshow{
   }
   input.submit-btn{
     display:inline-block;
-    background:$bg_color1;
+    background:$bg_color3;
     border-radius: 20px;
     border: none;
-    color:#ffffff;
+    color:$f_color2;
     &:hover{
       background:$ac_color;
-      color:#ffffff;
+      color:$f_color2;
     }
   }
 }
@@ -484,10 +481,10 @@ a.link-inshow{
     background:$bg_color1;
     border-radius: 20px;
     border: none;
-    color:#ffffff;
+    color:$f_color2;
     &:hover{
       background:$ac_color;
-      color:#ffffff;
+      color:$f_color2;
     }
   }
 }
@@ -496,13 +493,13 @@ a.link-inshow{
   a{
     display: inline-block;
     padding: 0 10px;
-    background: #ffffff;
+    background: $bg_color1;
     font-weight: bold;
-    color:$bg_color1;
+    color:$f_color1;
     border-radius: 10px;
     border: none;
     &:hover{
-      color:#ffffff;
+      color:$f_color2;
       background: $ac_color;
     }
   }
@@ -531,7 +528,7 @@ a.link-inshow{
   width: 40px;
   height: 40px;
   border-radius: 50%;
-  background: #ffffff;
+  background: $f_color2;
 }
 
 .avatar-s {
@@ -539,7 +536,7 @@ a.link-inshow{
   height:30px;
   margin:5px;
   border-radius: 50%;
-  background:#ffffff;
+  background:$f_color2;
 }
 
 //投稿フォーム
@@ -623,7 +620,7 @@ a.link-inshow{
   p{
     display: block;
     font-size: 0.8rem;
-    color:#ffffff;
+    color:$f_color2;
     text-align: center;
     vertical-align: middle;
     margin:0;
@@ -637,7 +634,7 @@ footer{
   text-align: center;
   width:100%;
   p{
-    color:#ffffff;
+    color:$f_color2;
     font-size: 0.8rem;
   }
 }
@@ -655,7 +652,7 @@ a.hashtag{
   display: inline-block;
   border: none;
   border-radius: 10px;
-  background: #ffffff;
+  background: $f_color2;
   color: $bg_color1;
 }
 
@@ -667,7 +664,7 @@ a.hashtag{
     border: none;
     border-radius: 10px;
     background: $bg_color2;
-    color: $bg_color1;
+    color: $f_color1;
     font-size: 0.9rem;
     &:hover{
       background: $ac_color;
