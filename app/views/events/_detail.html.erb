@@ -1,39 +1,45 @@
-<div class="container-fluid m-0 p-0">
+<div class="container-fluid m-0 p-0 position-relative">
+  <% if @event.user.image.present? %>
+    <%= image_tag @event.user.image.url, class:"avatar-m" %>
+  <% else %>
+    <%= image_tag 'default_avatar.png', class:"avatar-m" %>
+  <% end %>
+  <span><%= @event.user.name %>さんが投稿したイベントです</span>
   <div class="row m-0 p-0 justify-content-start">
 
     <div class="col-auto p-0">
       <div id="mapid2"></div>
     </div>
 
-    <div class="col overflow-wrap">
+    <div class="col overflow-wrap p-0">
       <div class="event-image">
         <% if @event.image.present? %>
           <%= image_tag @event.image.url %>
         <% end %>
       </div>
-      <div class="mt-2">
+      <div class="mt-4 mx-4">
         <h1><%= @event.title %></h1><span id="favorite_area"><%= render 'favorites/favorite', { favorite: @favorite, event: @event} %></span>
       </div>
-      <div class="">
+      <div class="mx-4">
         <% @event.categories.each do | category | %>
           <span class="category"><%= category.name %></span>
         <% end %>
       </div>
-      <div class="mt-1">
-        <span>開催場所：<%= @event.location %></span>
+      <div class="mt-1 mx-4">
+        <span class="note">開催場所：<%= @event.location %></span>
       </div>
-      <div class="mt-1">
-        <span>開催期間：<%= l @event.start_date, format: :date %> ~ <%= l @event.end_date, format: :date %></span>
+      <div class="mt-1 mx-4">
+        <span class="note">開催期間：<%= l @event.start_date, format: :date %> ~ <%= l @event.end_date, format: :date %></span>
       </div>
-      <div class="mt-2">
+      <div class="mt-2 mx-4">
         <%= render_with_hashtags(@event.description) %>
       </div>
       <% if @event.official_page.present? %>
-        <div class="official-page mt-2">
+        <div class="official-page mt-2 mx-4">
           <%= link_to "WEBサイト",@event.official_page, target:"_blank" %>
         </div>
       <% end %>
-      <div class="">
+      <div class="mx-4">
         <% if user_signed_in? %>
           <div class="text-right">
             <% if @event.user == current_user %>
@@ -42,7 +48,7 @@
             <% end %>
           </div>
 
-          <div id="comment-form" class="" >
+          <div id="comment-form">
             <%= form_with( model: comment, remote: true) do |f| %>
               <div class="mt-3">
                 <%= f.label :content,t('view.comment.post') %><br>
@@ -56,7 +62,7 @@
           </div>
         <% end %>
       </div>
-      <div id="comments_index">
+      <div id="comments_index" class="mx-4">
         <%= render 'comments/index', { comments: @comments} %>
       </div>
     </div>

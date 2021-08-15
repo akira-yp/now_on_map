@@ -21,7 +21,7 @@ class Event < ApplicationRecord
 
   validate :start_end_check
 
-  THUMBNAIL_SIZE = [400, 400]
+  THUMBNAIL_SIZE = [500, 500]
   mount_uploader :image, ImageUploader
 
   def self.ransackable_attributes(auth_object = nil)
