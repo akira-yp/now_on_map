@@ -16,11 +16,11 @@ var markers = L.markerClusterGroup();
 
 //
 var markerIcon = L.icon({
-  iconUrl: '/imgs/marker-icon.png',
+  iconUrl: '/imgs/marker-pin.png',
   shadowUrl: '/imgs/marker-shadow.png',
-  iconSize:[26,40],
-  iconAnchor:[13,40],
-  shoadowSize:[40,40],
+  iconSize:[40,40],
+  iconAnchor:[20,40],
+  shoadowSize:[13,30],
   shadowAnchor:[13,40],
   popupAnchor: [0, -40]
 });
