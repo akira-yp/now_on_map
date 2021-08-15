@@ -43,8 +43,8 @@ RSpec.describe 'イベント投稿機能', type: :system do
   end
 
   describe 'イベント検索機能' do
-    let!(:event1){ FactoryBot.create(:event, :with_category1, user: user_1) }
-    let!(:event2){ FactoryBot.create(:event2, :with_category2, user: user_1) }
+    let!(:event1){ FactoryBot.create(:event, categories:[category_1], user: user_1) }
+    let!(:event2){ FactoryBot.create(:event2, categories:[category_2], user: user_1) }
     before do
       visit events_path
     end

@@ -1,7 +1,6 @@
 module GoogleOauthMockHelper
   def google_oauth_mock
     OmniAuth.config.test_mode = true
-    #
     OmniAuth.config.on_failure = Proc.new { |env|
       OmniAuth::FailureEndpoint.new(env).redirect_to_failure }
 

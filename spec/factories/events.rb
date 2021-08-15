@@ -7,13 +7,9 @@ FactoryBot.define do
     location { '東京都千代田区1-1' }
     latitude { 35.683864 }
     longitude { 139.745807 }
-
-    trait :with_category1 do
-      after(:create) do |event|
-        event.categories << build(:category1)
-      end
-    end
+    
   end
+
 
   factory :event2,class: Event do
     title { 'factory_event2' }
