@@ -9,6 +9,7 @@ class CommentsController < ApplicationController
         format.js
       else
         format.html { render event_path(@comment.event.id) }
+        format.js { render 'error', status: :unprocessable_entity }
       end
     end
   end
