@@ -230,7 +230,7 @@ a.link-inshow{
   background:$bg_color3;
   border-radius: 15px;
   border: none;
-  color:$f_color1;
+  color:$f_color2;
   padding:0 10px;
   &:hover{
     background:$ac_color;
@@ -243,8 +243,8 @@ a.link-inshow{
   border-radius: 15px;
   border: none;
   color:$f_color2;
-  padding:0 10px;
-  padding:0 10px;
+  padding:0 1rem;
+  padding:0 1rem;
   &:hover{
     background:$ac_color;
   }
@@ -478,7 +478,7 @@ a.link-inshow{
   }
   .submit-btn{
     display:inline-block;
-    background:$bg_color1;
+    background:$bg_color3;
     border-radius: 20px;
     border: none;
     color:$f_color2;
@@ -547,8 +547,8 @@ a.link-inshow{
 }
 
 .calender {
-  width:150px;
-  height:30px;
+  // width:150px;
+  // height:30px;
   border:0;
   font-size:1rem;
   border-radius:5px;
@@ -634,7 +634,7 @@ footer{
   text-align: center;
   width:100%;
   p{
-    color:$f_color2;
+    color:$f_color1;
     font-size: 0.8rem;
   }
 }
@@ -652,8 +652,8 @@ a.hashtag{
   display: inline-block;
   border: none;
   border-radius: 10px;
-  background: $f_color2;
-  color: $bg_color1;
+  background: $bg_color1;
+  color: $f_color1;
 }
 
 .hashtag-index{
@@ -744,4 +744,8 @@ a.hashtag{
     line-height: 0.7rem;
     color:red;
   }
+}
+
+.note{
+  font-size: 0.8rem;
 }

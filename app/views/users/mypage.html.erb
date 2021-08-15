@@ -18,7 +18,11 @@
       <div class="col-sm-3">
         <div class="module p-2">
           <h6><%= t('view.mylocation.index')%></h6>
-          <p>※クリックすると地図が遷移します</p>
+          <% if current_user.mylocations.present? %>
+            <p class="note">※クリックすると地図が遷移します</p>
+          <% else %>
+            <p class="note">※マイロケーションを登録するとここに表示されます</p>
+          <% end %>
           <% if current_user.mylocations %>
             <div class="">
               <% current_user.mylocations.each do |ml| %>
