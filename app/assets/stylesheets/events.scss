@@ -91,8 +91,8 @@ label{
   .help-description{
     visibility: hidden;
     display: inline-block;
-    width:100px;
-    padding:5px;
+    width:200px;
+    padding:10px;
     position:absolute;
     background: $bg_color2;
     border-radius: 5px;
@@ -414,6 +414,7 @@ a.link-inshow{
     position: absolute;
     top:-25px;
     right:-25px;
+    z-index: 1305;
     + span{
       visibility: hidden;
       display: inline-block;
