@@ -41,6 +41,7 @@ header {
     height:60px;
     z-index:1001;
     margin:0;
+    box-shadow: 0px 0px 16px -6px rgba(0,0,0,0.6);
   }
 }
 
@@ -167,8 +168,8 @@ label{
 
 #mapid {
   border-radius: 10px;
-  border:1px solid;
-  border-color: $bg_color1;
+  border:0;
+  box-shadow: 0px 0px 16px -6px rgba(0,0,0,0.6);
 }
 
 .result-message{
@@ -357,6 +358,7 @@ a.link-inshow{
 .module {
   background: #f0f0f0;
   border-radius: 10px;
+  box-shadow: 0px 0px 16px -6px rgba(0,0,0,0.6);
 }
 
 //モーダル
@@ -413,7 +415,7 @@ a.link-inshow{
     height:50px;
     position: absolute;
     top:-25px;
-    right:-25px;
+    left:375px;
     z-index: 1305;
     + span{
       visibility: hidden;
@@ -425,9 +427,10 @@ a.link-inshow{
       border-radius: 25px;
       color:$f_color1;
       font-size: 0.7rem;
-      right:40px;
+      left:430px;
       top:-25px;
       box-shadow: 10px;
+      z-index:1305;
     }
     &:hover{
       + span{
@@ -473,7 +476,8 @@ a.link-inshow{
   height: auto;
   min-width: 600px;
   max-height:600px;
-  overflow: auto;
+  overflow-x: hidden;
+  overflow-y:scroll;
   input{
     border:0;
     font-size:1rem;
