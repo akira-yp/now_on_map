@@ -1,8 +1,7 @@
 
 var mymap3 = L.map('mapid3').setView(markerPosi, 13);
 
-L.tileLayer('http://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
-  attribution: 'Map data &copy; <a href="http://openstreetmap.org">OpenStreetMap</a>',
+L.tileLayer('http://server.arcgisonline.com/ArcGIS/rest/services/World_Topo_Map/MapServer/tile/{z}/{y}/{x}', { attribution: 'Tiles © <a href="http://www.esrij.com/"> Esri Japan </a>',
   maxZoom: 18,
   minZoom: 4,
 }).addTo(mymap3);
