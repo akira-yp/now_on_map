@@ -16,4 +16,5 @@
 //= require leaflet/dist/leaflet.js
 //= require leaflet.markercluster/dist/leaflet.markercluster.js
 //= require leaflet-control-geocoder/dist/Control.Geocoder.js
+//= require leaflet-easybutton/src/easy-button.js
 //= require bootstrap/dist/js/bootstrap.min.js
