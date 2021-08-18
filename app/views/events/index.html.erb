@@ -38,4 +38,6 @@
 
 <% if user_signed_in? %>
   <%= javascript_include_tag 'event_new' %>
+<% else %>
+  <%= javascript_include_tag 'prelogin' %>
 <% end %>
