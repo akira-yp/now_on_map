@@ -14,8 +14,48 @@
 
   <body>
     <header>
-
-      <div class="container-fluid gloval-navi">
+      <div id="hamburger">
+        <div class="btn-gNav">
+          <span></span>
+          <span></span>
+          <span></span>
+        </div>
+        <%= link_to image_tag("logo.png"), events_path,id:"logo" %>
+          <nav id="gNav" class="">
+            <ul class="gNav-menu">
+              <li class="menu-item"><%= link_to t('view.event.index'), events_path %></li>
+              <% if user_signed_in? %>
+                <li class="menu-item"><%= link_to t('view.mypage'), mypage_user_path(current_user.id) %></li>
+                <li class="menu-item"><%= link_to t('view.log_out'), destroy_user_session_path, method: :delete %></li>
+              <% else %>
+                <li class="menu-item"><%= link_to t('view.sign_in'), new_user_session_path %></li>
+                <li class="menu-item"><%= link_to 'ゲストログイン(一般)', users_guest_sign_in_path,method: :post %></li>
+                <!-- <li class="col"><%= link_to 'ゲストログイン(管理者)', users_guest_admin_sign_in_path, method: :post %></li> -->
+              <% end %>
+              <li class="menu-item"><%= link_to t('view.user_info'),edit_user_registration_path %></li>
+              <div class="mr-2 py-1 px-2 position-relative help">
+                <a href="#" id="introduction-pop" class="help-button">?</a>
+                <span class="help-description">
+                  NOW ON MAPの使い方を見る
+                </span>
+              </div>
+              <% if user_signed_in? %>
+                <div class="mr-2 py-1 px-2">
+                  <%= link_to edit_user_registration_path do %>
+                    <% if current_user.image.present? %>
+                      <% image_tag current_user.image.url, class:"avatar-m" %>
+                    <% else %>
+                      <%= image_tag 'default_avatar.png', class:"avatar-m" %>
+                    <% end %>
+                  <% end %>
+                </div>
+              <% else %>
+                <div class=""></div>
+              <% end %>
+            </ul>
+          </nav>
+      </div>
+      <!-- <div class="container-fluid gloval-navi">
         <div class="row d-flex align-items-center justify-content-between h-100">
           <div class="col-auto d-flex align-items-center">
             <div class="top-logo mr-2">
@@ -66,7 +106,7 @@
             <% end %>
           </div>
         </div>
-      </div>
+      </div> -->
 
     </header>
     <div class="spacing-header">
@@ -192,6 +232,13 @@
         $('#mask').on('click',function(){
           $('#introduction-modal').addClass('hidden');
           $('#mask').addClass('hidden');
+        });
+
+        $(function() {
+        	$('.btn-gNav').on("click", function(){
+        		$(this).toggleClass('open');
+        		$('#gNav').toggleClass('open');
+        	});
         });
     </script>
 
