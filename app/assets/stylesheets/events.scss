@@ -26,7 +26,7 @@
   }
 }
 
-
+//PC画面表示時
 @media screen and (min-width: 768px){
   .btn-gNav{
     display: none;
@@ -146,7 +146,6 @@
   background: #444;
   font-size: 16px;
   box-sizing: border-box;
-  z-index: 1100;
   padding-top: 50px;
   transition: .3s;
 }
@@ -160,6 +159,7 @@
   flex-direction: column;
   text-align: center;
   justify-content: center;
+  z-index: 1400;
 }
 #gNav .gNav-menu li{
   display: block;
@@ -175,6 +175,7 @@ li{
 }
 }
 
+//全ページで適用
 #hamburger{
   background: $bg_color2;
   min-height: 60px;
@@ -194,16 +195,14 @@ body {
   color: $f_color1;
 }
 
-// header {
-//   .gloval-navi{
-//     background: $main_color;
-//     position:fixed;
-//     height:60px;
-//     z-index:1001;
-//     margin:0;
-//     box-shadow: 0px 0px 16px -6px rgba(0,0,0,0.6);
-//   }
-// }
+input{
+  color:$f_color1;
+}
+textarea{
+  color:$f_color1;
+}
+
+
 
 #logo img{
   width:200px;
@@ -329,7 +328,7 @@ label{
 }
 
 #mapid2 {
-  width:400px;
+  width:300px;
   height:600px;
 }
 
@@ -530,14 +529,14 @@ a.link-inshow{
 
 #edit_event_modal{
   position: fixed;
-  top: 10vh;
+  top: 3rem;
   left: 0;
   right: 0;
   margin: 0 auto;
   transform: translate(0, 0) scale(1);
   transition: 0.2s;
   z-index: 1300;
-  width: 700px;
+  max-width: 700px;
 }
 
 #show_event_modal{
@@ -550,8 +549,8 @@ a.link-inshow{
   transform: translate(0, 0) scale(1);
   transition: 0.2s;
   z-index: 1300;
-  width:80%;
-  max-width: 850px;
+  // width:80%;
+  max-width: 700px;
   background: $bg_color2;
   h1{
     display:inline-block;
@@ -569,7 +568,7 @@ a.link-inshow{
     height:50px;
     position: absolute;
     top:-25px;
-    left:375px;
+    left:275px;
     z-index: 1305;
     + span{
       visibility: hidden;
@@ -581,7 +580,7 @@ a.link-inshow{
       border-radius: 25px;
       color:$f_color1;
       font-size: 0.7rem;
-      left:430px;
+      left:330px;
       top:-25px;
       box-shadow: 10px;
       z-index:1305;
@@ -632,6 +631,37 @@ a.link-inshow{
   max-height:600px;
   overflow-x: hidden;
   overflow-y:scroll;
+  .close-btn{
+    display: block;
+    width: 50px;
+    height: 50px;
+    margin:0;
+    padding:0;
+    position:fixed;
+    top:-50px;
+    left:0px;
+    span{
+      width: 100%;
+      height: 4px;
+      border-radius: 10px;
+      &:nth-child(1){
+        background: #fff;
+        position:absolute;
+        top: 25px;
+        -webkit-transform: rotate(-45deg);
+        -moz-transform   : rotate(-45deg);
+        transform        : rotate(-45deg);
+      }
+      &:nth-child(2){
+        position:absolute;
+        top: 25px;
+        background :#fff;
+        -webkit-transform: rotate(45deg);
+        -moz-transform   : rotate(45deg);
+        transform        : rotate(45deg);
+      }
+    }
+  }
   input{
     border:0;
     font-size:1rem;
@@ -657,6 +687,8 @@ a.link-inshow{
   width: 550px;
   height:200px;
   overflow: auto;
+  position:relative;
+
   input{
     border:0;
     font-size:1rem;
@@ -675,6 +707,40 @@ a.link-inshow{
     &:hover{
       background:$ac_color;
       color:$f_color2;
+    }
+  }
+}
+
+.detail-modal{
+  .close-btn{
+    display: block;
+    width: 50px;
+    height: 50px;
+    margin:0;
+    padding:0;
+    position:fixed;
+    top:-50px;
+    left:0px;
+    span{
+      width: 100%;
+      height: 4px;
+      border-radius: 10px;
+      &:nth-child(1){
+        background: #fff;
+        position:absolute;
+        top: 25px;
+        -webkit-transform: rotate(-45deg);
+        -moz-transform   : rotate(-45deg);
+        transform        : rotate(-45deg);
+      }
+      &:nth-child(2){
+        position:absolute;
+        top: 25px;
+        background :#fff;
+        -webkit-transform: rotate(45deg);
+        -moz-transform   : rotate(45deg);
+        transform        : rotate(45deg);
+      }
     }
   }
 }
@@ -711,7 +777,7 @@ a.link-inshow{
   position: absolute;
   top: 0;
   left: 0;
-  z-index:1304;
+  z-index:1000;
 }
 
 .avatar-m {
@@ -763,7 +829,7 @@ a.link-inshow{
 }
 
 .current-image{
-  z-index: 1303;
+  z-index: 1000;
   .event-image {
       width:150px;
       height:150px;
@@ -938,4 +1004,37 @@ a.hashtag{
 
 .note{
   font-size: 0.8rem;
+  margin:0;
+}
+
+.close-btn{
+  display: block;
+  width: 50px;
+  height: 50px;
+  margin:0;
+  padding:0;
+  position:fixed;
+  top:-50px;
+  left:0px;
+  span{
+    width: 100%;
+    height: 4px;
+    border-radius: 10px;
+    &:nth-child(1){
+      background: #fff;
+      position:absolute;
+      top: 25px;
+      -webkit-transform: rotate(-45deg);
+      -moz-transform   : rotate(-45deg);
+      transform        : rotate(-45deg);
+    }
+    &:nth-child(2){
+      position:absolute;
+      top: 25px;
+      background :#fff;
+      -webkit-transform: rotate(45deg);
+      -moz-transform   : rotate(45deg);
+      transform        : rotate(45deg);
+    }
+  }
 }

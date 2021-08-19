@@ -55,59 +55,6 @@
             </ul>
           </nav>
       </div>
-      <!-- <div class="container-fluid gloval-navi">
-        <div class="row d-flex align-items-center justify-content-between h-100">
-          <div class="col-auto d-flex align-items-center">
-            <div class="top-logo mr-2">
-              <%= link_to image_tag("logo.png"), events_path %>
-            </div>
-            <div class="logo menu-item mr-2 py-1 px-2">
-              <%= link_to t('view.event.index'), events_path %>
-            </div>
-            <% if user_signed_in? %>
-              <div class="menu-item mr-2 py-1 px-2">
-                <%= link_to t('view.mypage'), mypage_user_path(current_user.id) %>
-              </div>
-              <div class="menu-item mr-2 py-1 px-2">
-                <%= link_to t('view.log_out'), destroy_user_session_path, method: :delete %>
-              </div>
-              <div class="menu-item mr-2 py-1 px-2">
-                <%= link_to t('view.user_info'),edit_user_registration_path %>
-              </div>
-            <% else %>
-              <div class="menu-item mr-2 py-1 px-2">
-                <%= link_to t('view.sign_in'), new_user_session_path %>
-              </div>
-              <div class="menu-item mr-2 py-1 px-2">
-                <%= link_to 'ゲストログイン(一般)', users_guest_sign_in_path,method: :post %>
-              </div>
-              <div class="menu-item mr-2 py-1 px-2">
-                <%= link_to 'ゲストログイン(管理者)', users_guest_admin_sign_in_path, method: :post %>
-              </div>
-            <% end %>
-            <div class="mr-2 py-1 px-2 position-relative help">
-              <a href="#" id="introduction-pop" class="help-button">?</a>
-              <span class="help-description">
-                NOW ON MAPの使い方を見る
-              </span>
-            </div>
-          </div>
-          <div class="col-1">
-            <% if user_signed_in? %>
-              <div class="mr-2 py-1 px-2">
-                <%= link_to edit_user_registration_path do %>
-                  <% if current_user.image.present? %>
-                    <% image_tag current_user.image.url, class:"avatar-m" %>
-                  <% else %>
-                    <%= image_tag 'default_avatar.png', class:"avatar-m" %>
-                  <% end %>
-                <% end %>
-              </div>
-            <% end %>
-          </div>
-        </div>
-      </div> -->
-
     </header>
     <div class="spacing-header">
     </div>
