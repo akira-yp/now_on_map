@@ -1,4 +1,8 @@
-<div class="container-fluid m-0 p-0 position-relative">
+<div class="detail-modal container-fluid m-0 p-0 position-relative">
+  <div class="close-btn">
+    <span></span>
+    <span></span>
+  </div>
   <% if @event.user.image.present? %>
     <%= image_tag @event.user.image.url, class:"avatar-m" %>
   <% else %>

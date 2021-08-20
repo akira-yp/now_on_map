@@ -4,17 +4,23 @@ var mymap = L.map('mapid').setView([35.678362, 139.715387], 13);
 L.tileLayer('http://server.arcgisonline.com/ArcGIS/rest/services/World_Topo_Map/MapServer/tile/{z}/{y}/{x}', { attribution: 'Tiles © <a href="http://www.esrij.com/"> Esri Japan </a>',
   maxZoom: 18,
   minZoom: 3,
+  tap: false
 }).addTo(mymap);
-// 'https://api.maptiler.com/maps/jp-mierune-gray/256/{z}/{x}/{y}.png?key=kQ7jEXOFcCTPC5D4Q9xX', {
-//   attribution: '<a href="https://maptiler.jp/" target="_blank">&copy; MIERUNE</a> <a href="https://www.maptiler.com/copyright/" target="_blank">&copy; MapTiler</a> <a href="https://www.openstreetmap.org/copyright" target="_blank">&copy; OpenStreetMap contributors</a>',
-//   maxZoom: 18,
-//   minZoom: 4,
-// }
-//'http://server.arcgisonline.com/ArcGIS/rest/services/World_Topo_Map/MapServer/tile/{z}/{y}/{x}', { attribution: 'Tiles © <a href="http://www.esrij.com/"> Esri Japan </a>' }
-//'https://mt1.google.com/vt/lyrs=r&x={x}&y={y}&z={z}', {attribution: "<a href='https://developers.google.com/maps/documentation' target='_blank'>Google Map</a>"
 
+//現在地取得
+function onLocationFound(e) {
+    L.marker(e.latlng).addTo(mymap).bindPopup("現在地").openPopup();
+}
+
+function onLocationError(e) {
+    alert("現在地を取得できませんでした。" + e.message);
+}
+
+
+//markerClusterを設定
 var markers = L.markerClusterGroup();
 
+//マーカーアイコンを設定
 var markerIcon = L.icon({
   iconUrl: '/imgs/marker-pin.png',
   shadowUrl: '/imgs/marker-shadow.png',
@@ -29,8 +35,8 @@ gon.events.forEach((event) => {
   var category = event.categories.reduce((html,cat) => html + `<span class="category cat-in-popup">${cat}</span>`,`` );
   var content = `<a data-remote="true" href="/events/${event.event.id}"  class="event-title" >${event.event.title}</a><div>${event.date}<div><div>${category}</div>`;
   var latlon = [event.event.latitude, event.event.longitude]
-  var marker = L.marker(latlon,{icon: markerIcon, alt: "event-marker"});
-  marker.bindPopup(content).addTo(mymap).on('click',getPosition);
+  var marker = L.marker(latlon,{icon: markerIcon, alt: "event-marker"}).bindPopup(content).addTo(mymap);
+  marker.on('click',getPosition);
   markers.addLayer(marker);
 });
 
@@ -60,8 +66,8 @@ startform.addEventListener('input', inputChange);
 L.easyButton({
 	states: [{
 		stateName: 'full-screen',
-		icon:	'fa-expand',
-		title:	 '全画面',
+		icon:'fa-expand',
+		title:'全画面',
 		onClick: function(btn, map) {
 			document.body.requestFullscreen();
 			btn.state('full-screen-reset');
@@ -70,8 +76,8 @@ L.easyButton({
 		}
 	}, {
 		stateName: 'full-screen-reset',
-		icon:	'fa-compress',
-		title:	 '元に戻す',
+		icon:'fa-compress',
+		title:'元に戻す',
 		onClick: function(btn, map) {
 			document.exitFullscreen();
 			btn.state('full-screen');
@@ -82,3 +88,10 @@ L.easyButton({
 }).addTo( mymap );
 
 mymap.addLayer(markers);
+
+//現在取得を実行
+mymap.on('locationfound', onLocationFound);
+mymap.on('locationerror', onLocationError);
+
+//現在地、または設定した地点を中心に描画
+mymap.locate({setView: true, maxZoom: 13, timeout: 20000});
