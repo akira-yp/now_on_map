@@ -6,13 +6,6 @@ L.tileLayer('http://server.arcgisonline.com/ArcGIS/rest/services/World_Topo_Map/
   minZoom: 3,
   tap: false
 }).addTo(mymap);
-// 'https://api.maptiler.com/maps/jp-mierune-gray/256/{z}/{x}/{y}.png?key=kQ7jEXOFcCTPC5D4Q9xX', {
-//   attribution: '<a href="https://maptiler.jp/" target="_blank">&copy; MIERUNE</a> <a href="https://www.maptiler.com/copyright/" target="_blank">&copy; MapTiler</a> <a href="https://www.openstreetmap.org/copyright" target="_blank">&copy; OpenStreetMap contributors</a>',
-//   maxZoom: 18,
-//   minZoom: 4,
-// }
-//'http://server.arcgisonline.com/ArcGIS/rest/services/World_Topo_Map/MapServer/tile/{z}/{y}/{x}', { attribution: 'Tiles © <a href="http://www.esrij.com/"> Esri Japan </a>' }
-//'https://mt1.google.com/vt/lyrs=r&x={x}&y={y}&z={z}', {attribution: "<a href='https://developers.google.com/maps/documentation' target='_blank'>Google Map</a>"
 
 //現在地取得
 function onLocationFound(e) {
