@@ -4,6 +4,7 @@ var mymap = L.map('mapid').setView([35.678362, 139.715387], 13);
 L.tileLayer('http://server.arcgisonline.com/ArcGIS/rest/services/World_Topo_Map/MapServer/tile/{z}/{y}/{x}', { attribution: 'Tiles © <a href="http://www.esrij.com/"> Esri Japan </a>',
   maxZoom: 18,
   minZoom: 3,
+  tap: false
 }).addTo(mymap);
 // 'https://api.maptiler.com/maps/jp-mierune-gray/256/{z}/{x}/{y}.png?key=kQ7jEXOFcCTPC5D4Q9xX', {
 //   attribution: '<a href="https://maptiler.jp/" target="_blank">&copy; MIERUNE</a> <a href="https://www.maptiler.com/copyright/" target="_blank">&copy; MapTiler</a> <a href="https://www.openstreetmap.org/copyright" target="_blank">&copy; OpenStreetMap contributors</a>',
@@ -29,8 +30,8 @@ gon.events.forEach((event) => {
   var category = event.categories.reduce((html,cat) => html + `<span class="category cat-in-popup">${cat}</span>`,`` );
   var content = `<a data-remote="true" href="/events/${event.event.id}"  class="event-title" >${event.event.title}</a><div>${event.date}<div><div>${category}</div>`;
   var latlon = [event.event.latitude, event.event.longitude]
-  var marker = L.marker(latlon,{icon: markerIcon, alt: "event-marker"});
-  marker.bindPopup(content).addTo(mymap).on('click',getPosition);
+  var marker = L.marker(latlon,{icon: markerIcon, alt: "event-marker"}).bindPopup(content).addTo(mymap);
+  marker.on('click',getPosition);
   markers.addLayer(marker);
 });
 
@@ -60,8 +61,8 @@ startform.addEventListener('input', inputChange);
 L.easyButton({
 	states: [{
 		stateName: 'full-screen',
-		icon:	'fa-expand',
-		title:	 '全画面',
+		icon:'fa-expand',
+		title:'全画面',
 		onClick: function(btn, map) {
 			document.body.requestFullscreen();
 			btn.state('full-screen-reset');
@@ -70,8 +71,8 @@ L.easyButton({
 		}
 	}, {
 		stateName: 'full-screen-reset',
-		icon:	'fa-compress',
-		title:	 '元に戻す',
+		icon:'fa-compress',
+		title:'元に戻す',
 		onClick: function(btn, map) {
 			document.exitFullscreen();
 			btn.state('full-screen');
