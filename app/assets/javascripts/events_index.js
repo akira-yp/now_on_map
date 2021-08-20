@@ -1,15 +1,14 @@
 
-var mymap = L.map('mapid').setView([35.678362, 139.715387], 13);
+var mymap = L.map('mapid',{"tap":false}).setView([35.678362, 139.715387], 13);
 
 L.tileLayer('http://server.arcgisonline.com/ArcGIS/rest/services/World_Topo_Map/MapServer/tile/{z}/{y}/{x}', { attribution: 'Tiles © <a href="http://www.esrij.com/"> Esri Japan </a>',
   maxZoom: 18,
   minZoom: 3,
-  tap: false
 }).addTo(mymap);
 
 //現在地取得
 function onLocationFound(e) {
-    L.marker(e.latlng).addTo(mymap).bindPopup("現在地").openPopup();
+    mymap.setView(e.latlng);
 }
 
 function onLocationError(e) {
