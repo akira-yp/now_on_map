@@ -12,7 +12,7 @@ function onLocationFound(e) {
 }
 
 function onLocationError(e) {
-    alert("現在地を取得できませんでした。" + e.message);
+    console.log("現在地を取得できませんでした。" + e.message);
 }
 
 
@@ -72,6 +72,7 @@ L.easyButton({
 			btn.state('full-screen-reset');
       $('#mapid').removeClass('map-index');
       $('#mapid').addClass('map-fullsize');
+      $('.space-cols').addClass('fix-bottom');
 		}
 	}, {
 		stateName: 'full-screen-reset',
@@ -82,6 +83,7 @@ L.easyButton({
 			btn.state('full-screen');
       $('#mapid').removeClass('map-fullsize');
       $('#mapid').addClass('map-index');
+      $('.space-cols').removeClass('fix-bottom');
 		}
 	}]
 }).addTo( mymap );

@@ -11,11 +11,11 @@
   <span><%= @event.user.name %>さんが投稿したイベントです!</span>
   <div class="row m-0 p-0 justify-content-start">
 
-    <div class="col-auto p-0">
+    <div class="col-12 col-sm-auto p-0">
       <div id="mapid2"></div>
     </div>
 
-    <div class="col overflow-wrap p-0">
+    <div class="col-12 col-sm-auto overflow-wrap p-0">
       <div class="event-image">
         <% if @event.image.present? %>
           <%= image_tag @event.image.url %>

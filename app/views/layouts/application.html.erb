@@ -10,7 +10,7 @@
     <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
-    <meta name="viewport" content="width=650"> 
+    <meta name="viewport" content="width=device-width">
   </head>
 
   <body>
@@ -31,7 +31,7 @@
               <% else %>
                 <li class="menu-item"><%= link_to t('view.sign_in'), new_user_session_path %></li>
                 <li class="menu-item"><%= link_to 'ゲストログイン(一般)', users_guest_sign_in_path,method: :post %></li>
-                <!-- <li class="col"><%= link_to 'ゲストログイン(管理者)', users_guest_admin_sign_in_path, method: :post %></li> -->
+                <li class="col"><%= link_to 'ゲストログイン(管理者)', users_guest_admin_sign_in_path, method: :post %></li>
               <% end %>
               <li class="menu-item"><%= link_to t('view.user_info'),edit_user_registration_path %></li>
               <div class="mr-2 py-1 px-2 position-relative help">

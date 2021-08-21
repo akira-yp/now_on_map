@@ -9,6 +9,10 @@
   left: 0;
 }
 
+input{
+  font-size: 16px;
+}
+
 .users-form{
   background: $bg_color2;
   padding: 30px;
@@ -36,7 +40,6 @@
   }
   input{
     border:0;
-    font-size:0.9rem;
     border-radius:5px;
     color: $f_color1;
   }
