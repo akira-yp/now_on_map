@@ -28,9 +28,28 @@
 
 //PC画面表示時
 @media screen and (min-width: 768px){
+   input{
+    font-size: 1rem;
+   }
+  html{
+    font-size:13px;
+  }
   .btn-gNav{
     display: none;
   }
+
+  #logo img{
+    width:200px;
+    margin-left:10px;
+    position:fixed;
+    top:10px;
+    left:10px;
+  }
+
+  #new_event_modal{
+    width:70%
+  }
+
   #gNav{
     width:100%;
     background: $bg_color2;
@@ -89,91 +108,154 @@
     }
 
   }
+  #show_event_modal{
+    width: 700px;
+  }
+  #mapid2{
+    width:700px;
+    height:200px;
+    padding:0;
+    margin:0;
+  }
 }
+
 
 @media screen and (max-width:768px){
-#hamburger .btn-gNav{
-  position: fixed;
-  top: 20px;
-  right: 20px;
-  width: 30px;
-  height: 24px;
-  z-index: 1101;
-  box-sizing: border-box;
-  cursor: pointer;
-  -webkit-transition: all 400ms;
-  transition: all 400ms;
+  html{
+    font-size:10px;
+  }
+
+  input{
+    font-size: 16px;
+  }
+
+  textarea{
+    font-size: 16px;
+  }
+
+  #logo img{
+    width:150px;
+    position:fixed;
+    top:10px;
+    left:10px;
+  }
+
+  .fix-bottom{
+    margin:5 0;
+    position:fixed;
+    bottom:5px;
+    right:3px;
+  }
+
+  #new_event_modal,#new_mylocation_modal,#introduction-modal{
+    width:90%;
+    height:100%;
+  }
+
+  #edit_event_modal{
+    position: fixed;
+    top: 5rem;
+    width:90%;
+    height:650px;
+  }
+
+
+  #hamburger .btn-gNav{
+    position: fixed;
+    top: 20px;
+    right: 20px;
+    width: 30px;
+    height: 24px;
+    z-index: 1101;
+    box-sizing: border-box;
+    cursor: pointer;
+    -webkit-transition: all 400ms;
+    transition: all 400ms;
+  }
+
+  #hamburger .btn-gNav span{
+    position: absolute;
+    width: 100%;
+    height: 4px;
+    background: #666;
+    border-radius: 10px;
+    -webkit-transition: all 400ms;
+    transition: all 400ms;
+  }
+  #hamburger .btn-gNav span:nth-child(1) {
+    top:0;
+  }
+  #hamburger .btn-gNav span:nth-child(2) {
+    top:10px;
+  }
+  #hamburger .btn-gNav span:nth-child(3) {
+    top:20px;
+  }
+  #hamburger .btn-gNav.open span:nth-child(1){
+    background: #fff;
+    top: 6px;
+    -webkit-transform: rotate(-45deg);
+    -moz-transform   : rotate(-45deg);
+    transform        : rotate(-45deg);
+  }
+  #hamburger .btn-gNav.open span:nth-child(2),#hamburger .btn-gNav.open span:nth-child(3){
+    top: 6px;
+    background :#fff;
+    -webkit-transform: rotate(45deg);
+    -moz-transform   : rotate(45deg);
+    transform        : rotate(45deg);
+  }
+  #gNav{
+    position: fixed;
+    top: 0;
+    right: -100%;
+    width: 100%;
+    height: 100%;
+    background: #444;
+    font-size: 16px;
+    box-sizing: border-box;
+    padding-top: 50px;
+    transition: .3s;
+  }
+  #gNav.open{
+    right: 0px;
+  }
+  #gNav .gNav-menu{
+    width: 100%;
+    height:400px;
+    display: flex;
+    flex-direction: column;
+    text-align: center;
+    justify-content: center;
+    z-index: 1001;
+    padding:0;
+
+  }
+  #gNav .gNav-menu li{
+    display: block;
+    padding : 20px 30px;
+  }
+  #gNav .gNav-menu li a{
+    color: #ddd;
+    text-decoration: none;
+  }
+
+  li{
+    list-style: none;
+  }
+
+  #show_event_modal{
+    width: 350px;
+  }
+  #mapid2{
+    width:350px;
+    height:200px;
+    padding:0;
+    margin:0;
+  }
 }
 
-#hamburger .btn-gNav span{
-  position: absolute;
-  width: 100%;
-  height: 4px;
-  background: #666;
-  border-radius: 10px;
-  -webkit-transition: all 400ms;
-  transition: all 400ms;
-}
-#hamburger .btn-gNav span:nth-child(1) {
-  top:0;
-}
-#hamburger .btn-gNav span:nth-child(2) {
-  top:10px;
-}
-#hamburger .btn-gNav span:nth-child(3) {
-  top:20px;
-}
-#hamburger .btn-gNav.open span:nth-child(1){
-  background: #fff;
-  top: 6px;
-  -webkit-transform: rotate(-45deg);
-  -moz-transform   : rotate(-45deg);
-  transform        : rotate(-45deg);
-}
-#hamburger .btn-gNav.open span:nth-child(2),#hamburger .btn-gNav.open span:nth-child(3){
-  top: 6px;
-  background :#fff;
-  -webkit-transform: rotate(45deg);
-  -moz-transform   : rotate(45deg);
-  transform        : rotate(45deg);
-}
-#gNav{
-  position: fixed;
-  top: 0;
-  right: -100%;
-  width: 100%;
-  height: 100%;
-  background: #444;
-  font-size: 16px;
-  box-sizing: border-box;
-  padding-top: 50px;
-  transition: .3s;
-}
-#gNav.open{
-  right: 0px;
-}
-#gNav .gNav-menu{
-  width: 100%;
-  height:400px;
-  display: flex;
-  flex-direction: column;
-  text-align: center;
-  justify-content: center;
-  z-index: 1400;
-}
-#gNav .gNav-menu li{
-  display: block;
-  padding : 20px 30px;
-}
-#gNav .gNav-menu li a{
-  color: #ddd;
-  text-decoration: none;
-}
 
-li{
-  list-style: none;
-}
-}
 
 //全ページで適用
 #hamburger{
@@ -205,12 +287,7 @@ textarea{
 
 
 
-#logo img{
-  width:200px;
-  position:fixed;
-  top:10px;
-  left:10px;
-}
+
 
 .spacing-header{
   height:50px;
@@ -237,16 +314,6 @@ label{
   font-size:0.8rem;
 }
 
-//global-navi
-// .menu-item{
-//   background: $bg_color1;
-//   border-radius: 20px;
-//   &:hover{
-//     background:$ac_color;
-//     a { color:$f_color2; }
-//   }
-// }
-
 .help-button{
   margin:auto;
   text-align: center;
@@ -260,24 +327,10 @@ label{
 
 }
 
-
-
-
-.top-logo{
-  width:150px;
-  img{
-    width:100%;
-  }
-}
-
 .map-wrapper{
   background: $bg_color1;
   margin:0;
   padding:0;
-}
-
-.space-cols{
-  padding:5px 7px;
 }
 
 
@@ -330,10 +383,10 @@ label{
   }
 }
 
-#mapid2 {
-  width:300px;
-  height:600px;
-}
+// #mapid2 {
+//   width:300px;
+//   height:600px;
+// }
 
 .map-index {
   width: 100%;
@@ -346,6 +399,7 @@ label{
   position:fixed !important;
   top:60px;
   left:0;
+  z-index:10;
 }
 
 .map-mypage {
@@ -357,6 +411,11 @@ label{
   min-width: 400px;
 }
 
+.space-cols{
+  bottom:10px;
+  padding:5px 7px;
+  z-index: 1000;
+}
 
 //ボタン系
 .action-btn{
@@ -452,12 +511,12 @@ a.link-inshow{
       display: block;
       padding: 0;
       margin: 0;
-      width:15px;
-      height:15px;
+      width:1.2rem;
+      height:1.2rem;
       border-radius:50%;
       background: $bg_color3;
       color: $f_color2;
-      font-size: 0.8rem;
+      font-size: 1rem;
     }
   }
 }
@@ -508,8 +567,7 @@ a.link-inshow{
 }
 
 .search_form{
-  min-width: 200px;
-  z-index:1;
+  // min-width: 200px;
 }
 
 .module {
@@ -521,19 +579,19 @@ a.link-inshow{
 //モーダル
 #new_event_modal,#new_mylocation_modal,#introduction-modal{
   position: fixed;
-  top: 3rem;
+  top: 4rem;
   left: 0;
   right: 0;
   margin: 0 auto;
   transform: translate(0, 0) scale(1);
   transition: 0.2s;
   z-index: 1300;
-  width: 600px;
+  max-height: 700px
+  // width: 70%;
 }
 
 #edit_event_modal{
   position: fixed;
-  top: 3rem;
   left: 0;
   right: 0;
   margin: 0 auto;
@@ -545,7 +603,7 @@ a.link-inshow{
 
 #show_event_modal{
   position: fixed;
-  top: 3rem;
+  top: 4rem;
   left: 0;
   right: 0;
   margin: 0 auto;
@@ -554,7 +612,6 @@ a.link-inshow{
   transition: 0.2s;
   z-index: 1300;
   // width:80%;
-  max-width: 700px;
   background: $bg_color2;
   h1{
     display:inline-block;
@@ -572,7 +629,7 @@ a.link-inshow{
     height:50px;
     position: absolute;
     top:-25px;
-    left:275px;
+    right:0px;
     z-index: 1305;
     + span{
       visibility: hidden;
@@ -584,8 +641,8 @@ a.link-inshow{
       border-radius: 25px;
       color:$f_color1;
       font-size: 0.7rem;
-      left:330px;
-      top:-25px;
+      right:50px;
+      top:-15px;
       box-shadow: 10px;
       z-index:1305;
     }
@@ -598,7 +655,7 @@ a.link-inshow{
 }
 
 .overflow-wrap{
-  height:600px;
+  height:450px;
   overflow-y: scroll;
 }
 
@@ -631,9 +688,9 @@ a.link-inshow{
 .modal-wrapper{
   background: $bg_color2;
   width:auto;
-  height: auto;
-  min-width: 600px;
-  max-height:600px;
+  height:650px;
+  min-width: 90%;
+  // max-height:600px;
   overflow-x: hidden;
   overflow-y:scroll;
   .close-btn{
@@ -670,7 +727,7 @@ a.link-inshow{
   }
   input{
     border:0;
-    font-size:1rem;
+    // font-size:1rem;
     border-radius:5px;
     color: $f_color1;
   }
@@ -690,18 +747,18 @@ a.link-inshow{
 .modal-mylocation{
   background: $bg_color2;
   height: auto;
-  width: 550px;
-  height:200px;
+  // width: 550px;
+  // height:200px;
   overflow: auto;
   position:relative;
 
   input{
     border:0;
-    font-size:1rem;
+    // font-size:1rem;
     border-radius:5px;
     color: $f_color1;
     &[type="text"]{
-      width:300px;
+      width:100%;
     }
   }
   .submit-btn{
@@ -718,6 +775,7 @@ a.link-inshow{
 }
 
 .detail-modal{
+  height:650px;
   .close-btn{
     cursor: pointer;
     display: block;
@@ -813,7 +871,7 @@ a.link-inshow{
   // width:150px;
   // height:30px;
   border:0;
-  font-size:1rem;
+  // font-size:1rem;
   border-radius:5px;
 }
 
@@ -1052,3 +1110,11 @@ a.hashtag{
 .easy-button-button{
   cursor:pointer;
 }
+
+
+.shadow{
+  box-shadow: 0px 0px 16px -6px rgba(0,0,0,0.6);
+}
+// .field{
+//   margin:auto 0;
+// }

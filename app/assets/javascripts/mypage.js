@@ -4,7 +4,7 @@ if ( gon.events.length == 0 ){
   var default_latlng = [gon.events.slice(-1)[0].event.latitude, gon.events.slice(-1)[0].event.longitude]
 };
 
-var mymap = L.map('mapid').setView(default_latlng, 12);
+var mymap = L.map('mapid',{"tap":false}).setView(default_latlng, 12);
 
 L.tileLayer('http://server.arcgisonline.com/ArcGIS/rest/services/World_Topo_Map/MapServer/tile/{z}/{y}/{x}', { attribution: 'Tiles © <a href="http://www.esrij.com/"> Esri Japan </a>',
   maxZoom: 18,

@@ -7,7 +7,7 @@
     <% end %>
   </div>
   <div class="">
-    <%= link_to t('view.mylocation.posts'), posts_index_user_path(current_user.id),class:"myindex-btn mr-3" %><%= link_to t('view.mylocation.favorites'), mypage_user_path(current_user.id) , class:"myindex-btn" %>
+    <%= link_to t('view.mylocation.posts'), posts_index_user_path(current_user.id),class:"myindex-btn mr-3 shadow" %><%= link_to t('view.mylocation.favorites'), mypage_user_path(current_user.id) , class:"myindex-btn shadow" %>
   </div>
   <div class="container-fluid my-3 px-3">
     <div class="row">
@@ -27,7 +27,7 @@
             <div class="">
               <% current_user.mylocations.each do |ml| %>
                 <span data-lat="<%= ml.my_latitude %>" data-lng="<%= ml.my_longitude %>" data-name="<%= ml.name %>" class="gotoMyloc mb-2 py-1 pl-1 pr-5">
-                  <object>
+                  <object class"delete-myloc">
                     <%= link_to '×', user_mylocation_path(current_user.id, ml.id),data:{confirm:t('view.mylocation.delete?')},method: :delete %>
                   </object>
                   <%= ml.name %><br>
