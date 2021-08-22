@@ -10,9 +10,11 @@
     <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
     <script type="text/javascript" src="//cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-cookie/1.4.1/jquery.cookie.min.js"></script>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
     <link rel="stylesheet" type="text/css" href="//cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.css"/>
     <link rel="stylesheet" type="text/css" href="//cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick-theme.css"/>
+
     <meta name="viewport" content="width=device-width">
   </head>
 
@@ -192,6 +194,10 @@
         $('#mask').on('click',function(){
           $('#introduction-modal').addClass('hidden');
           $('#mask').addClass('hidden');
+          var date = new Date();
+          date.setTime( date.getTime() + 60 * 1000 )
+          $.cookie('Flg','on', { expires: date, path: '/' } );
+          console.log('初めてのご訪問ありがとうございます！')
         });
 
         $(function() {
@@ -206,6 +212,15 @@
                 dots: true,
                 allows: true,
             });
+        });
+
+        $(function(){
+          if($.cookie('Flg') == 'on'){
+            console.log('再度の訪問ありがとうございます！')
+          }else{
+            $('#introduction-modal').removeClass('hidden');
+            $('#mask').removeClass('hidden');
+          }
         });
     </script>
   </body>
