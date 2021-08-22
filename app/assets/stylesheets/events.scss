@@ -140,6 +140,10 @@
     left:10px;
   }
 
+  #qrcode{
+    display:none;
+  }
+
   .fix-bottom{
     margin:5 0;
     position:fixed;
@@ -285,12 +289,12 @@ textarea{
   color:$f_color1;
 }
 
-
-
-
-
 .spacing-header{
   height:50px;
+}
+
+#content-area{
+  margin:0 0 100px 0;
 }
 
 h1{
@@ -948,15 +952,22 @@ a.link-inshow{
   }
 }
 
+#qrcode{
+  margin-bottom:2rem;
+}
 
 footer{
-  position:absolute;
-  bottom:0;
+  background: $bg_color2;
+  padding-top:5rem;
+  // position:absolute;
+  // bottom:0;
   text-align: center;
   width:100%;
+
   p{
     color:$f_color1;
     font-size: 0.8rem;
+    margin-bottom: 0;
   }
 }
 

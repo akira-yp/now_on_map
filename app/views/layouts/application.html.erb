@@ -59,17 +59,20 @@
     </header>
     <div class="spacing-header">
     </div>
-    <% if notice  %>
-      <div class="notice p-1">
-        <p class="notice-content"><%= notice %></p>
-      </div>
-    <% end %>
-    <% if alert %>
-      <div class="notice p-1">
-        <p><%= alert %></p>
-      </div>
-    <% end %>
-    <%= yield %>
+    <div id="content-area">
+      <% if notice  %>
+        <div class="notice p-1">
+          <p class="notice-content"><%= notice %></p>
+        </div>
+      <% end %>
+      <% if alert %>
+        <div class="notice p-1">
+          <p><%= alert %></p>
+        </div>
+      <% end %>
+      <%= yield %>
+    </div>
+
 
     <div id="introduction-modal" class="hidden p-0 container slider">
       <a href="#slide-1">1</a>
@@ -171,6 +174,20 @@
         </div>
       </div>
     </div>
+
+
+    <footer>
+      <div>
+        <div id="qrcode">
+          <img src="/imgs/QR_607151.png" alt="qrcode">
+          <p>こちらを読み取るとスマホでご覧になれます</p>
+        </div>
+        <p class="text-center">
+          © 2021 Now On Map All rights reserved.
+        </p>
+      </div>
+    </footer>
+
     <script>
         $('#introduction-pop').on('click',function(){
           $('#introduction-modal').removeClass('hidden');
@@ -189,13 +206,5 @@
         	});
         });
     </script>
-
-    <footer>
-      <div>
-        <p class="text-center">
-          © 2021 Now On Map All rights reserved.
-        </p></p>
-      </div>
-    </footer>
   </body>
 </html>
