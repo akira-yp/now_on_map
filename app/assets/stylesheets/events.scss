@@ -122,7 +122,7 @@
 
 @media screen and (max-width:768px){
   html{
-    font-size:10px;
+    font-size:11px;
   }
 
   input{
@@ -151,7 +151,7 @@
     right:3px;
   }
 
-  #new_event_modal,#new_mylocation_modal,#introduction-modal{
+  #new_event_modal,#new_mylocation_modal{
     width:90%;
     height:100%;
   }
@@ -581,7 +581,7 @@ a.link-inshow{
 }
 
 //モーダル
-#new_event_modal,#new_mylocation_modal,#introduction-modal{
+#new_event_modal,#new_mylocation_modal{
   position: fixed;
   top: 4rem;
   left: 0;
@@ -590,8 +590,21 @@ a.link-inshow{
   transform: translate(0, 0) scale(1);
   transition: 0.2s;
   z-index: 1300;
-  max-height: 700px
+  max-height: 700px;
   // width: 70%;
+}
+
+#introduction-modal{
+  position: fixed;
+  top: 4rem;
+  left: 0;
+  right: 0;
+  margin: 0 auto;
+  transform: translate(0, 0) scale(1);
+  transition: 0.2s;
+  z-index: 1300;
+  max-height: 700px;
+  width:90%;
 }
 
 #edit_event_modal{
@@ -1007,56 +1020,60 @@ a.hashtag{
 
 //introduction slider
 .slider{
-  text-align: center;
-  overflow: hidden;
-  & > a{
-    display: inline-flex;
-    width: 1.5rem;
-    height: 1.5rem;
-    background: $bg_color2;
-    text-decoration: none;
-    align-items: center;
-    justify-content: center;
-    border-radius: 50%;
-    margin: 0 0 0.5rem 0;
-    position: relative;
-  }
+
 }
 
 .slides{
-  display: flex;
-  overflow-x:auto;
-  scroll-snap-type: x mandatory;
-  scroll-behavior: smooth;
-  -webkit-overflow-scrolling: touch;
+  // overflow: hidden;
   .slide-item{
-    scroll-snap-align: start;
-    flex-shrink: 0;
-    width: 600px;
-    height: 400px;
-    margin-right: 50px;
-    padding: 2rem;
+    width:90%;
+    height:500px;
     background: $bg_color2;
-    transform-origin: center center;
-    transform: scale(1);
-    transition: transform 0.5s;
-    position: relative;
-    .content{
-      height:300px;
-      display: flex;
-      justify-content: center;
-      align-items: center;
+    // position:relative;
+    padding:2rem;
+    display:flex !important;
+    justify-content: center;
+    align-items:center;
+    .slide-content{
+      height:auto;
     }
   }
 }
-.slides::-webkit-scrollbar {
-  width: 10px;
-  height: 10px;
-}
-.slides::-webkit-scrollbar-thumb {
-  background: black;
-  border-radius: 10px;
-}
+
+// .slides{
+//   display: flex;
+//   overflow-x:auto;
+//   scroll-snap-type: x mandatory;
+//   scroll-behavior: smooth;
+//   -webkit-overflow-scrolling: touch;
+//   .slide-item{
+//     scroll-snap-align: start;
+//     flex-shrink: 0;
+//     width: 600px;
+//     height: 400px;
+//     margin-right: 50px;
+//     padding: 2rem;
+//     background: $bg_color2;
+//     transform-origin: center center;
+//     transform: scale(1);
+//     transition: transform 0.5s;
+//     position: relative;
+//     .content{
+//       height:300px;
+//       display: flex;
+//       justify-content: center;
+//       align-items: center;
+//     }
+//   }
+// }
+// .slides::-webkit-scrollbar {
+//   width: 10px;
+//   height: 10px;
+// }
+// .slides::-webkit-scrollbar-thumb {
+//   background: black;
+//   border-radius: 10px;
+// }
 
 
 //エラーメッセージ
