@@ -1018,11 +1018,6 @@ a.hashtag{
   }
 }
 
-//introduction slider
-.slider{
-
-}
-
 .slides{
   // overflow: hidden;
   .slide-item{
@@ -1035,45 +1030,12 @@ a.hashtag{
     justify-content: center;
     align-items:center;
     .slide-content{
+      width:90%;
+      max-width:700px;
       height:auto;
     }
   }
 }
-
-// .slides{
-//   display: flex;
-//   overflow-x:auto;
-//   scroll-snap-type: x mandatory;
-//   scroll-behavior: smooth;
-//   -webkit-overflow-scrolling: touch;
-//   .slide-item{
-//     scroll-snap-align: start;
-//     flex-shrink: 0;
-//     width: 600px;
-//     height: 400px;
-//     margin-right: 50px;
-//     padding: 2rem;
-//     background: $bg_color2;
-//     transform-origin: center center;
-//     transform: scale(1);
-//     transition: transform 0.5s;
-//     position: relative;
-//     .content{
-//       height:300px;
-//       display: flex;
-//       justify-content: center;
-//       align-items: center;
-//     }
-//   }
-// }
-// .slides::-webkit-scrollbar {
-//   width: 10px;
-//   height: 10px;
-// }
-// .slides::-webkit-scrollbar-thumb {
-//   background: black;
-//   border-radius: 10px;
-// }
 
 
 //エラーメッセージ
