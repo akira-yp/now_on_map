@@ -83,7 +83,7 @@
       <div class="slides">
         <div class="slide-item">
           <div class="slide-content text-center">
-            <div class="p-2">
+            <div class="my-3">
               <h1>NOW ON MAPとは?</h1>
             </div>
             <div class="">
@@ -97,7 +97,7 @@
         </div>
         <div class="slide-item">
           <div class="slide-content">
-            <div class="text-center">
+            <div class="text-center my-3">
               <h2>カテゴリーと日付からイベントを探せます</h2>
             </div>
             <div class="content">
@@ -111,7 +111,7 @@
         </div>
         <div class="slide-item">
           <div class="slide-content">
-            <div class="text-center">
+            <div class="text-center my-3">
               <h2>地図をクリックすると<br>
                 その場所にイベントを投稿できます</h2>
             </div>
@@ -126,7 +126,7 @@
         </div>
         <div class="slide-item">
           <div class="slide-content">
-            <div class="text-center">
+            <div class="text-center my-3">
               <h2>イベント情報にはコメントを残せます</h2>
             </div>
             <div class="content">
@@ -139,7 +139,7 @@
         </div>
         <div class="slide-item">
           <div class="slide-content">
-            <div class="text-center">
+            <div class="text-center my-3">
               <h2>お気に入りしたイベントは<br>
                 マイページで表示できます</h2>
             </div>
@@ -154,7 +154,7 @@
         </div>
         <div class="slide-item">
           <div class="slide-content">
-            <div class="text-center">
+            <div class="text-center my-3">
               <h2>よく使う場所を登録しておくことで<br>
                 ワンクリックで遷移できます</h2>
             </div>
@@ -195,8 +195,8 @@
           $('#introduction-modal').addClass('hidden');
           $('#mask').addClass('hidden');
           var date = new Date();
-          date.setTime( date.getTime() + 60 * 1000 )
-          $.cookie('Flg','on', { expires: date, path: '/' } );
+          // date.setTime( date.getTime() + 60 * 1000 )
+          $.cookie('Flg','on', { expires: 1, path: '/' } );
           console.log('初めてのご訪問ありがとうございます！')
         });
 
@@ -216,7 +216,7 @@
 
         $(function(){
           if($.cookie('Flg') == 'on'){
-            console.log('再度の訪問ありがとうございます！')
+            console.log('再度のご訪問ありがとうございます！')
           }else{
             $('#introduction-modal').removeClass('hidden');
             $('#mask').removeClass('hidden');

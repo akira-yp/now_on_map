@@ -67,6 +67,7 @@ L.easyButton({
 		stateName: 'full-screen',
 		icon:'fa-expand',
 		title:'全画面',
+    tap:false,
 		onClick: function(btn, map) {
 			document.body.requestFullscreen();
 			btn.state('full-screen-reset');
@@ -78,6 +79,7 @@ L.easyButton({
 		stateName: 'full-screen-reset',
 		icon:'fa-compress',
 		title:'元に戻す',
+    tap:false,
 		onClick: function(btn, map) {
 			document.exitFullscreen();
 			btn.state('full-screen');

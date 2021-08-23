@@ -151,6 +151,14 @@
     right:3px;
   }
 
+  .myindex-btn{
+    font-size:1.1rem;
+  }
+
+  .leaflet-control-geocoder-form input{
+    font-size:16px;
+  }
+
   #new_event_modal,#new_mylocation_modal{
     width:90%;
     height:100%;
@@ -1031,7 +1039,7 @@ a.hashtag{
     align-items:center;
     .slide-content{
       width:90%;
-      max-width:700px;
+      max-width:600px;
       height:auto;
     }
   }
@@ -1099,6 +1107,7 @@ a.hashtag{
 
 .easy-button-button{
   cursor:pointer;
+  padding:0;
 }
 
 
