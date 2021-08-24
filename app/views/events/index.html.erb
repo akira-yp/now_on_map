@@ -7,7 +7,7 @@
 <% end %>
 
 <div class="map-wrapper p-3">
-  <div class="result-message mt-3">
+  <div id="event-header" class="result-message mt-3">
     <% if action_name == 'create' || action_name == 'update' %>
       <%= @event.title %>
     <% else %>
@@ -18,7 +18,6 @@
       <% end %>
         <p>マップ上に<%= @events.size %>件のイベントを表示しています。</p>
     <% end %>
-
   </div>
 
   <div class="container-fluid my-3">
@@ -33,8 +32,26 @@
     </div>
   </div>
 </div>
+<script>
+$(function(){
+  if(sessionStorage.mapsize === 'map-fullsize'){
+    $('#mapid').removeClass('map-index');
+    $('#mapid').addClass('map-fullsize');
+    $('.space-cols').addClass('fix-bottom');
+    expandbtn.state('full-screen-reset');
+  }else{
+    $('#mapid').removeClass('map-fullsize');
+    $('#mapid').addClass('map-index');
+    $('.space-cols').removeClass('fix-bottom');
+    expandbtn.state('full-screen');
+  };
+})
+</script>
 
-<%= javascript_include_tag 'events_index' %>
+
+<%= javascript_include_tag 'events_index'%>
+
+
 
 <% if user_signed_in? %>
   <%= javascript_include_tag 'event_new' %>

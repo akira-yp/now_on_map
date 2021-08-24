@@ -27,6 +27,7 @@ class EventsController < ApplicationController
     end
 
     gon.events = @events.map { | event | { 'event':event, 'categories':event.categories.pluck(:name),'date':"#{event.start_date.strftime("%Y年%m月%d日")} ~ #{event.end_date.strftime("%Y年%m月%d日")}" } }
+
     render :index
   end
 

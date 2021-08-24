@@ -9,7 +9,12 @@
 
     <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
+    <script type="text/javascript" src="//cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-cookie/1.4.1/jquery.cookie.min.js"></script>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+    <link rel="stylesheet" type="text/css" href="//cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.css"/>
+    <link rel="stylesheet" type="text/css" href="//cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick-theme.css"/>
+
     <meta name="viewport" content="width=device-width">
   </head>
 
@@ -57,66 +62,62 @@
           </nav>
       </div>
     </header>
-    <div class="spacing-header">
-    </div>
-    <% if notice  %>
-      <div class="notice p-1">
-        <p class="notice-content"><%= notice %></p>
-      </div>
-    <% end %>
-    <% if alert %>
-      <div class="notice p-1">
-        <p><%= alert %></p>
-      </div>
-    <% end %>
-    <%= yield %>
 
-    <div id="introduction-modal" class="hidden p-0 container slider">
-      <a href="#slide-1">1</a>
-      <a href="#slide-2">2</a>
-      <a href="#slide-3">3</a>
-      <a href="#slide-4">4</a>
-      <a href="#slide-5">5</a>
-      <a href="#slide-6">6</a>
+    <div id="content-area">
+      <div class="spacing-header">
+      </div>
+      <% if notice  %>
+        <div class="notice p-1">
+          <p class="notice-content"><%= notice %></p>
+        </div>
+      <% end %>
+      <% if alert %>
+        <div class="notice p-1">
+          <p><%= alert %></p>
+        </div>
+      <% end %>
+      <%= yield %>
+    </div>
+
+
+    <div id="introduction-modal" class="hidden p-0 slider">
       <div class="slides">
-        <div id="slide-1" class="slide-item">
-          <div class="">
-            <div class="text-center">
-              <h2>NOW ON MAPとは?</h2>
+        <div class="slide-item">
+          <div class="slide-content text-center">
+            <div class="my-3">
+              <h1>NOW ON MAPとは?</h1>
             </div>
-            <div class="content">
-              <div class="align-middle">
-                <p>地図からイベント情報を投稿・発見できるサイトです。</p>
-                <p>「今日近くで何かやってないかな？」</p>
-                <p>「地域の人にイベントを知らせたい」</p>
-                <p>「旅行先でその時しか体験できないことは？」</p>
-                <p>ぜひ使ってみてください。</p>
-              </div>
+            <div class="">
+              <p>地図からイベント情報を投稿・発見できるサイトです。</p>
+              <p>「今日近くで何かやってないかな？」</p>
+              <p>「地域の人にイベントを知らせたい」</p>
+              <p>「旅行先でその時しか体験できないことは？」</p>
+              <p>ぜひ使ってみてください。</p>
             </div>
           </div>
         </div>
-        <div id="slide-2" class="slide-item">
-          <div class="">
-            <div class="text-center">
+        <div class="slide-item">
+          <div class="slide-content">
+            <div class="text-center my-3">
               <h2>カテゴリーと日付からイベントを探せます</h2>
             </div>
             <div class="content">
-              <div class="align-middle text-left">
-                <p>カテゴリーと日付を選択すると、その日に開催中のイベントを地図に表示されます。</p>
+              <div class="text-left">
+                <p>カテゴリーと日付を選択すると、その日に開催中のイベントが地図に表示されます。</p>
                 <p>地図上のマーカーをクリックして表示するポップアップから、イベントの詳細を表示できます。</p>
                 <p>イベントのハッシュタグをクリックすると、同じハッシュタグの付いたイベント一覧が表示されます。</p>
               </div>
             </div>
           </div>
         </div>
-        <div id="slide-3" class="slide-item">
-          <div class="">
-            <div class="text-center">
+        <div class="slide-item">
+          <div class="slide-content">
+            <div class="text-center my-3">
               <h2>地図をクリックすると<br>
                 その場所にイベントを投稿できます</h2>
             </div>
             <div class="content">
-              <div class="align-middle text-left">
+              <div class="text-left">
                 <p class="must_need">*ログインが必要です</p>
                 <p>投稿したい場所をクリックするとポップアップが表示され、そこからイベント投稿フォームを表示できます。</p>
                 <p>自分が投稿したイベントはマイページから確認することができます。</p>
@@ -124,10 +125,10 @@
             </div>
           </div>
         </div>
-        <div id="slide-4" class="slide-item">
-          <div class="">
-            <div class="text-center">
-              <h2>イベント情報にコメントを残せます</h2>
+        <div class="slide-item">
+          <div class="slide-content">
+            <div class="text-center my-3">
+              <h2>イベント情報にはコメントを残せます</h2>
             </div>
             <div class="content">
               <div class="align-middle">
@@ -137,9 +138,9 @@
             </div>
           </div>
         </div>
-        <div id="slide-5" class="slide-item">
-          <div class="">
-            <div class="text-center">
+        <div class="slide-item">
+          <div class="slide-content">
+            <div class="text-center my-3">
               <h2>お気に入りしたイベントは<br>
                 マイページで表示できます</h2>
             </div>
@@ -152,17 +153,17 @@
             </div>
           </div>
         </div>
-        <div id="slide-6" class="slide-item">
-          <div class="">
-            <div class="text-center">
-              <h2>よく使う場所を登録しておけば<br>
+        <div class="slide-item">
+          <div class="slide-content">
+            <div class="text-center my-3">
+              <h2>よく使う場所を登録しておくことで<br>
                 ワンクリックで遷移できます</h2>
             </div>
             <div class="content">
               <div class="align-middle text-left">
                 <p class="must_need">*ログインが必要です</p>
                 <p>マイページではよく使う場所を「マイロケーション」として登録しておくことができます。</p>
-                <p>イベントを探す時だけでなく、同じ場所で定期的にイベントを登録したい場合などに活用できます</p>
+                <p>イベントを探す時だけでなく、同じ場所で定期的にイベントを登録したい場合などに活用できます。</p>
                 <p>地図上で登録したい場所をクリック→「マイロケーションに登録」から作成フォームが立ち上がります。</p>
                 <p>マイロケーションに登録されたボタンをクリックすると、地図が登録地点にジャンプします。そこからイベントを作成することもできます。</p>
               </div>
@@ -171,6 +172,20 @@
         </div>
       </div>
     </div>
+
+
+    <footer>
+      <div>
+        <div id="qrcode">
+          <img src="/imgs/QR_607151.png" alt="qrcode">
+          <p>こちらを読み取るとスマホでご覧になれます</p>
+        </div>
+        <p class="text-center">
+          © 2021 Now On Map All rights reserved.
+        </p>
+      </div>
+    </footer>
+
     <script>
         $('#introduction-pop').on('click',function(){
           $('#introduction-modal').removeClass('hidden');
@@ -180,6 +195,10 @@
         $('#mask').on('click',function(){
           $('#introduction-modal').addClass('hidden');
           $('#mask').addClass('hidden');
+          var date = new Date();
+          // date.setTime( date.getTime() + 60 * 1000 )
+          $.cookie('Flg','on', { expires: 1, path: '/' } );
+          console.log('初めてのご訪問ありがとうございます！')
         });
 
         $(function() {
@@ -188,14 +207,21 @@
         		$('#gNav').toggleClass('open');
         	});
         });
-    </script>
 
-    <footer>
-      <div>
-        <p class="text-center">
-          © 2021 Now On Map All rights reserved.
-        </p></p>
-      </div>
-    </footer>
+        $(function() {
+            $('.slides').slick({
+                dots: true,
+                allows: true,
+            });
+        });
+
+        $(function(){
+          if($.cookie('Flg') == 'on'){
+          }else{
+            $('#introduction-modal').removeClass('hidden');
+            $('#mask').removeClass('hidden');
+          }
+        });
+    </script>
   </body>
 </html>
