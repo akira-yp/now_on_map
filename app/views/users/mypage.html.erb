@@ -37,10 +37,39 @@
             </div>
           <% end %>
         </div>
-        <div class="">
-
-        </div>
       </div>
+    </div>
+  </div>
+</div>
+<div class="mx-0">
+  <div class="m-3">
+    <% if action_name == 'posts_index' %>
+      <h2>投稿したイベント</h2>
+    <% else %>
+      <h2>気になったイベント一覧</h2>
+    <% end %>
+    <hr>
+  </div>
+  <div class="event-container">
+    <div class="event-row">
+      <% if @events.present? %>
+       <% @events.each do |event| %>
+         <div class="event-card shadow">
+           <%= link_to event_path(event.id),remote:true, data:{lat:event.latitude,lon: event.longitude} do %>
+           <p class="card-title"><%= event.title %></p>
+           <ul>
+             <li><i class="far fa-calendar-alt"></i><%= l event.start_date, format: :day %> ~ <%= l event.end_date, format: :day %> </li>
+             <li><i class="fas fa-map-marker-alt"></i><%= event.location %></li>
+             <% event.categories.each do |cat| %>
+              <span class="category"><%= cat.name %></span>
+             <% end %>
+           </ul>
+           <% end %>
+         </div>
+       <% end %>
+      <% else %>
+       <p>投稿したイベントはありません</p>
+      <% end %>
     </div>
   </div>
 </div>

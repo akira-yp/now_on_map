@@ -13,7 +13,7 @@ class UsersController < ApplicationController
   end
 
   def posts_index
-    @events = current_user.events.includes(:categories).all
+    @events = current_user.events.includes(:categories).all.order(created_at:"DESC")
     gon.events = @events.map { |event | {
       'event': event,
       'categories': event.categories.pluck(:name),

@@ -58,10 +58,13 @@ function getPosition(e){
   markerPosi = [e.latlng.lat.toFixed(6),e.latlng.lng.toFixed(6)]
 };
 
+$('.event-card a').on('click',function(){
+  var lat = $(this).data('lat');
+  var lon = $(this).data('lon');
+  markerPosi = [lat,lon];
+});
+
 //マイロケーション地点へ地図上を遷移
-// function gotoMyloc(e){
-//   alert( e )
-// };
 $('.gotoMyloc').on('click',function(e){
   // console.log(this.dataset.lat)
   let distination = [this.dataset.lat, this.dataset.lng]

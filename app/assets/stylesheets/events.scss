@@ -1143,6 +1143,48 @@ a.link-btn {
 .shadow{
   box-shadow: 0px 0px 16px -6px rgba(0,0,0,0.6);
 }
-// .field{
-//   margin:auto 0;
-// }
+
+.event-container{
+  display:flex;
+  justify-content: center;
+}
+
+.event-row{
+  display:flex;
+  align-items: flex-start;
+  flex-wrap: wrap;
+  width:95%;
+}
+.event-card{
+  width:150px;
+  height:150px;
+  background: $bg_color2;
+  font-size:0.9rem;
+  border-radius: 5px;
+  margin:1rem;
+  .card-title{
+    font-size:1rem;
+  }
+  ul{
+    list-style: none;
+    padding:0;
+  }
+  i{
+    font-size:0.9rem;
+    margin-right:1rem;
+  }
+  span.category{
+    font-size:0.8rem;
+  }
+  a{
+    display:block;
+    margin:0;
+    padding:0;
+    width:100%;
+    height:100%;
+    &:hover{
+      opacity: 0.6;
+      filter: brightness(110%);
+    }
+  }
+}

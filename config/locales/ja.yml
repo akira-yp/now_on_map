@@ -280,5 +280,6 @@ ja:
       long: "%Y/%m/%d %H:%M"
       short: "%m/%d %H:%M"
       date: "%Y年%m月%d日"
+      day: "%m月%d日"
       form: "%Y-%m-%d"
     pm: 午後
