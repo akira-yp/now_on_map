@@ -1127,6 +1127,18 @@ a.hashtag{
   padding:0;
 }
 
+a.link-btn {
+  display:inline-block;
+  font-size: 0.9rem;
+  padding:0 25px;
+  background:$bg_color3;
+  border-radius: 20px;
+  border: none;
+  color:$f_color2;
+  &:hover{
+    background:$ac_color;
+  }
+}
 
 .shadow{
   box-shadow: 0px 0px 16px -6px rgba(0,0,0,0.6);

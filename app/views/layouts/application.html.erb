@@ -94,6 +94,13 @@
               <p>「旅行先でその時しか体験できないことは？」</p>
               <p>ぜひ使ってみてください。</p>
             </div>
+            <% if user_signed_in? %>
+            <% else %>
+              <div class="my-5">
+                <%= link_to t("view.sign_in"), new_user_session_path, class:"link-btn" %>
+                <%= link_to t("view.sign_up"), new_user_registration_path,class:"link-btn" %>
+              </div>
+            <% end %>
           </div>
         </div>
         <div class="slide-item">
