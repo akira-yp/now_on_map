@@ -7,7 +7,7 @@
 <% end %>
 
 <div class="map-wrapper p-3">
-  <div class="result-message mt-3">
+  <div id="event-header" class="result-message mt-3">
     <% if action_name == 'create' || action_name == 'update' %>
       <%= @event.title %>
     <% else %>
@@ -18,7 +18,6 @@
       <% end %>
         <p>マップ上に<%= @events.size %>件のイベントを表示しています。</p>
     <% end %>
-
   </div>
 
   <div class="container-fluid my-3">

@@ -28,9 +28,9 @@
 
 //PC画面表示時
 @media screen and (min-width: 768px){
-   input{
-    font-size: 1rem;
-   }
+  input{
+  font-size: 1rem;
+  }
   html{
     font-size:13px;
   }
@@ -48,6 +48,10 @@
 
   #new_event_modal{
     width:70%
+  }
+
+  #new_mylocation_modal{
+    max-width:500px;
   }
 
   #gNav{
@@ -281,10 +285,18 @@
 
 }
 
+html{
+  height:100%;
+}
+
 body {
   font-family: "Hiragino Maru Gothic Pro";
+  display:flex;
+  flex-direction:column;
+  flex:1;
   min-height: 100vh;
   width:100%;
+  margin:0;
   position:relative;
   background: $bg_color1;
   color: $f_color1;
@@ -295,6 +307,11 @@ input{
 }
 textarea{
   color:$f_color1;
+}
+
+::placeholder{
+  color: $bg_color2;
+  font-size: 1rem;
 }
 
 .spacing-header{
@@ -1016,8 +1033,8 @@ a.hashtag{
     padding:0 10px;
     border: none;
     border-radius: 10px;
-    background: $bg_color2;
-    color: $f_color1;
+    background: $bg_color3;
+    color: $f_color2;
     font-size: 0.9rem;
     &:hover{
       background: $ac_color;
