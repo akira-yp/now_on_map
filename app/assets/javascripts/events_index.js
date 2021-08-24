@@ -62,18 +62,18 @@ startform.addEventListener('input', inputChange);
 
 
 //全画面表示
-L.easyButton({
+var expandbtn = L.easyButton({
 	states: [{
 		stateName: 'full-screen',
 		icon:'fa-expand',
 		title:'全画面',
     tap:false,
 		onClick: function(btn, map) {
-			document.body.requestFullscreen();
 			btn.state('full-screen-reset');
       $('#mapid').removeClass('map-index');
       $('#mapid').addClass('map-fullsize');
       $('.space-cols').addClass('fix-bottom');
+      sessionStorage.setItem('mapsize','map-fullsize');
 		}
 	}, {
 		stateName: 'full-screen-reset',
@@ -81,14 +81,15 @@ L.easyButton({
 		title:'元に戻す',
     tap:false,
 		onClick: function(btn, map) {
-			document.exitFullscreen();
 			btn.state('full-screen');
       $('#mapid').removeClass('map-fullsize');
       $('#mapid').addClass('map-index');
       $('.space-cols').removeClass('fix-bottom');
+      sessionStorage.setItem('mapsize','map-index');
 		}
 	}]
-}).addTo( mymap );
+});
+expandbtn.addTo( mymap );
 
 mymap.addLayer(markers);
 

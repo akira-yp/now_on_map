@@ -32,8 +32,26 @@
     </div>
   </div>
 </div>
+<script>
+$(function(){
+  if(sessionStorage.mapsize === 'map-fullsize'){
+    $('#mapid').removeClass('map-index');
+    $('#mapid').addClass('map-fullsize');
+    $('.space-cols').addClass('fix-bottom');
+    expandbtn.state('full-screen-reset');
+  }else{
+    $('#mapid').removeClass('map-fullsize');
+    $('#mapid').addClass('map-index');
+    $('.space-cols').removeClass('fix-bottom');
+    expandbtn.state('full-screen');
+  };
+})
+</script>
 
-<%= javascript_include_tag 'events_index' %>
+
+<%= javascript_include_tag 'events_index'%>
+
+
 
 <% if user_signed_in? %>
   <%= javascript_include_tag 'event_new' %>
