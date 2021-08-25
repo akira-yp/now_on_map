@@ -1,10 +1,13 @@
-if ( gon.events.length == 0 ){
-  var default_latlng = [35.681833, 139.749949];
-} else {
-  var default_latlng = [gon.events.slice(-1)[0].event.latitude, gon.events.slice(-1)[0].event.longitude]
+var sessionKey = sessionStorage.getItem('currentLat');
+if( sessionKey == null ){
+    default_latlng = [35.678362, 139.715387];
+    default_zoom = 13;
+  } else {
+    default_latlng = [Number(sessionStorage.currentLat), Number(sessionStorage.currentLng)];
+    default_zoom = Number(sessionStorage.currentZoom);
 };
 
-var mymap = L.map('mapid',{"tap":false}).setView(default_latlng, 12);
+var mymap = L.map('mapid',{"tap":false}).setView(default_latlng, default_zoom);
 
 L.tileLayer('http://server.arcgisonline.com/ArcGIS/rest/services/World_Topo_Map/MapServer/tile/{z}/{y}/{x}', { attribution: 'Tiles © <a href="http://www.esrij.com/"> Esri Japan </a>',
   maxZoom: 18,
@@ -72,5 +75,13 @@ $('.gotoMyloc').on('click',function(e){
   popup.setLatLng(distination).setContent(`<div><a data-remote="true" href="/events/new?latitude=${this.dataset.lat}&longitude=${this.dataset.lng}">この場所にイベントを投稿</a></div>`).openOn(mymap)
 })
 
+//位置情報を保持
+mymap.on('move', function(e){
+  currentPosi = mymap.getCenter();
+  currentZoom = mymap.getZoom();
+  sessionStorage.setItem('currentLat',currentPosi.lat.toFixed(6));
+  sessionStorage.setItem('currentLng',currentPosi.lng.toFixed(6));
+  sessionStorage.setItem('currentZoom',currentZoom);
+});
 
 mymap.addLayer(markers);

@@ -1,12 +1,23 @@
+var sessionKey = sessionStorage.getItem('currentLat');
+if( sessionKey == null ){
+    default_latlng = [35.678362, 139.715387];
+    default_zoom = 13;
+  } else {
+    default_latlng = [Number(sessionStorage.currentLat), Number(sessionStorage.currentLng)];
+    default_zoom = Number(sessionStorage.currentZoom);
+};
 
-var mymap = L.map('mapid',{"tap":false}).setView([35.678362, 139.715387], 13);
+var mymap = L.map('mapid',{"tap":false}).setView(default_latlng, default_zoom);
 
 L.tileLayer('http://server.arcgisonline.com/ArcGIS/rest/services/World_Topo_Map/MapServer/tile/{z}/{y}/{x}', { attribution: 'Tiles © <a href="http://www.esrij.com/"> Esri Japan </a>',
   maxZoom: 18,
   minZoom: 3,
 }).addTo(mymap);
 
-//現在地取得
+
+
+
+// 現在地取得
 function onLocationFound(e) {
     mymap.setView(e.latlng);
 }
@@ -61,6 +72,16 @@ function inputChange(){
 startform.addEventListener('input', inputChange);
 
 
+//mapを移動した場合に座標情報を保持
+mymap.on('move', function(e){
+  currentPosi = mymap.getCenter();
+  currentZoom = mymap.getZoom();
+  sessionStorage.setItem('currentLat',currentPosi.lat.toFixed(6));
+  sessionStorage.setItem('currentLng',currentPosi.lng.toFixed(6));
+  sessionStorage.setItem('currentZoom',currentZoom);
+});
+
+
 //全画面表示
 var expandbtn = L.easyButton({
 	states: [{
@@ -94,8 +115,8 @@ expandbtn.addTo( mymap );
 mymap.addLayer(markers);
 
 //現在取得を実行
-mymap.on('locationfound', onLocationFound);
-mymap.on('locationerror', onLocationError);
+// mymap.on('locationfound', onLocationFound);
+// mymap.on('locationerror', onLocationError);
 
 //現在地、または設定した地点を中心に描画
-mymap.locate({setView: true, maxZoom: 13, timeout: 20000});
+// mymap.locate({setView: true, maxZoom: 13, timeout: 20000});
