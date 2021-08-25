@@ -12,3 +12,5 @@ $('.close-btn').on('click',function(){
   $('#show_event_modal').addClass('hidden');
   $('#mask').addClass('hidden');
 });
+
+$('#route').attr('onClick', `openSearchRoute(${Number(markerPosi[0])},${Number(markerPosi[1])})`);

@@ -8,3 +8,11 @@ L.tileLayer('http://server.arcgisonline.com/ArcGIS/rest/services/World_Topo_Map/
 
 var marker_show = L.marker(markerPosi,{icon: markerIcon});
 marker_show.addTo(mymap2);
+
+//経路がクリックされたらGoogleMapに遷移する
+function openSearchRoute(lat, lng){
+  var url = 'https://maps.google.co.jp/maps?daddr=' + lat + ',' + lng;
+  if (!window.open(url, '_blank')){
+    location.href = url;
+  }
+}
