@@ -1151,13 +1151,16 @@ a.link-btn {
 .event-container{
   display:flex;
   justify-content: center;
+  width:100%;
 }
 
 .event-row{
   display:flex;
   align-items: flex-start;
+  justify-content:flex-start;
   flex-wrap: wrap;
   width:95%;
+  margin:0 auto;
 }
 .event-card{
   width:150px;

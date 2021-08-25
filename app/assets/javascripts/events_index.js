@@ -15,8 +15,6 @@ L.tileLayer('http://server.arcgisonline.com/ArcGIS/rest/services/World_Topo_Map/
 }).addTo(mymap);
 
 
-
-
 // 現在地取得
 function onLocationFound(e) {
     mymap.setView(e.latlng);
