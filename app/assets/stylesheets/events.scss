@@ -892,14 +892,14 @@ a.link-inshow{
     margin-right:0.5rem;
   }
 }
-
-.event-card {
-  width:250px;
-  height:250px;
-}
-.card-link {
-  display: block;
-}
+//
+// .event-card {
+//   width:250px;
+//   height:250px;
+// }
+// .card-link {
+//   display: block;
+// }
 
 .font-s{
   font-size: 0.75rem;
@@ -1186,14 +1186,16 @@ a.link-btn {
   margin:0 auto;
 }
 .event-card{
-  width:150px;
-  height:150px;
+  width:155px;
+  min-height:160px;
   background: $bg_color2;
   font-size:0.9rem;
   border-radius: 5px;
+  padding:5px;
   margin:1rem;
   .card-title{
     font-size:1rem;
+    font-weight: bold;
   }
   ul{
     list-style: none;
@@ -1204,7 +1206,7 @@ a.link-btn {
     margin-right:1rem;
   }
   span.category{
-    font-size:0.8rem;
+    font-size:0.7rem;
   }
   a{
     display:block;
