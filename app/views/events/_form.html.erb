@@ -18,7 +18,7 @@
             <div class="container p-0 m-0">
               <div class="row mb-1">
                 <div class="col-3 text-right px-0">
-                  <%= f.label :title, t('view.event.title') %><span class="must_need">*<span>
+                  <%= f.label :title, t('view.event.title') %><span class="must-need">*<span>
                 </div>
                 <div class="col-9 pr-0">
                   <%= f.text_field :title ,placeholder:t('view.event.title') ,required:"required" %>
@@ -26,7 +26,7 @@
               </div>
               <div class="row mb-1">
                 <div class="col-3 text-right px-0">
-                  <%= f.label :location, t('view.event.location') %><span class="must_need">*<span>
+                  <%= f.label :location, t('view.event.location') %><span class="must-need">*<span>
                 </div>
                 <div class="col-9 pr-0">
                   <%= f.text_field :location,placeholder:t('view.event.location'),required:"required" %>
@@ -34,7 +34,7 @@
               </div>
               <div class="row mb-2">
                 <div class="col-3 text-right px-0">
-                  <%= f.label :start_date, t('view.event.start_date') %><span class="must_need">*<span>
+                  <%= f.label :start_date, t('view.event.start_date') %><span class="must-need">*<span>
                 </div>
                 <div class="col-9 pr-0">
                   <% if action_name == "new" %>
@@ -46,7 +46,7 @@
               </div>
               <div class="row mb-2">
                 <div class="col-3 text-right px-0">
-                  <%= f.label :end_date, t('view.event.end_date') %><span class="must_need">*<span>
+                  <%= f.label :end_date, t('view.event.end_date') %><span class="must-need">*<span>
                 </div>
                 <div class="col-9 pr-0">
                   <% if action_name == "new" %>
@@ -88,7 +88,7 @@
 
         <div class="row mb-1">
           <div class="col-2 text-nowrap text-right px-0">
-            <%= f.label :description, t('view.event.description') %><span class="must_need">*<span>
+            <%= f.label :description, t('view.event.description') %><span class="must-need">*<span>
           </div>
           <div class="col-10 pr-0">
             <%= f.text_area :description,placeholder:"イベントの詳しい内容",required:"required" ,class:"description-form"%>
@@ -97,7 +97,7 @@
 
         <div class="row mb-1">
           <div class="col-2 text-right px-0">
-              <label><%= t('view.category') %></label><span class="must_need">*</span><br>
+              <label><%= t('view.category') %></label><span class="must-need">*</span><br>
               <span class="note">(※複数可)</span>
           </div>
           <div class="col-10 category-input">

@@ -29,7 +29,8 @@
         <%= link_to image_tag("logo.png"), events_path,id:"logo" %>
           <nav id="gNav" class="">
             <ul class="gNav-menu">
-              <li class="menu-item"><%= link_to t('view.event.index'), events_path %></li>
+              <li class="menu-item"><%= link_to t('view.event.index'), events_path %>
+              </li>
               <% if user_signed_in? %>
                 <li class="menu-item"><%= link_to t('view.mypage'), mypage_user_path(current_user.id) %></li>
                 <li class="menu-item"><%= link_to t('view.log_out'), destroy_user_session_path, method: :delete %></li>
@@ -87,12 +88,11 @@
             <div class="my-3">
               <h1>NOW ON MAPとは?</h1>
             </div>
-            <div class="">
-              <p>地図からイベント情報を投稿・発見できるサイトです。</p>
+            <div>
+              <p>地図からイベント情報を投稿・発見できるWEBアプリです。</p>
               <p>「今日近くで何かやってないかな？」</p>
               <p>「地域の人にイベントを知らせたい」</p>
-              <p>「旅行先でその時しか体験できないことは？」</p>
-              <p>ぜひ使ってみてください。</p>
+              <p>などなど、地図を介したイベントのPRや旅行先でのイベント探しなど、あなたに合った使い方を探してみてください。</p>
             </div>
             <% if user_signed_in? %>
             <% else %>
@@ -111,6 +111,9 @@
             <div class="content">
               <div class="text-left">
                 <p>カテゴリーと日付を選択すると、その日に開催中のイベントが地図に表示されます。</p>
+                <div class="gif-image">
+                  <img src="/imgs/slide2.gif" alt="gif-image">
+                </div>
                 <p>地図上のマーカーをクリックして表示するポップアップから、イベントの詳細を表示できます。</p>
                 <p>イベントのハッシュタグをクリックすると、同じハッシュタグの付いたイベント一覧が表示されます。</p>
               </div>
@@ -125,9 +128,12 @@
             </div>
             <div class="content">
               <div class="text-left">
-                <p class="must_need">*ログインが必要です</p>
+                <p class="must-need">*ログインが必要です</p>
                 <p>投稿したい場所をクリックするとポップアップが表示され、そこからイベント投稿フォームを表示できます。</p>
-                <p>自分が投稿したイベントはマイページから確認することができます。</p>
+                <div class="gif-image">
+                  <img src="/imgs/slide3.gif" alt="gif-image">
+                </div>
+                <p>投稿したイベントはマイページから確認することができます。</p>
               </div>
             </div>
           </div>
@@ -139,8 +145,11 @@
             </div>
             <div class="content">
               <div class="align-middle">
-                <p class="must_need">*ログインが必要です</p>
+                <p class="must-need">*ログインが必要です</p>
                 <p>イベント詳細画面のフォームからコメントを投稿することができます。感想や疑問など何でもコメントしてみてください。</p>
+                <div class="gif-image">
+                  <img src="/imgs/slide4.gif" alt="gif-image">
+                </div>
               </div>
             </div>
           </div>
@@ -153,8 +162,11 @@
             </div>
             <div class="content">
               <div class="align-middle text-left">
-                <p class="must_need">*ログインが必要です</p>
+                <p class="must-need">*ログインが必要です</p>
                 <p>イベント詳細のハートマークをクリックするとお気に入りに登録することができます。</p>
+                <div class="gif-image">
+                  <img src="/imgs/slide5.gif" alt="gif-image">
+                </div>
                 <p>お気に入りしたイベントは、「マイページ」の「気になった投稿一覧」をクリックすると地図に表示されます。</p>
               </div>
             </div>
@@ -168,11 +180,13 @@
             </div>
             <div class="content">
               <div class="align-middle text-left">
-                <p class="must_need">*ログインが必要です</p>
-                <p>マイページではよく使う場所を「マイロケーション」として登録しておくことができます。</p>
-                <p>イベントを探す時だけでなく、同じ場所で定期的にイベントを登録したい場合などに活用できます。</p>
-                <p>地図上で登録したい場所をクリック→「マイロケーションに登録」から作成フォームが立ち上がります。</p>
-                <p>マイロケーションに登録されたボタンをクリックすると、地図が登録地点にジャンプします。そこからイベントを作成することもできます。</p>
+                <p class="must-need">*ログインが必要です</p>
+                <p>マイページではよく使う場所を「マイロケーション」として登録しておくことができます。よく使う場所を登録しておくと便利です。</p>
+                <div class="text-center gif-image2">
+                  <img src="/imgs/slide6.gif" class="d-inline-block" alt="image-gif">
+                  <img src="/imgs/slide7.gif" class="d-inline-block" alt="image-gif">
+                </div>
+                <p>マイロケーションに登録されたボタンをクリックすると、地図が登録地点にジャンプします。</p>
               </div>
             </div>
           </div>
