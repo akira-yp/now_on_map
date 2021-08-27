@@ -38,14 +38,18 @@
       <div class="mt-2 mx-4">
         <%= render_with_hashtags(@event.description) %>
       </div>
-      <% if @event.official_page.present? %>
-        <div class="official-page mt-2 mx-4">
+
+      <div class="official-page mt-2 mx-4">
+        <% if @event.official_page.present? %>
           <%= link_to @event.official_page, target:"_blank" do %>
             <i class="fas fa-link"></i>WEBサイト
           <% end %>
-          <span id="route" onClick=""><i class="fas fa-external-link-alt"></i>経路</span>
-        </div>
-      <% end %>
+        <% end %>
+        <span id="route" onClick=""><i class="fas fa-external-link-alt"></i>経路</span>
+        <%= link_to "https://www.google.com/calendar/render?action=TEMPLATE&text=#{@event.title}&dates=#{l @event.start_date, format: :gcal}/#{l @event.end_date, format: :gcal}&location=#{@event.location}&sprop=#{@event.official_page if @event.official_page.present?}", target: :_blank do %>
+          <i class="fas fa-external-link-alt"></i>Googleカレンダーに登録
+        <% end %>
+      </div>
       <div class="mx-4">
         <% if user_signed_in? %>
           <div class="text-right">

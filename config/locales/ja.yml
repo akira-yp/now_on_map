@@ -281,5 +281,6 @@ ja:
       short: "%m/%d %H:%M"
       date: "%Y年%m月%d日"
       day: "%m月%d日"
+      gcal: "%Y%m%d"
       form: "%Y-%m-%d"
     pm: 午後
