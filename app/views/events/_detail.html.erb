@@ -46,7 +46,7 @@
           <% end %>
         <% end %>
         <span id="route" onClick=""><i class="fas fa-external-link-alt"></i>経路</span>
-        <%= link_to "https://www.google.com/calendar/render?action=TEMPLATE&text=#{@event.title}&dates=#{l @event.start_date, format: :gcal}/#{l @event.end_date, format: :gcal}&location=#{@event.location}&sprop=#{@event.official_page if @event.official_page.present?}", target: :_blank do %>
+        <%= link_to "https://www.google.com/calendar/render?action=TEMPLATE&text=#{@event.title}&dates=#{l @event.start_date, format: :gcal}/#{l @event.end_date, format: :gcal}&location=#{@event.location}&details=#{@event.official_page if @event.official_page.present?}", target: :_blank do %>
           <i class="fas fa-external-link-alt"></i>Googleカレンダーに登録
         <% end %>
       </div>
