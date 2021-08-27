@@ -172,6 +172,11 @@
     font-size:1.1rem;
   }
 
+  .myloc-index{
+    display:inline-flex;
+    flex-wrap:wrap;
+  }
+
   .leaflet-control-geocoder-form input{
     font-size:16px;
   }
@@ -600,11 +605,16 @@ a.link-inshow{
     a{
       color: $f_color2;
     }
+    object a{
+      background: $ac_color;
+      color: $f_color1;
+    }
   }
   object{
     position: absolute;
     top:3px;
     right: 3px;
+
     a{
       text-align: center;
       vertical-align: middle;
@@ -612,12 +622,10 @@ a.link-inshow{
       display: block;
       padding: 0;
       margin: 0;
-      width:1.2rem;
-      height:1.2rem;
-      border-radius:50%;
-      background: $bg_color3;
-      color: $f_color2;
-      font-size: 1rem;
+      border-radius:60%;
+      background: $bg_color1;
+      color: $f_color1;
+      font-size: 1.1rem;
     }
   }
 }
