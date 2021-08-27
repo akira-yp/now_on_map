@@ -132,6 +132,15 @@
   .gif-image2 img{
     height:170px;
   }
+
+  i.close-search-btn{
+    display:none;
+  }
+
+  .search-module{
+    z-index:1000;
+  }
+
 }
 
 
@@ -157,13 +166,6 @@
 
   #qrcode{
     display:none;
-  }
-
-  .fix-bottom{
-    margin:5 0;
-    position:fixed;
-    bottom:5px;
-    right:3px;
   }
 
   .myindex-btn{
@@ -288,6 +290,56 @@
 
   .gif-image2 img{
     height:150px;
+  }
+
+  .fix-bottom{
+    margin:5 0;
+    opacity: 1;
+  }
+  .fix-bottom.present{
+    position:fixed;
+    bottom:5px;
+    right:3px;
+  }
+  .search_form{
+    position:relative;
+    i.close-search-btn{
+      font-size:2rem;
+      display:none;
+      position:absolute;
+      color:$f_color1;
+      z-index:1100;
+    }
+    i.close-search-btn.open{
+      display:block;
+      top:5px;
+      right:5px;
+      padding:0;
+      margin:0;
+      width:auto;
+      height:auto;
+      background: $bg_color1;
+      border-radius: 50%;
+    }
+    i.close-search-btn.btn-fixed{
+      position:fixed;
+      top:initial;
+      right:initial;
+      bottom:10px;
+      right:10px;
+      font-size:3rem;
+      padding:5px;
+      width:auto;
+      height:auto;
+    }
+    .search-wrapper{
+      display:flex;
+      justify-content: center;
+      .search-category{
+      }
+      .search-date{
+      }
+    }
   }
 }
 
@@ -463,7 +515,7 @@ label{
 .space-cols{
   bottom:10px;
   padding:5px 7px;
-  z-index: 1000;
+  // z-index: 1000;
 }
 
 //ボタン系
@@ -615,8 +667,10 @@ a.link-inshow{
   }
 }
 
-.search_form{
-  // min-width: 200px;
+.search-wrapper{
+  .calender{
+    width:150px;
+  }
 }
 
 .module {
@@ -936,10 +990,7 @@ a.link-inshow{
 }
 
 .calender {
-  // width:150px;
-  // height:30px;
   border:0;
-  // font-size:1rem;
   border-radius:5px;
 }
 
@@ -1219,5 +1270,11 @@ a.link-btn {
       opacity: 0.6;
       filter: brightness(110%);
     }
+  }
+}
+
+.search_form{
+  .i{
+    display:none;
   }
 }

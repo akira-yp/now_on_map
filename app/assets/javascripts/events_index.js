@@ -39,6 +39,7 @@ var markerIcon = L.icon({
   popupAnchor: [0, -40]
 });
 
+//ポップアップ作成
 gon.events.forEach((event) => {
   var category = event.categories.reduce((html,cat) => html + `<span class="category cat-in-popup">${cat}</span>`,`` );
   var content = `<a data-remote="true" href="/events/${event.event.id}"  class="event-title" >${event.event.title}</a><div>${event.date}<div><div>${category}</div>`;
@@ -92,6 +93,7 @@ var expandbtn = L.easyButton({
       $('#mapid').removeClass('map-index');
       $('#mapid').addClass('map-fullsize');
       $('.space-cols').addClass('fix-bottom');
+      $('.close-search-btn').addClass('open btn-fixed');
       sessionStorage.setItem('mapsize','map-fullsize');
 		}
 	}, {
@@ -104,11 +106,21 @@ var expandbtn = L.easyButton({
       $('#mapid').removeClass('map-fullsize');
       $('#mapid').addClass('map-index');
       $('.space-cols').removeClass('fix-bottom');
+      $('.close-search-btn').removeClass('open btn-fixed');
       sessionStorage.setItem('mapsize','map-index');
 		}
 	}]
 });
 expandbtn.addTo( mymap );
+
+//サーチフォームの表示・非表示
+$('.close-search-btn').on('click',function(){
+  $(this).toggleClass('fa-times-circle');
+  $(this).toggleClass('fa-search-location');
+  $(this).toggleClass('btn-fixed');
+  $('.fix-bottom').toggleClass('present');
+})
+
 
 mymap.addLayer(markers);
 

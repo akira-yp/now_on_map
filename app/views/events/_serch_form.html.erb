@@ -1,27 +1,30 @@
 <div class="search_form module p-2">
+  <i class="fas fa-search-location close-search-btn"></i>
   <h5>イベント検索</h5>
   <%= search_form_for(@q, url:search_events_path) do |f| %>
-    <div class="">
-      <div class="">
-        <label>カテゴリーで絞りこむ</label>
+    <div class="search-wrapper">
+      <div class="search-category">
+        <div class="mt-2">
+          <label>カテゴリーで絞りこむ</label>
+        </div>
+        <div class="category-input d-flex flex-wrap">
+          <%= f.collection_radio_buttons :categories_id_eq, @categories, :id, :name %>
+          <%= f.radio_button :categories_id_eq, '', checked: true,id:"q_categories_id_eq" %>
+          <%= f.label :categories_id_eq, "指定なし" %>
+        </div>
       </div>
-      <div class="category-input d-flex flex-wrap">
-        <%= f.collection_radio_buttons :categories_id_eq, @categories, :id, :name %>
-        <%= f.radio_button :categories_id_eq, '', checked: true,id:"q_categories_id_eq" %>
-        <%= f.label :categories_id_eq, "指定なし" %>
+      <div class="search-date">
+        <div class="mt-2">
+          <%= f.label :start_date_lteq_all, t('view.search_by_date') %>
+        </div>
+        <div class="">
+          <%= f.date_field :start_date_lteq_all ,class:"calender"%>
+          <%= f.hidden_field :end_date_gteq_all %>
+        </div>
       </div>
     </div>
-    <div class="mt-2">
-      <div class="">
-        <%= f.label :start_date_lteq_all, t('view.search_by_date') %>
-      </div>
-      <div class="">
-        <%= f.date_field :start_date_lteq_all %>
-        <%= f.hidden_field :end_date_gteq_all %>
-      </div>
-      <div class="m-3 text-center">
-        <%= f.submit class:"action-btn px-5"%>
-      </div>
+    <div class="m-3 text-center">
+      <%= f.submit class:"action-btn px-5"%>
     </div>
   <% end %>
 </div>
