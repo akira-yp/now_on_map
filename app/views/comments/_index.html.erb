@@ -8,7 +8,17 @@
           <%= image_tag 'default_avatar.png', class:"avatar-s" %>
         <% end %>
       </div>
-      <div class="align-self-center pt-3">
+      <div class="align-self-center flex-fill pt-0">
+        <div class="comment-head text-center m-0 p-0">
+          <% if current_user.id == comment.user_id %>
+            <span class="m-0 p-0"><%= comment.user.name %>　<%= l comment.created_at, format: :long %></span>
+            <%= link_to comment_path(comment.id), data:{ confirm: 'コメントを削除しますか？' }, remote: :true, method: :delete do %>
+              <i class="fas fa-times-circle"></i>
+            <% end %>
+          <% else %>
+            <span class="m-0 p-0"><%= comment.user.name %></span>
+          <% end %>
+        </div>
         <p><%= comment.content %></p>
       </div>
     </div>

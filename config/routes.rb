@@ -24,7 +24,7 @@ Rails.application.routes.draw do
       get 'search', to:'events#search'
     end
   end
-  resources :comments, only:[:index, :create]
+  resources :comments, only:[:index, :create, :destroy]
   resources :favorites, only:[:create,:destroy]
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
 end
