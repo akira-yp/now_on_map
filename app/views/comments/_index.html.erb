@@ -16,7 +16,7 @@
               <i class="fas fa-times-circle"></i>
             <% end %>
           <% else %>
-            <span class="m-0 p-0"><%= comment.user.name %></span>
+            <span class="m-0 p-0"><%= comment.user.name %>　<%= l comment.created_at, format: :long %></span>
           <% end %>
         </div>
         <p><%= comment.content %></p>
