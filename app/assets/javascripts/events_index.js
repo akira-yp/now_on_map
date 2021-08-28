@@ -14,7 +14,6 @@ L.tileLayer('http://server.arcgisonline.com/ArcGIS/rest/services/World_Topo_Map/
   minZoom: 3,
 }).addTo(mymap);
 
-
 // 現在地取得
 function onLocationFound(e) {
     mymap.setView(e.latlng);
@@ -23,7 +22,6 @@ function onLocationFound(e) {
 function onLocationError(e) {
     console.log("現在地を取得できませんでした。" + e.message);
 }
-
 
 //markerClusterを設定
 var markers = L.markerClusterGroup();
@@ -121,12 +119,4 @@ $('.close-search-btn').on('click',function(){
   $('.fix-bottom').toggleClass('present');
 })
 
-
 mymap.addLayer(markers);
-
-//現在取得を実行
-// mymap.on('locationfound', onLocationFound);
-// mymap.on('locationerror', onLocationError);
-
-//現在地、または設定した地点を中心に描画
-// mymap.locate({setView: true, maxZoom: 13, timeout: 20000});
