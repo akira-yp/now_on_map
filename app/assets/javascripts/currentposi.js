@@ -1,28 +1,9 @@
 // 現在地表示ボタン
 var currentMarker = null; // 現在地マーカー
 var currentWatchBtn = null;
-L.easyButton({ // 現在地表示ボタン
-	states: [{
-		stateName: 'current-watch',
-		icon:	'fas fa-street-view',
-		title:	 '現在地',
-    tap:false,
-		onClick: function(btn, map) {
-			mymap.locate();
-			btn.state('current-watch-reset');
-			currentWatchBtn = btn;
-		}
-	}, {
-		stateName: 'current-watch-reset',
-		icon:	'fa fa-map-marker-alt',
-		title:	 '現在地オフ',
-    tap:false,
-		onClick: function(btn, map) {
-      mymap.removeLayer(currentMarker);
-			btn.state('current-watch');
-		}
-	}]
-}).addTo( mymap );
+L.easyButton('fas fa-street-view',function(btn, map){
+	mymap.locate();
+}).addTo(mymap);
 
 var currentMarker = null;
 
@@ -38,7 +19,7 @@ function onLocationFound(e) {
 }
 
 function onLocationError(e) {
-    console.log("現在地を取得できませんでした。" + e.message);
+    alert("現在地を取得できませんでした。現在開発中によりSSL認証首藤までお待ちください");
 }
 
 mymap.on('locationfound', onLocationFound);
