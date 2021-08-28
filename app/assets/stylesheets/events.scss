@@ -47,7 +47,8 @@
   }
 
   #new_event_modal{
-    width:70%
+    width:70%;
+    max-width:600px;
   }
 
   #new_mylocation_modal{
@@ -812,7 +813,8 @@ a.link-inshow{
 
 .modal-wrapper{
   background: $bg_color2;
-  width:auto;
+  // width:auto;
+  max-width: 600px;
   height:650px;
   min-width: 90%;
   // max-height:600px;
@@ -1000,6 +1002,7 @@ a.link-inshow{
 .calender {
   border:0;
   border-radius:5px;
+  width:170px;
 }
 
 .must-need{

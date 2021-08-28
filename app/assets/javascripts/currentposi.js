@@ -19,7 +19,7 @@ function onLocationFound(e) {
 }
 
 function onLocationError(e) {
-    alert("現在地を取得できませんでした。現在開発中によりSSL認証首藤までお待ちください");
+    alert("現在地を取得できませんでした。現在開発中につきSSL認証取得までお待ちください");
 }
 
 mymap.on('locationfound', onLocationFound);

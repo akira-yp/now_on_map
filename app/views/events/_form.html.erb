@@ -28,7 +28,7 @@
                 <div class="col-3 text-right px-0">
                   <%= f.label :location, t('view.event.location') %><span class="must-need">*<span>
                 </div>
-                <div class="col-9 pr-0">
+                <div class="col-9 pr-0 mt-1">
                   <%= f.text_field :location,placeholder:t('view.event.location'),required:"required" %>
                 </div>
               </div>
@@ -36,7 +36,7 @@
                 <div class="col-3 text-right px-0">
                   <%= f.label :start_date, t('view.event.start_date') %><span class="must-need">*<span>
                 </div>
-                <div class="col-9 pr-0">
+                <div class="col-9 pr-0 mt-1">
                   <% if action_name == "new" %>
                     <%= f.date_field :start_date,value:Time.now.strftime("%Y-%m-%d"), class:"calender" %>
                   <% else %>
