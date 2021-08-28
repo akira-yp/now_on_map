@@ -25,7 +25,7 @@
       <div class="col-sm-12 col-md-9 mb-2 space-cols">
         <div id="mapid" class="map-index"></div>
       </div>
-      <div class="col-sm-12 col-md-3 mb-2 space-cols">
+      <div class="col-sm-12 col-md-3 mb-2 space-cols search-module">
         <%= render 'serch_form' %>
         <%= render 'hashtags/index' %>
       </div>
@@ -38,6 +38,7 @@ $(function(){
     $('#mapid').removeClass('map-index');
     $('#mapid').addClass('map-fullsize');
     $('.space-cols').addClass('fix-bottom');
+    $('.close-search-btn').addClass('open btn-fixed');
     expandbtn.state('full-screen-reset');
   }else{
     $('#mapid').removeClass('map-fullsize');
@@ -50,6 +51,7 @@ $(function(){
 
 
 <%= javascript_include_tag 'events_index'%>
+<%= javascript_include_tag 'currentposi' %>
 
 
 

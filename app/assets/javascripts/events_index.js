@@ -14,7 +14,6 @@ L.tileLayer('http://server.arcgisonline.com/ArcGIS/rest/services/World_Topo_Map/
   minZoom: 3,
 }).addTo(mymap);
 
-
 // 現在地取得
 function onLocationFound(e) {
     mymap.setView(e.latlng);
@@ -23,7 +22,6 @@ function onLocationFound(e) {
 function onLocationError(e) {
     console.log("現在地を取得できませんでした。" + e.message);
 }
-
 
 //markerClusterを設定
 var markers = L.markerClusterGroup();
@@ -39,6 +37,7 @@ var markerIcon = L.icon({
   popupAnchor: [0, -40]
 });
 
+//ポップアップ作成
 gon.events.forEach((event) => {
   var category = event.categories.reduce((html,cat) => html + `<span class="category cat-in-popup">${cat}</span>`,`` );
   var content = `<a data-remote="true" href="/events/${event.event.id}"  class="event-title" >${event.event.title}</a><div>${event.date}<div><div>${category}</div>`;
@@ -92,6 +91,7 @@ var expandbtn = L.easyButton({
       $('#mapid').removeClass('map-index');
       $('#mapid').addClass('map-fullsize');
       $('.space-cols').addClass('fix-bottom');
+      $('.close-search-btn').addClass('open btn-fixed');
       sessionStorage.setItem('mapsize','map-fullsize');
 		}
 	}, {
@@ -104,17 +104,19 @@ var expandbtn = L.easyButton({
       $('#mapid').removeClass('map-fullsize');
       $('#mapid').addClass('map-index');
       $('.space-cols').removeClass('fix-bottom');
+      $('.close-search-btn').removeClass('open btn-fixed');
       sessionStorage.setItem('mapsize','map-index');
 		}
 	}]
 });
 expandbtn.addTo( mymap );
 
+//サーチフォームの表示・非表示
+$('.close-search-btn').on('click',function(){
+  $(this).toggleClass('fa-times-circle');
+  $(this).toggleClass('fa-search-location');
+  $(this).toggleClass('btn-fixed');
+  $('.fix-bottom').toggleClass('present');
+})
+
 mymap.addLayer(markers);
-
-//現在取得を実行
-// mymap.on('locationfound', onLocationFound);
-// mymap.on('locationerror', onLocationError);
-
-//現在地、または設定した地点を中心に描画
-// mymap.locate({setView: true, maxZoom: 13, timeout: 20000});

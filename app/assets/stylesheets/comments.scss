@@ -12,6 +12,20 @@ textarea{
   color: $f_color1;
 }
 
+.comment-head{
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  span{
+    font-size:0.8rem;
+    color:$bg_color2;
+  }
+  a{
+    font-size:1rem;
+    color:$f_color1;
+  }
+}
+
 #comment-error{
   font-size:0.7rem;
   color:red;
