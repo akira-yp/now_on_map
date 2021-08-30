@@ -39,11 +39,16 @@ gon.events.forEach((event) => {
   markers.addLayer(marker);
 });
 
+//leafletの地名検索機能
 var options = {
-  geocoder: new L.Control.Geocoder.Nominatim()
+  geocoder: new L.Control.Geocoder.Nominatim(),
+  expand: 'click',
+  defaultMarkGeocode: false
 };
-L.Control.geocoder(options).addTo(mymap);
-
+L.Control.geocoder(options).on('markgeocode', function(e) {
+    var marker = L.marker(e.geocode.center,{icon: markerIcon}).addTo(mymap);
+    mymap.fitBounds(e.geocode.bbox);
+  }).addTo(mymap);
 
 
 var popup = L.popup();
