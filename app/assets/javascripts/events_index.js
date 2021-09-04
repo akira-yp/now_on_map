@@ -42,7 +42,7 @@ gon.events.forEach((event) => {
   var category = event.categories.reduce((html,cat) => html + `<span class="category cat-in-popup">${cat}</span>`,`` );
   var content = `<a data-remote="true" href="/events/${event.event.id}"  class="event-title" >${event.event.title}</a><div>${event.date}<div><div>${category}</div>`;
   var latlon = [event.event.latitude, event.event.longitude]
-  var marker = L.marker(latlon,{icon: markerIcon, alt: "event-marker"}).bindPopup(content).addTo(mymap);
+  var marker = L.marker(latlon,{icon: markerIcon, alt: "event-marker"}).bindPopup(content).bindTooltip('test').openTooltip().addTo(mymap);
   marker.on('click',getPosition);
   markers.addLayer(marker);
 });
