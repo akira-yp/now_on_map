@@ -117,7 +117,8 @@ class EventsController < ApplicationController
     today = Time.now
     gon.events = @events.map do | event |
         {
-        'event':event, 'categories':event.categories.pluck(:name),
+        'event':event,
+        'categories':event.categories.pluck(:name),
         'date':"#{event.start_date.strftime("%Y年%m月%d日")} ~ #{event.end_date.strftime("%Y年%m月%d日")}", 'countdate':"#{((event.end_date - today )/60/60/24).ceil }"
         }
     end
