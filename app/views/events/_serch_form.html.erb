@@ -18,8 +18,8 @@
           <%= f.label :start_date_lteq_all, t('view.search_by_date') %>
         </div>
         <div class="">
-          <%= f.date_field :start_date_lteq_all ,class:"calender"%>
-          <%= f.hidden_field :end_date_gteq_all %>
+          <%= f.date_field :start_date_lteq_all ,class:"calender", value: Time.now.strftime("%Y-%m-%d")%>
+          <%= f.hidden_field :end_date_gteq_all, value: Time.now.strftime("%Y-%m-%d")%>
         </div>
       </div>
     </div>

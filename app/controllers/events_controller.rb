@@ -6,7 +6,14 @@ class EventsController < ApplicationController
     @q = Event.ransack(params[:q])
     @categories = Category.all
     @events = Event.includes(:categories).where("start_date <= ?", Time.now).where("end_date >= ?", Time.now)
-    gon.events = @events.map { | event | { 'event':event, 'categories':event.categories.pluck(:name),'date':"#{event.start_date.strftime("%Y年%m月%d日")} ~ #{event.end_date.strftime("%Y年%m月%d日")}" } }
+    gon.events = @events.map do | event |
+       {
+         'event':event,
+         'categories':event.categories.pluck(:name),
+         'date':"#{event.start_date.strftime("%Y年%m月%d日")} ~ #{event.end_date.strftime("%Y年%m月%d日")}",
+         'countdate':"#{((event.end_date - Time.now)/60/60/24).ceil}"
+       }
+     end
 
     @day_searched = Time.now
     @hashtags = Hashtag.last(10).pluck(:name)
@@ -26,7 +33,16 @@ class EventsController < ApplicationController
       @keyword = @categories[cat_index].name
     end
 
-    gon.events = @events.map { | event | { 'event':event, 'categories':event.categories.pluck(:name),'date':"#{event.start_date.strftime("%Y年%m月%d日")} ~ #{event.end_date.strftime("%Y年%m月%d日")}" } }
+    today = Time.now
+
+    gon.events = @events.map do | event |
+      {
+        'event':event,
+        'categories':event.categories.pluck(:name),
+        'date':"#{event.start_date.strftime("%Y年%m月%d日")} ~ #{event.end_date.strftime("%Y年%m月%d日")}",
+        'countdate':"#{((event.end_date - today )/60/60/24).ceil if @day_searched.strftime('%Y%m%d') == today.strftime('%Y%m%d')}"
+      }
+    end
 
     render :index
   end
@@ -97,10 +113,17 @@ class EventsController < ApplicationController
     @categories = Category.all
     @hashtags = Hashtag.last(10).pluck(:name)
     @hashtag = Hashtag.find_by(name: params[:name])
-    @events = @hashtag.events
-    gon.events = @events.map { | event | { 'event':event, 'categories':event.categories.pluck(:name),'date':"#{event.start_date.strftime("%Y年%m月%d日")} ~ #{event.end_date.strftime("%Y年%m月%d日")}" } }
+    @events = @hashtag.events.where("start_date <= ?", Time.now).where("end_date >= ?", Time.now)
+    today = Time.now
+    gon.events = @events.map do | event |
+        {
+        'event':event,
+        'categories':event.categories.pluck(:name),
+        'date':"#{event.start_date.strftime("%Y年%m月%d日")} ~ #{event.end_date.strftime("%Y年%m月%d日")}", 'countdate':"#{((event.end_date - today )/60/60/24).ceil }"
+        }
+    end
 
-    @day_searched = Time.now
+    @day_searched = today
     @keyword = "##{@hashtag.name}"
 
     render :index
