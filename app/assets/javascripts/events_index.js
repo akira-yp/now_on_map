@@ -41,8 +41,11 @@ var markerIcon = L.icon({
 gon.events.forEach((event) => {
   var category = event.categories.reduce((html,cat) => html + `<span class="category cat-in-popup">${cat}</span>`,`` );
   var content = `<a data-remote="true" href="/events/${event.event.id}"  class="event-title" >${event.event.title}</a><div>${event.date}<div><div>${category}</div>`;
-  var latlon = [event.event.latitude, event.event.longitude]
+  var latlon = [event.event.latitude, event.event.longitude];
   var marker = L.marker(latlon,{icon: markerIcon, alt: "event-marker"}).bindPopup(content).addTo(mymap);
+  if (event.countdate !== ""){
+    marker.bindTooltip(`あと${event.countdate}日で終了`,{permanent:true}).openTooltip().addTo(mymap);
+  }
   marker.on('click',getPosition);
   markers.addLayer(marker);
 });
@@ -65,9 +68,10 @@ L.Control.geocoder(options).on('markgeocode', function(e) {
 
 
 //end_date_gteq_allに検索と同じ値を設定
-var startform = document.getElementById('q_start_date_lteq_all');
-var endform = document.getElementById('q_end_date_gteq_all');
+let startform = document.getElementById('q_start_date_lteq_all');
+let endform = document.getElementById('q_end_date_gteq_all');
 function inputChange(){
+  startform.value = startform.value;
   endform.value = startform.value;
 }
 
