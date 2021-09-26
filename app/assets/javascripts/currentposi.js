@@ -1,5 +1,5 @@
 // 現在地表示ボタン
-var currentMarker = null; // 現在地マーカー
+var currentMarker = null;
 var currentWatchBtn = null;
 L.easyButton('fas fa-street-view',function(btn, map){
   mymap.setView(currentLatLng, 16);
@@ -7,7 +7,7 @@ L.easyButton('fas fa-street-view',function(btn, map){
 }).addTo(mymap);
 
 function onLocationFound(e) {
-  var currentIcon = L.icon({/* アイコン */
+  var currentIcon = L.icon({
   			iconUrl: '/imgs/walkman.png',
   			iconRetinaUrl: '/imgs/walkman.png',
         iconSize: [32,32],
@@ -15,7 +15,6 @@ function onLocationFound(e) {
   		});
     currentMarker = L.marker(e.latlng,{icon : currentIcon }).addTo(mymap)
     currentLatLng = e.latlng
-    // mymap.setView(e.latlng,13);
 }
 
 function onLocationError(e) {
