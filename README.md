@@ -4,7 +4,7 @@
 NOW ON MAP
 
 ## サイトURL
-http://ec2-35-73-217-236.ap-northeast-1.compute.amazonaws.com
+https://nowonmap.com/
 
 ## アプリケーション概要
 NOW ON MAPは、地図上に未来のイベント情報を手軽に投稿することができるアプリです。
