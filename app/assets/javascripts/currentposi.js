@@ -1,10 +1,13 @@
 // 現在地表示ボタン
 var currentMarker = null;
-var currentWatchBtn = null;
-L.easyButton('fas fa-street-view',function(btn, map){
-  mymap.setView(currentLatLng, 16);
-	// mymap.locate({ setVeiw: true, });
+var currentButton = L.easyButton(
+  'fas fa-street-view',function(btn, map){
+	mymap.locate({ setVeiw: true, });
 }).addTo(mymap);
+
+function openPopup(){
+  this.openPopup();
+}
 
 function onLocationFound(e) {
   var currentIcon = L.icon({
@@ -13,8 +16,11 @@ function onLocationFound(e) {
         iconSize: [32,32],
   			iconAnchor: [16, 16]
   		});
-    currentMarker = L.marker(e.latlng,{icon : currentIcon }).addTo(mymap)
-    currentLatLng = e.latlng
+    currentMarker = L.marker(e.latlng,{icon : currentIcon })
+                      .bindPopup("現在地")
+                      .addTo(mymap)
+                      .on('mouseover',openPopup);
+    mymap.setView(e.latlng, 16);
 }
 
 function onLocationError(e) {
@@ -23,4 +29,4 @@ function onLocationError(e) {
 
 mymap.on('locationfound', onLocationFound);
 mymap.on('locationerror', onLocationError);
-mymap.locate({setView: false, timeout: 20000})
+// mymap.locate({setView: false, timeout: 20000})
