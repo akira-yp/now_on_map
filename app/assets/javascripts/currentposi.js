@@ -16,11 +16,11 @@ function onLocationFound(e) {
         iconSize: [32,32],
   			iconAnchor: [16, 16]
   		});
-    currentMarker = L.marker(e.latlng,{icon : currentIcon })
-                      .bindPopup("現在地")
-                      .addTo(mymap)
-                      .on('mouseover',openPopup);
-    mymap.setView(e.latlng, 16);
+  currentMarker = L.marker(e.latlng,{icon : currentIcon })
+                    .bindPopup("現在地")
+                    .addTo(mymap)
+                    .on('mouseover',openPopup);
+  mymap.setView(e.latlng, 16);
 }
 
 function onLocationError(e) {
@@ -29,4 +29,3 @@ function onLocationError(e) {
 
 mymap.on('locationfound', onLocationFound);
 mymap.on('locationerror', onLocationError);
-// mymap.locate({setView: false, timeout: 20000})
